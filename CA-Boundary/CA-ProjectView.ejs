@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" type="text/css" href="../CSS/styles.css">
+        <title>CA Project View</title>
+    </head>
+
+    <body>
+        <body class="custom-body"> 
+            <div class="user-actionsCA">
+               
+            <nav> 
+                <div class="logo">EmpRoster</div> 
+                <div class="nav-items"> 
+                  <a href="/CompanyAdmin/projectview">Projects</a> 
+                  <a href="/CompanyAdmin/employeeview">Department Managers</a>
+                  <a href="/CompanyAdmin/ViewAllEmployee">Employees</a>      
+                  <a href="/CompanyAdmin/companyview">Company</a>  
+                  <a href="/CompanyAdmin/departmentskills">Skills</a> 
+                  <a href="/CompanyAdmin/enquiry">Enquiry</a> 
+                  <a href="/CompanyAdmin/reviews">Reviews</a> 
+                  <a href="/CompanyAdmin/profileview" >Profile</a> 
+                  <a href="/Logout">Logout</a> 
+                </ul>
+            </nav>
+        </header>
+
+        <main>
+            <section class="enquires">
+                <!-- Project search bar -->
+                <form action="" method="get" class="search"> <!--change method to post for Back end-->
+                    <input type="text" id="projectSearch" placeholder="Search By Project Name" name="searchInput" style="width: 300px;">
+                    <button type="submit" id="search-button" class="search-button">Search</button>
+                </form>
+
+                <!-- Project table -->
+                <table>
+                    <tr>
+                        <th>Project ID</th>
+                        <th>Project Name</th>
+                        <th>Project Description</th>
+                        <th>Start Date</th>
+                        <th>End Date</th>
+                        <th>Duration</th>
+                        <th>Departments</th>
+                        <th>Skills/Manpower</th>
+                        <th>Total Manpower</th>
+                        <th>Actions</th>
+                    </tr>
+
+                    <% if (results.length === 0) { %>
+                        <tr>
+                            <td colspan="10">No Projects At The Moment</td>
+                        </tr>
+                    <% } else { %>
+                        <% for (const CAproject of results) { %>
+                            <tr>
+                                <td><%= CAproject.ProjectID %></td>
+                                <td><%= CAproject.ProjectName %></td>
+                                <td><%= CAproject.ProjectDescription %></td>
+                                <td><%= CAproject.StartDate %></td>
+                                <td><%= CAproject.EndDate %></td>
+                                <td><%= CAproject.Duration %> Days</td>
+                                <td><%= CAproject.Departments %></td>
+                                <td><%= CAproject.Skills %></td>
+                                <td><%= CAproject.ManpowerCount %></td>
+                                <td>
+                                    <div class="button-form">
+                                        <button class="view-button" onclick="window.location.href='/CompanyAdmin/projectdetailsview?ProjectID=<%= CAproject.ProjectID %>&ProjectName=<%= CAproject.ProjectName %>'">View</button>
+                                        <button class="update-button" onclick="window.location.href='/CompanyAdmin/projectupdate?ProjectID=<%= CAproject.ProjectID %>&CAprojectUEN=<%= CAproject.UEN %>'">Update</button>
+                                        <button class="delete-button" onclick="window.location.href='/CompanyAdmin/CAdeleteProject?ProjectID=<%= CAproject.ProjectID %>&ProjectName=<%= CAproject.ProjectName %>'">Delete</button></td>
+                                    </div>
+                                </tr>
+                        <% } %>
+                    <% } %>
+                
+                </table>
+
+                <button class="create-project-button" id="createProjectButton" onclick="window.location.href='/CompanyAdmin/projectcreate'">Create Project</button>
+                <button class="create-project-button" id="viewAllProjects" onclick="window.location.href='/CompanyAdmin/viewallprojects'">View All Project Schedules</button>
+
+            </section>
+        </main>
+        
+    </body>
+</html>

@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" type="text/css" href="../CSS/styles.css">
+        <title>CA Update Employee</title>
+    </head>
+    <body> 
+        <div class="user-actionsCA">    
+            <nav> 
+                <div class="logo">EmpRoster</div> 
+                <div class="nav-items"> 
+                  <a href="/CompanyAdmin/projectview">Projects</a> 
+                  <a href="/CompanyAdmin/employeeview">Department Managers</a>
+                  <a href="/CompanyAdmin/ViewAllEmployee">Employees</a>  
+                  <a href="/CompanyAdmin/companyview">Company</a>  
+                  <a href="/CompanyAdmin/departmentskills">Skills</a> 
+                  <a href="/CompanyAdmin/enquiry">Enquiry</a> 
+                  <a href="/CompanyAdmin/reviews">Reviews</a> 
+                  <a href="/CompanyAdmin/profileview" >Profile</a> 
+                  <a href="/Logout">Logout</a> 
+            </nav>
+        </div>
+
+        <div class="center-container">
+            <section class="demployee_update_accounts">
+                <table>
+                    <tr>
+                        <th>ID</th>
+                        <th>Name</th>
+                        <th>Email</th>
+                        <th>Number</th>
+                        <th>Role</th>
+                        <th>Department</th>
+                    </tr>
+
+                    <% for (const CAaccount of results) { %>
+                        <tr>
+                            <td><%= CAaccount.AccountID %></td>
+                            <td><%= CAaccount.Name %></td>
+                            <td><%= CAaccount.Email %></td>
+                            <td><%= CAaccount.Number %></td>
+                            <td><%= CAaccount.Role %></td>
+                            <td><%= CAaccount.Department %></td>
+                        </tr>
+                        <% } %>
+                </table>
+
+                    <div class="form-container">
+                        <form action="/CompanyAdmin/EmployeeUpdate" method="post">
+                            <% if (results && results.length > 0) { %>
+                                <input type="hidden" name="DMupdateDapartmentAccountID" value="<%= results[0].AccountID %>">
+                                <% } %>
+                                
+                                <div class="input-container">
+                                    <label for="DMupdateDapartment">Department:</label>
+                                    
+                                    <select id="DMupdateDapartmentBox" name="DMupdateDapartmentBox" style="width: 300px;" required>
+                                        <option value="" disabled selected>Select New Department</option>
+                                        <% for (var i = 0; i < departments.length; i++) { %>
+                                            <option value="<%= departments[i] %>"><%= departments[i] %></option>
+                                        <% } %>
+                                    </select>
+                                </div>
+                                
+                                <div class="button-container">
+                                    <button type="button" class="submit-btn" onclick="window.location.href='/CompanyAdmin/employeeview'">Cancel</button>
+                                    <button type="submit" class="submit-btn">Update</button>
+                                </div>
+                        </form>
+                    </div>
+            </section>
+        </div>
+    </body>
+</html>

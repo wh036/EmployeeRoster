@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>CA View All Project</title>
+  <link rel="stylesheet" href="../CSS/Calendar.css">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css"> 
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/3.4.0/fullcalendar.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.6.4/css/bootstrap-datepicker.min.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.18.1/moment.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/3.4.0/fullcalendar.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.6.4/js/bootstrap-datepicker.min.js"></script>
+</head>
+<body>
+  <button id="myButton" onclick="window.location.href='/CompanyAdmin/projectview'">Back</button>
+  <h2><center>Project Schedules</center></h2>
+  <!-- Modal for Event Details -->
+  <div class="modal fade" id="myModal" role="dialog">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+          <h3 class="modal-title"><b>Project Details</b></h3>
+        </div>
+        <div class="modal-body">
+          <div id="modalDetails"></div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- Calendar -->
+  <div class="container">
+    <div id="calendar"></div>
+  </div>
+</body>
+<script>
+
+  const eventData = <%- JSON.stringify(eventData) %>
+
+  $(document).ready(function () {
+    // Initialize calendar
+    $('#calendar').fullCalendar({
+      // Calendar configurations
+      //selectable: true,
+      //selectHelper: true,
+      displayEventTime: false,
+      header: {
+        left: 'title',
+        right: 'prev, today, next'
+      },
+      buttonText: {
+        today: 'Today',
+      },
+      events: eventData,
+    eventClick: function(event, jsEvent, view) {
+        // Display the modal when an event is clicked
+      $('#myModal').modal('show');
+      // Display event details in modal
+      $('#modalDetails').html('<span style="font-size: 150%;"><strong>Project Members:</strong> ' + event.details + '</span>');
+      },
+    eventRender: function(event, element) {
+      // Customize how each event is rendered
+      element.find('.fc-title').html(event.title); // Set the event title
+
+      // Format the event details
+      var formattedDetails = '<p><strong>Details:</strong> ' + event.details + '</p>';
+      element.find('.fc-list-item-title').after(formattedDetails);
+    },
+    });
+  });
+</script>
+</html>

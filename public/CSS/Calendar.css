@@ -1,0 +1,144 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600&display=swap');
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+/* Calendar Container */
+body {
+    background-image: url('../Images/yellow.jpg');
+    background-size: cover; /* Adjust background image sizing as needed */
+    background-repeat: no-repeat;
+    background-attachment: fixed; /* Keeps the background fixed while scrolling */
+    /* Add more background properties as needed */
+  }
+
+.container{
+    font-weight: bold;
+}
+
+#calendar {
+    background-color: #faebd7;
+    padding: 20px;
+    border: 2px solid #eaddca;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  }
+  
+  /* Header */
+  .fc-header {
+    background-color: #007BFF;
+    color: #fff;
+  }
+  
+  /* Buttons in Header */
+  .fc-header button {
+    background-color: #0056b3;
+    color: #fff;
+    border: none;
+  }
+  
+  /* Event Title */
+  .fc-title {
+    font-weight: bold;
+    font-size: 16px;
+    margin-bottom: 5px;
+  }
+  
+  /* Event Details */
+  .fc-list-item-title:after {
+    content: "";
+    display: block;
+    height: 1px;
+    background-color: #ccc;
+    margin: 5px 0;
+  }
+  
+  .fc-list-item-title {
+    margin-top: 10px;
+    font-size: 14px;
+  }
+
+  .fc-widget-content {
+    border-color: #FF5733; /* Change #FF5733 to your desired color */
+    border-width: 2px; /* Change 2px to your desired thickness */
+    border-style: dashed; /* Change to your desired border style */
+  }
+
+  .fc-widget-content table, td, th {
+    border: 1px solid var(--fc-border-color, #cab493) !important;
+  }
+
+  
+  /* Modal */
+  #myModal {
+    color: #333;
+    font-family: 'Arial', sans-serif;
+  }
+  
+  /* Modal Header */
+  #myModal .modal-header {
+    background-color: #007BFF;
+    color: #fff;
+    border: none;
+  }
+  
+  /* Modal Close Button */
+  #myModal .modal-header .close {
+    color: #fff;
+    font-size: 20px;
+  }
+  
+  /* Modal Title */
+  #myModal .modal-title {
+    font-weight: bold;
+    font-size: 20px;
+    margin-bottom: 10px;
+  }
+  
+  /* Modal Body */
+  #myModal .modal-body {
+    padding: 15px;
+  }
+  
+  /* Modal Close Button */
+  #myModal .modal-footer .btn-default {
+    background-color: #007BFF;
+    color: #fff;
+    border: none;
+  }
+  
+  /* Back Button */
+  #myButton {
+    background-color: #000;
+    color: #fff;
+    border: 1px solid #000;
+    border-radius: 5px;
+    padding: 5px 15px;
+    font-size: 18px;
+    font-weight: 500;
+    position: absolute;
+    top: 20px;
+    left: 460px
+  }
+  
+  /* Back Button Hover Effect */
+  #myButton:hover {
+    background: #fff; 
+    color: #000;
+  }
+  
+  /* Custom Event Details Styling */
+  .event-details {
+    margin-top: 10px;
+    font-size: 14px;
+  }
+  
+  /* Custom Colors for Event Categories */
+  .event-category {
+    color: #FF5733;
+  }
+  
+  /* Add more custom styles as needed */

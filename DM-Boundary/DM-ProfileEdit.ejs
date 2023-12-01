@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        
+        <!----======== CSS ======== -->
+        <link rel="stylesheet" href="../CSS/styles2.css">
+        
+        <!----===== Iconscout CSS ===== -->
+        <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.0/css/line.css">
+        <title>EmpRoster Regisration Form </title>
+    </head>
+    
+    <body>
+        <div class="container">
+        <section class="Register">
+            <header>Update Profile</header>
+            <form class="editprofileform" action="" method="POST" onsubmit = "return validateForm()">
+                <div class="form first">
+                    <div class="details personal">
+                        <span class="title"><i>Update Account Information</i></span>
+                        <div class="fields">
+                            <div class="input-field">
+                                <label for="update-account-name">Full Name</label>
+                                <input type="text" id="update-account-name" name="updateaccountname" placeholder="Update your name">
+                            </div>
+                            <div class="input-field">
+                                <label for="update-account-Email">Personal Email</label>
+                                <input type="email" id="update-account-Email" name="updateaccountEmail" placeholder="Update your email">
+                            </div>
+                            <div class="input-field">
+                                <label for="update-account-Number">Personal Number</label>
+                                <input id="personalNum" name="personalNum" type="text" inputmode="numeric" pattern="[0-9]*" minlength="8" placeholder="Update your phone number">
+                            </div>
+                            <div class="input-field">
+                                <label for="update-account-Password">Password</label>
+                                <input type="password" id="update-account-Password" name="updateaccountPassword" placeholder="Set new password">
+                            </div>
+                            <div class="input-field">
+                                <label for="confirmaccountPassword">Confirm Password</label>
+                                <input type="password" id="confirmaccountPassword" name="confirmaccountPassword" placeholder="Confirm new password">
+                            </div>
+                        <div class="input-field"></div>
+                    </div>
+                </div>
+                    <div class="buttons">
+                        <button type="button" class="backBtn" onclick="window.location.href='/DepartmentManager/profileview'">
+                            <i class="uil uil-navigator"></i>
+                            <span class="btnText">Back</span>
+                        </button>
+                        
+                        <button type="submit" class="updateBtn">
+                            <span class="btnText">Update</span>
+                            <i class="uil uil-navigator"></i>
+                        </button>
+                    </div>
+                </div> 
+            </form>
+        </section>
+        </div>
+
+        <script>
+            function validateForm() {
+                const password = document.getElementById("update-account-Password").value;
+                const confirmPassword = document.getElementById("confirmaccountPassword").value;
+                const name = document.getElementById("update-account-name").value;
+                const email = document.getElementById("update-account-Email").value;
+                const number = document.getElementById("personalNum").value;
+                
+                if (password !== confirmPassword) {
+                    alert("Passwords do not match. Please make sure the passwords match.");
+                    return false; // Prevent the form from being submitted
+                }
+            
+                if (name == "" && email == "" && number == "" && password == "" && confirmPassword == "") {
+                    alert("There are no updates to be found!");
+                    return false; // Prevent the form from being submitted
+                }
+            }
+        </script>
+    </body>
+</html>

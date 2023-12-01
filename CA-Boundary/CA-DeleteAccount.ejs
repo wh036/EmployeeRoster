@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CA Delete Employee</title>
+    <link rel="stylesheet" type="text/css" href="../CSS/styles4.css">
+</head>
+
+<body>
+    <header>
+        <div class="user-actions">
+            
+        </div>
+    </header>
+
+    <main>
+        <div class="container">
+        <section class="Login">
+            <h2><u>Confirmation:</u></h2>
+
+            <form action="" method="POST"> <!-- Updated action to /logout -->
+
+                <input type="hidden" name="AccountID" value="<%= AccountID %>">
+
+                <div class="Logout">
+                    <h1>Are you sure you wnat to Delete Department Manager Selected ?<br><br> <%= Name %> </h1>
+                </div>
+
+                <div class="buttons3">
+                    <button type="submit" class="submit-btn" name="choice" value="no">No</button>
+                    <button type="submit" class="submit-btn" name="choice" value="yes">Yes</button>
+                </div>
+            </div>
+            </form>
+        </section>
+    </main>
+</body>
+</html>

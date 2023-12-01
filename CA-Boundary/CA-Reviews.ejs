@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Reviews</title>
+    <link rel="stylesheet" href="../CSS/reviews.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"/>
+  </head>
+  <body>
+    <body class="custom-body">
+        <nav>
+            <div class="logo">EmpRoster</div>
+            <div class="nav-items">
+              <a href="/CompanyAdmin/projectview">Projects</a>
+              <a href="/CompanyAdmin/employeeview">Department Managers</a>
+              <a href="/CompanyAdmin/ViewAllEmployee">Employees</a>  
+              <a href="/CompanyAdmin/companyview">Company</a> 
+              <a href="/CompanyAdmin/departmentskills">Skills</a>
+              <a href="/CompanyAdmin/enquiry">Enquiry</a>
+              <a href="/CompanyAdmin/reviews">Reviews</a>
+              <a href="/CompanyAdmin/profileview" class="Profile-btn" id="Profile-btn">Profile</a>
+              <a href="/Logout"class="logout-btn" id="logout-btn">Logout</a>
+            </div>
+          </nav>
+          <section class="review-table">
+            
+          <div class="container">
+            <div class="content">
+              <div class="left-side">
+                <img src="../Images/review.png" alt="illustration" class="custom-image">
+              </div>
+              <div class="right-side">
+                <div class="topic-text">Leave us a Review!</div>
+                <p>We highly value your feedback, and your thoughts on our services are of utmost importance to us. Your insights and opinions help us continually improve our offerings, and we sincerely appreciate your input.</p>
+                <form action="" method="post" class = "review-submit">
+                  <div class="input-box">
+                    <input type="text" id="name" name="name" placeholder="Enter your name" />
+                  </div>
+                  <label for="contact-us-category">Category :</label>
+                    <select id="category" name="category" class="category-box" required>
+                          <option value="" disabled selected>Select a Category</option>
+                          <option value="Product Quality">Product Quality</option>
+                          <option value="User Experience">User Experience</option>
+                          <option value="Customer Support">Customer Support</option>
+                          <option value="Features and Functionality">Features and Functionality</option>
+                          <option value="Value for Money">Value for Money</option>
+                          <option value="Ease of Use">Ease of Use</option>
+                          <option value="Overall Satisfaction">Overall Satisfaction</option>
+                          <option value="Recommendation">Recommendation</option>
+                          <option value="Other">Other</option>
+
+                    </select>
+                    <label for="contact-us-rating">Rating :</label>
+                    <div class="rating-container">
+                      <div class="rating-stars" id="rating-stars">
+                        <i class="fas fa-star" data-value="1"></i>
+                        <i class="fas fa-star" data-value="2"></i>
+                        <i class="fas fa-star" data-value="3"></i>
+                        <i class="fas fa-star" data-value="4"></i>
+                        <i class="fas fa-star" data-value="5"></i>
+                      </div>
+                      <input type="hidden" id="rating" name="rating" value="5">
+                    </div>
+                    
+                  <div class="input-box message-box">
+                    <textarea id="reviewmessage" name="reviewmessage" placeholder ="Enter your message"
+                     class = "review-message" rows="10" required></textarea>
+                  </div>
+                  <div class="button">
+                    <button type="review-submit" class="submit-btn">Submit</button>
+                  </div>
+                </form>
+              </div>
+            </div>
+          </div>
+        </section>
+        </body>
+      </html>
+
+      <script>
+        const ratingStars = document.getElementById("rating-stars");
+        const ratingInput = document.getElementById("rating");
+      
+        ratingStars.addEventListener("click", (e) => {
+          if (e.target.tagName === "I") {
+            const selectedRating = e.target.getAttribute("data-value");
+            ratingInput.value = selectedRating;
+      
+            // Reset star colors for all stars
+            for (const star of ratingStars.children) {
+              star.classList.remove("fas", "fa-star");
+              star.classList.add("far", "fa-star");
+            }
+      
+            // Set star colors up to the selected rating
+            for (const star of ratingStars.children) {
+              if (parseInt(star.getAttribute("data-value")) <= selectedRating) {
+                star.classList.remove("far", "fa-star");
+                star.classList.add("fas", "fa-star");
+              }
+            }
+          }
+        });
+      </script>
+      

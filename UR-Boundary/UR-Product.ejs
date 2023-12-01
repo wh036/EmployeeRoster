@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Product</title>
+    <link rel="stylesheet" href="../CSS/styles3.css" />
+  </head>
+  <body>
+    <nav>
+      <div class="logo">EmpRoster</div>
+      <div class="nav-items">
+        <a href="/">Home</a> <a href="/enquiry">Enquiry</a> <a href="/Login">Login</a> <a href="/registration">Register</a>
+      </div>
+    </nav>
+    <section class="hero">
+      <div class="hero-container">
+        <div class="column-left">
+          <h1>Automated Scheduling</h1>
+          <p>Unlock Efficiency with Emproster's Automated Scheduling Solutions - Your Time, Your Way.</p>
+          <div class="buttons-container">
+            <button onclick="window.location.href='/learnmore'">Learn More</button>
+            <button onclick="window.location.href='/testimonial'">Testimonials</button>
+          </div>
+        </div>
+        
+        <div class="column-right">
+          <img
+            src="../Images/image-1.svg"
+            alt="illustration
+        "
+            class="hero-image"
+          />
+        </div>
+      </div>
+    </section>
+    
+    
+      <footer>
+        <header>
+          
+          <p> <% for (const URdescription of results) { %>
+            <%= URdescription.ProductDescripition %>   
+        <% } %>
+      </p>
+      <h2>EmpRoster © 2023</h2>
+        </header>
+        
+      </footer>
+
+    
+    <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+  
+  </body>
+</html>

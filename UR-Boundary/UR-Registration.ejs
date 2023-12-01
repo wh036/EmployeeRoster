@@ -1,0 +1,387 @@
+
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        
+        <link rel="stylesheet" href="../CSS/Register.css">
+        
+        <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.0/css/line.css">
+        <title>EmpRoster Regisration Form </title>
+    </head>
+    
+    <body>
+        <div class="container">
+        <section class="Register">
+            <header>Registration</header>
+            <form class="regform" action="" method="POST" enctype="multipart/form-data" onsubmit="return validateForm()">
+                <div class="form first">
+                    <div class="details personal">
+                        <span class="title"><i>Personal Account Information</i></span>
+                        <div class="fields">
+                            <div class="input-field">
+                                <label for="Name">Full Name</label>
+                                <input id="name" name="name" type="text" required>
+                            </div>
+                            <div class="input-field">
+                                <label for="personalEmail">Personal Email</label>
+                                <input id="personalEmail" name="personalEmail" type="email" required>
+                            </div>
+                            <div class="input-field">
+                                <label for="personalNum">Personal Number</label>
+                            <input id="personalNum" name="personalNum" type="text" inputmode="numeric" pattern="[0-9]*" minlength="8" required>
+                        </div>
+                        <div class="input-field">
+                            <label for="password">Password</label>
+                            <input id="password" name="password" type="password" required>
+                        </div>
+                        <div class="input-field">
+                            <label for="confirmPassword">Confirm Password</label>
+                            <input id="confirmPasswordbox" name="confirmPasswordbox" type="password" required>
+                        </div>
+                        <div class="input-field"></div>
+                    </div>
+                </div>
+                <div class="details company">
+                    <span class="title"><i>Company Information</i></span>
+                    <div class="fields">
+                        <div class="input-field">
+                            <label for="industry">Industry</label>
+                            <input id="industry" name="industry" type="text"  required>  
+                        </div>
+                        <div class="input-field">
+                            <label for="coName">Company Name</label>
+                            <input id="coName" name="coName" type="text" required>
+                        </div>
+                        <div class="input-field">
+                            <label for="location">Company Location</label>
+                            <input id="location" name="location" type="text" required>
+                        </div>
+                        <div class="input-field">
+                            <label for="coEmail">Company Email</label>
+                            <input id="coEmail" name="coEmail" type="email" required>
+                        </div>
+                        <div class="input-field">
+                            <label for="coNum">Company Phone Number</label>
+                            <input id="coNum" name="coNum" type="text" inputmode="numeric" pattern="[0-9]*" minlength="8" required>  
+                        </div>
+                        <div class="input-field">
+                            <label for="UEN">UEN</label>
+                            <input id="UEN" name="UEN" type="text" required>
+                        </div>
+                    </div>
+                    <div class="buttons">
+                        <button type="button" class="backBtn" onclick="window.location.href='/'">
+                            <i class="uil uil-navigator"></i>
+                            <span class="btnText">Back</span>
+                        </button>
+                    <button type="button" class="nextBtn">
+                        <span class="btnText">Next</span>
+                        <i class="uil uil-navigator"></i>
+                    </button>
+                    </div>
+                </div> 
+            </div>
+            <div class="form second">
+                <div class="details billing">
+                    <span class="title"><i>Billing Information</i></span>
+                    <div class="fields">
+                        <div class="input-field">
+                            <label for="cardNum">Card Number</label>
+                            <input id="cardNum" name="cardNum" type="text" inputmode="numeric" pattern="[0-9]*" minlength="14" maxlength="16" required> 
+                        </div>
+                        <div class="input-field">
+                            <label for="cardEXP">Card Expiry Date</label>
+                            <input id="cardEXP" name="cardEXP" type="date" required>
+                        </div>
+                        <div class="input-field">
+                            <label for="cvv">CVV</label>
+                            <input id="cvv" name="cvv" type="text" inputmode="numeric" pattern="[0-9]*" minlength="3" maxlength="3" required> 
+                        </div>
+                        <div class="input-file">
+                            <label for="fileUpload">Upload ACRA Documents Here<br> (accepted formats .png .jpeg):</label>
+                            <input type="file" id="ACRAFile" name="ACRAFile" accept=".png, .jpeg" required>
+                        </div>
+                    </div>
+                </div><br><br>
+                <h1>* Note *</h1>
+                <h1>By confirming registration<br>
+                    you agree to being charged a monthly<br>
+                    subscription fee of $14.99 SGD</h1><br>
+                    <div class="buttons">
+                        <button type="button" class="backBtn backBtn2">
+                            <i class="uil uil-navigator"></i>
+                            <span class="btnText">Back</span>
+                        </button>
+                        
+                        <button class="submit">
+                            <span class="btnText">Submit</span>
+                            <i class="uil uil-navigator"></i>
+                        </button>
+                    </div>
+                </div>
+            </form>
+        </section>
+        </div>
+
+        <script>
+            const form = document.querySelector("form"),
+            nextBtn = form.querySelector(".nextBtn"),
+            backBtn = form.querySelector(".backBtn2"),
+            submit = form.querySelector(".submit"),
+            allInput = form.querySelectorAll(".first input");
+            
+            // Check that all fields are not empty when the user clicks on the next button on the first page
+            nextBtn.addEventListener("click", ()=> {
+                //check that all fields are not empty
+                var name = document.getElementById("name").value;
+                var email = document.getElementById("personalEmail").value;
+                var phone = document.getElementById("personalNum").value;
+                var password = document.getElementById("password").value;
+                var confirmPassword = document.getElementById("confirmPasswordbox").value;
+                var industry = document.getElementById("industry").value;
+                var coName = document.getElementById("coName").value;
+                var location = document.getElementById("location").value;
+                var coEmail = document.getElementById("coEmail").value;
+                var coNum = document.getElementById("coNum").value;
+                var UEN = document.getElementById("UEN").value;
+
+                if (!isValidName(name)) {
+                    event.preventDefault();
+                } else if (!isValidEmail(email)) {
+                    event.preventDefault();
+                } else if (!isValidPhoneNumber(phone)) {
+                    event.preventDefault();
+                } else if (!isValidPasswords(password, confirmPassword)) {
+                    event.preventDefault();
+                } else if (!isValidIndustry(industry)) {
+                    event.preventDefault();
+                } else if (!isValidCompanyName(coName)) {
+                    event.preventDefault();
+                } else if (!isValidLocation(location)) {
+                    event.preventDefault();
+                } else if (!isValidCompanyEmail(coEmail)) {
+                    event.preventDefault();
+                } else if (!isValidCompanyPhoneNumber(coNum)) {
+                    event.preventDefault();
+                } else if (!isValidCompanyUEN(UEN)) {
+                    event.preventDefault();
+                } else {
+                    form.classList.add('secActive');
+                }
+            });
+            
+            backBtn.addEventListener("click", () => {
+                form.classList.remove('secActive');
+            });
+
+            function validateForm() {
+                var cardNum = document.getElementById("cardNum").value;
+                var cardExpDate = document.getElementById("cardEXP").value;
+                var cvv = document.getElementById("cvv").value;
+                var fileInput = document.getElementById("ACRAFile");
+
+                if (!isValidCardNumber(cardNum)) {
+                    return false; // Prevent the form from being submitted
+                } else if (!isValidCardExpiryDate(cardExpDate)) {
+                    return false; // Prevent the form from being submitted
+                } else if (!isValidCVV(cvv)) {
+                    return false; // Prevent the form from being submitted
+                } else if (!isValidFile(fileInput)) {
+                    return false; // Prevent the form from being submitted
+                } else {
+                    return true;
+                }
+                
+                // If passwords match, allow form submission
+                return true;
+            }
+
+            function isValidName(name) {
+                const namePattern = /^[A-Za-z\s\-]+$/; // Customize the pattern based on your requirements
+                // Check if the name matches the pattern
+                if (!namePattern.test(name)) {
+                    alert("Invalid Name. Please enter only alphabets and hyphens.");
+                    return false;
+                } else {
+                    return true;
+                }
+            }
+
+            function isValidEmail(email) {
+                const emailPattern = /^[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,}$/; // Customize the pattern based on your requirements
+                // Check if the email matches the pattern
+                if (!emailPattern.test(email)) {
+                    alert("Invalid Email. Please enter a valid email address.");
+                    return false;
+                } else {
+                    return true;
+                }
+            }
+
+            function isValidPhoneNumber(phone) {
+                const phoneNumberPattern = /^[0-9]{8,15}$/; // Customize the pattern based on your requirements
+
+                // Check if the phone number matches the pattern
+                if (!phoneNumberPattern.test(phone)) {
+                    alert("Invalid Phone Number. Please enter a valid phone number.");
+                    return false;
+                } else {
+                    return true;
+                }
+            }
+
+            function isValidPasswords(password, confirmPassword) {
+                const minLength = 8;
+
+                // Check if the password meets the criteria
+                if (password != confirmPassword) {
+                    alert("Invalid Passwords. Passwords do not match!");
+                    return false;
+                } else if (password.length < minLength) 
+                {
+                    alert("Invalid Passwords. Password must be at least 8 characters long.");
+                    return false;
+                } else {
+                    return true;
+                }
+            }
+
+            function isValidIndustry(industry) {
+                const industryPattern = /^[A-Za-z\s\-]+$/; // Customize the pattern based on your requirements
+                // Check if the industry matches the pattern
+                if (!industryPattern.test(industry)) {
+                    alert("Invalid Industry. Please enter only alphabets and spaces.");
+                    return false;
+                } else {
+                    return true;
+                }
+            }
+            
+            function isValidCompanyName(companyName) {
+                const namePattern = /^[A-Za-z0-9\s\-]+$/; // Customize the pattern based on your requirements
+                // Check if the company name matches the pattern
+                if (!namePattern.test(companyName)) {
+                    alert("Invalid Company Name. Please enter alphanumeric characters and spaces.");
+                    return false;
+                } else {
+                    return true;
+                }
+            }
+
+            function isValidLocation(location) {
+                const minLength = 3; // Minimum length for a valid location
+
+                // Check if the company location meets the criteria
+                if (location.length < minLength) {
+                    alert("Company location must be at least 3 characters.");
+                    return false;
+                } else {
+                    return true;
+                }
+            }
+
+            function isValidCompanyEmail(email) {
+                const emailPattern = /^[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,}$/; // Regex pattern for email validation
+
+                // Check if the company email meets the criteria
+                if (!emailPattern.test(email)) {
+                    alert("Invalid Company Email. Please enter a valid email address.");
+                    return false;
+                } else {
+                    return true;
+                }
+            }
+
+            function isValidCompanyPhoneNumber(phoneNumber) {
+                const phoneNumberPattern = /^[0-9]{8,15}$/; // Customize the pattern based on your requirements
+
+                // Check if the phone number matches the pattern
+                if (!phoneNumberPattern.test(phoneNumber)) {
+                    alert("Invalid Company Phone Number. Please enter a valid phone number.");
+                    return false;
+                } else {
+                    return true;
+                }
+            }
+
+            function isValidCompanyUEN(uen) {
+                const uenPattern = /^[0-9]{9}[A-Z]$/;
+
+                // Check if the company UEN matches the pattern
+                if (!uenPattern.test(uen)) {
+                    alert("Invalid Company UEN. It should be 9 digits followed by a letter.");
+                    return false;
+                } else {
+                    return true;
+                }
+            }
+
+            // Validation checks for the fields in the second page of register page
+            function isValidCardNumber(cardNumber) {
+                const cardPattern = /^[0-9]{14,16}$/; // Customize the pattern based on your requirements
+                // Check if the card number matches the pattern
+                if (!cardPattern.test(cardNumber)) {
+                    alert("Invalid Card Number. Please enter a valid card number with 14 to 16 digits.");
+                    return false;
+                } else {
+                    return true;
+                }
+            }
+
+            function isValidCardExpiryDate(cardExpDate) {
+                const currentDate = new Date();
+                const inputDate = new Date(cardExpDate);
+
+                // Check if the input date is in the future
+                if (cardExpDate == "") {
+                    alert("Please select your card expiry date.");
+                    return false;
+                } else if (inputDate <= currentDate) {
+                    alert("Invalid Card Expiry Date. Please enter a date in the future.");
+                    return false;
+                } else {
+                    return true;
+                }
+            }
+
+            function isValidCVV(cvv) {
+                const cvvPattern = /^[0-9]{3}$/; // Customize the pattern based on your CVV requirements (usually 3 digits)
+
+                // Check if the CVV matches the pattern
+                if (!cvvPattern.test(cvv)) {
+                    alert("Invalid CVV. Please enter a valid 3-digit CVV.");
+                    return false;
+                } else {
+                    return true;
+                }
+            }
+
+            function isValidFile(fileInput) {
+                const allowedFileTypes = ["image/jpeg", "image/png"]; // Customize the allowed file types
+                const maxFileSize = 5 * 1024 * 1024; // Customize the maximum file size (e.g., 5 MB)
+
+                const file = fileInput.files[0];
+
+                if (!file) {
+                    alert("Please select a file.");
+                    return false;
+                }
+
+                if (!allowedFileTypes.includes(file.type)) {
+                    alert("Invalid file type. Please upload a valid image file (JPEG or PNG).");
+                    return false;
+                }
+
+                if (file.size > maxFileSize) {
+                    alert("File is too large. Please upload a file smaller than 5MB.");
+                    return false;
+                }
+
+                return true;
+            }
+        </script>
+    </body>
+</html>

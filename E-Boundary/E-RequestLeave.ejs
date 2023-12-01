@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>E Leave/MC Request</title>
+      
+        <link rel="stylesheet" type="text/css" href="/CSS/EApplyLeave.css">
+    </head>
+     
+    
+    <body class="custom-body">
+        
+            
+            <div class="user-actionsELeaveRequest">  
+                
+               
+            
+            
+            <nav>
+                <div class="logo">EmpRoster</div>
+                <div class="nav-items"> 
+                    <a href="/Employee/schedules">Schedule</a>
+                    <a href="/Employee/leavehistory">Leave & MC</a>
+                    <a href="/Employee/enquiry">Enquiry</a>
+                    <a href="/Employee/reviews">Reviews</a>
+                 
+                    <a href="/Employee/profileview" >Profile</a>
+                    <a href="/Logout">Logout</a>
+                
+                </ul>
+            </nav>
+        </header>
+
+       
+      <h1>Employee Leave Form</h1>
+      
+        <div class="centerdiv">
+            <div class="container">
+           
+                <form class="centerform" method="post" enctype="multipart/form-data">
+                    <label for="type">Leave Type</label>
+                    <select id="type" name="type" required>
+                        <option value="" disabled selected>Select Leave Type</option>
+                        <option value="Annual">Annual Leave</option>
+                        <option value="Paternity">Paternity Leave</option>
+                        <option value="Childcare">Childcare Leave</option>
+                        <option value="Bereavement">Bereavement Leave</option>
+                        <option value="Compensatory">Compensatory Leave</option>
+                        <option value="Medical">Medical Leave (MC)</option>
+                    </select><br><br>
+
+                    <label for="date">Start Date</label>
+                    <input class="dateformat" type="date" id="startdate" name="startdate" placeholder="DD/MM/YYYY" onchange="checkStartDates()" required><br><br>
+    
+                    <label for="date">End Date</label>
+                    <input class="dateformat" type="date" id="enddate" name="enddate" placeholder="DD/MM/YYYY" onchange="checkEndDates()" disabled="true" required><br><br>                    
+              
+                <div class="MCfield" id="mcField" style="display: none;">
+                    <label for="mcFile">Attach MC:<br><br> (accepted formats .png .jpeg)</label>
+                    <input type="file" id="mcFile" name="mcFile" accept=".png, .jpeg" required><br><br>
+                </div>
+                
+                <div class="reasonfield">
+                    <label for="reason">Reason&nbsp;</label>
+                    <textarea id="reason" name="reason" rows="4" cols="50" placeholder="Enter text here" required></textarea><br><br>
+                </div>
+                <br><br>
+                <button class="formbtn" onclick="window.location.href='/Employee/leavehistory'">Back</button>
+                <button class="formbtn" type="reset" value="Clear">Clear</button>
+                <button class="formbtn" type="submit" value="Submit">Submit</button>
+            </form>
+        </div>
+      
+        <script>
+            // Function to show/hide the MC field based on the selected option
+            document.getElementById("type").addEventListener('change', function() {
+                const selectedOption = this.value;
+                const mcField = document.getElementById("mcField");
+
+                // Show the MC field if "Medical Leave (MC)" is selected, hide it otherwise
+                if (selectedOption === "Medical") {
+                    mcField.style.display = "block";
+                    // Make the MC file input required when Medical Leave is selected
+                    document.getElementById("mcFile").required = true;
+                } else {
+                    mcField.style.display = "none";
+                    // Remove the required attribute when a different leave type is selected
+                    document.getElementById("mcFile").removeAttribute("required");
+                }
+            });
+
+            function checkEndDates() {
+
+                const NewprojectStartDate = document.getElementById("startdate").value;
+                const NewprojectEndDate = document.getElementById("enddate").value;
+
+                if ((NewprojectEndDate < NewprojectStartDate)  ) {
+                    alert('Please Input The Correct End Date For Your Request. \n\nThe End Date Should Not Be Earlier Than Your Start Date!');
+                    document.getElementById("enddate").value = "";
+                    document.getElementById("startdate").value = "";
+                    document.getElementById("enddate").disabled = true;
+                    return;
+                }
+            }
+
+            function checkStartDates() {
+
+                const NewprojectStartDate = document.getElementById("startdate").value;
+                const NewprojectEndDate = document.getElementById("enddate").value;
+
+                if (NewprojectStartDate != "") {
+
+                    if (NewprojectEndDate != ""){
+                        if ((NewprojectEndDate < NewprojectStartDate)  ) {
+                            alert('Please Input The Correct End Date For Your Request. \n\nThe End Date Should Not Be Earlier Than Your Start Date!');
+                            document.getElementById("enddate").value = "";
+                            document.getElementById("startdate").value = "";
+                            document.getElementById("enddate").disabled = true;
+                            return;
+                        }
+
+                    }
+                    document.getElementById("enddate").disabled = false;
+                    return;
+                }
+            }
+        </script>
+         
+    </body>
+</html>

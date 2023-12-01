@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="../CSS/styles.css">
+    <title>DM Employee Page</title>
+</head>
+
+<body class="custom-body">
+        
+            
+    <div class="user-actionsDM">
+       
+      
+    </div>
+
+    <nav>
+        <div class="logo">EmpRoster</div>
+        <div class="nav-items"> 
+            <a href="/DepartmentManager/projects">Projects</a>
+            <a href="/DepartmentManager/employees">Employees</a>
+            <a href="/DepartmentManager/request">Requests</a>
+            <a href="/DepartmentManager/enquiry">Enquiry</a>
+            <a href="/DepartmentManager/reviews">Reviews</a>
+            <a href="/DepartmentManager/profileview" class="Profile-btn" id="Profile-btn">Profile</a>
+            <a href="/Logout" class="logout-btn" id="logout-btn">Logout</a>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <h1>View MC</h1>
+        <button class="view-button" onclick="window.location.href='/DepartmentManager/request'">Back</button>
+        <section class="company_accounts">
+        
+            <% if (results.length > 0) { %>
+                <img src="data:image/<%= imageType %>;base64, <%= results[0].MC.toString('base64') %>" alt="Medical Certificate" width="1000" height="1000" />
+
+            <% } else { %>
+                <p>No MC available for this request.</p>
+            <% } %>
+
+        </section>
+    </main>
+
+   
+</body>
+</html>

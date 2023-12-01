@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SA Accounts</title>
+    <link rel="stylesheet" href="../CSS/SA-Accounts.css">
+  
+</head>
+<body body class="custom-body">
+       
+            
+    <div class="user-actionsSA">
+       
+       
+    
+    
+    <nav>
+        <div class="logo">EmpRoster</div>
+        <div class="nav-items"> 
+            <a href="/SystemAdmin/pendingregistration">Pending Registration</a>
+            <a href="/SystemAdmin/accounts">Accounts</a>
+            <a href="/SystemAdmin/edithome">Edit Home</a>
+            <a href="/SystemAdmin/enquiries">Enquiry</a>
+            <a href="/SystemAdmin/reviews">Reviews</a>
+            <a href="/Logout">Logout</a>
+        </ul>
+    </nav>
+    </header>
+
+    <!-- MAIN CONTENT SECTION -->
+    <main>
+        <section class="company_accounts">
+            <p class="review-head"></p>
+            <h3>Accounts</h3>
+
+            <form action="" method="get" class="search">
+                <input type="text" name = "searchInput" id="searchInput" placeholder="Search by UEN" style="width: 300px;">
+                <button type="submit" id="search-button" class="search-button">Search</button>
+            </form>
+
+            <table>
+                <tr>
+                    <th>UEN</th>
+                    <th>Company Name</th>
+                    <th>Company Email</th>
+                    <th>Company Number</th>
+                    <th>Company Address</th>
+                    <th>Account ID</th>
+                    <th>Name</th>
+                    <th>Email</th>
+                    <th>Number</th>
+                    <th>Status</th>
+                    <th></th>
+                </tr>
+            
+                <!-- Loop through the results and display them -->
+                <% if (results.length === 0) { %>
+                    <tr>
+                        <td colspan="13">No Accounts Available</td>
+                    </tr>
+                <% } else { %>
+                <% for (const SAaccount of results) { %>
+                    <tr>
+                        <td><%= SAaccount.CompanyUEN %></td>
+                        <td><%= SAaccount.CompanyName %></td>
+                        <td><%= SAaccount.CompanyEmail %></td>
+                        <td><%= SAaccount.CompanyNumber %></td>
+                        <td><%= SAaccount.CompanyAddress %></td>
+                        <td><%= SAaccount.AccountID %></td>
+                        <td><%= SAaccount.AccountName %></td>
+                        <td><%= SAaccount.AccountEmail %></td>
+                        <td><%= SAaccount.AccountNumber %></td>
+                        <td>
+                            <% if (SAaccount.Status === 1) { %>
+                                On-Going
+                            <% } else { %>
+                                Suspended
+                            <% } %>
+                        </td>
+                        <td>
+                            <button type="button" class="update-button" onclick="window.location.href='/SystemAdmin/updateaccount?AccountID=<%= SAaccount.AccountID %>'">Edit</button>
+                        </td>
+                    </tr>
+                    <% } %>
+                <% } %>
+            </table>
+        </section>
+    </main>
+</body>
+</html>

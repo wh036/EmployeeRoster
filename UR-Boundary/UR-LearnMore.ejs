@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="UTF-8">
+    <title> Learn More</title>
+    <link rel="stylesheet" href="../CSS/Learnmore.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css"/>
+     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   </head>
+<body>
+  <div class="container">
+    <div class="box one">
+      <div class="details">
+       
+        <div class="topic"><b>Key Features of EmpRoster</b></div>
+        <div class="topic2">
+          <ul class="feature-list">
+          <b><% for (const URfeatures of featuresresults) { %> </b>
+            <li><b style="font-size: larger;"><%= URfeatures.Feature %></b> : <%= URfeatures.Description %></li>
+            <% } %>
+          </ul>
+          </div>
+       
+          <div class="price-box">
+            <div class="price">NOW AT $14.99</div>
+          </div>
+      </div>
+      <div class="button1">
+        <button onclick="window.location.href='/registration'">Purchase Now</button>
+      </div>
+    </div>
+    <div class="box two">
+      <div class="image-box">
+        <div class="image">
+          <img src="../Images/clock.jpg" alt="">
+        </div>
+        <div class="info">
+          <div class="brand">EmpRoster</div>
+          <div class="name">Employee Scheduling</div>
+          <div class="shipping">Already Have an account?</div>
+          <div class="button2">
+            <button onclick="window.location.href='/login'">Login Now</button>
+          </div>
+          <div class="button3">
+            <button onclick="window.location.href='/'">Back</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+</html>

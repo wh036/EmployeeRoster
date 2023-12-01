@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" type="text/css" href="../CSS/EditHome.css">
+        <title>SA Edit Description</title>
+       
+        
+    </head>
+    <style>
+        /* Reset CSS */
+
+    </style>
+
+    <body>
+        <header>
+            <div class="logo">EmpRoster</div>
+            <div class="user-actionsSA">
+               
+               
+            </div>
+            
+            <nav>
+                <ul>
+                    <a href="/SystemAdmin/pendingregistration">Pending Registration</a>
+                    <a href="/SystemAdmin/accounts">Accounts</a>
+                    <a href="/SystemAdmin/edithome">Edit Home</a>
+                    <a href="/SystemAdmin/enquiries">Enquiry</a>
+                    <a href="/SystemAdmin/reviews">Reviews</a>
+                    <a href="/Logout">Logout</a>
+                   
+                </ul>
+            </nav>
+
+        </header>
+
+        <!-- MAIN CONTENT SECTION -->
+        <main>
+            <div class="contact_us">
+                <section class="enquires">
+                    <div class="description-container">
+                        <div class="current-description">
+                    <h1>Current Description</h1>
+                    <% for (const URdescription of results) { %>
+                        <%= URdescription.ProductDescripition %>   
+                    <% } %>
+                    <div class="new-description">
+                    <h3>New Description</h3>
+                    <form action="/SystemAdmin/updateDescription" method="post" class = "contact-us">
+                        <textarea id="message" name="enquiryMessage" rows="10" required></textarea>
+                        <button type="submit" class="submit-btn-enquiry">Submit</button>
+                    </form>
+                    </div>
+                        </div>
+
+                  
+
+                 
+                    <h3>Features Displayed</h3> 
+                    <table>
+                        <tr>
+                            <th>Feature</th>
+                            <th>Description</th>
+                            <th>Actions</th>
+                        </tr>
+                        
+                        <% if (featuresresults.length === 0) { %>
+                            <tr>
+                                <td colspan="8">No Feactures Available</td>
+                            </tr>
+                        <% } else { %>
+                        <% for (const URfeatures of featuresresults) { %>
+                            <tr>
+                                <td><%= URfeatures.Feature %></td>
+                                <td><%= URfeatures.Description %></td>
+                                <td>
+                                    <button class="delete-button" onclick="window.location.href='/SystemAdmin/deletefeature?PageID=<%= URfeatures.PageID %>&Feature=<%= URfeatures.Feature %>'">Delete</button>
+                                </td>
+                            </tr>
+                            <% } %>
+                        <% } %>
+                    </table>
+
+                 <!--   <div class="input-field"> -->
+
+                    <div class="Add features">
+                    <h3>Add Features</h3>
+                    <form action="/SystemAdmin/addFeatures" method="post" class = "contact-usSA">
+
+                        <div class="input-field">
+                          
+                            <input type="text" id="newFeature" name="newFeature" placeholder="Feature" required>
+                            
+                        </div>
+
+                        <div class="input-field">
+                          
+                            <input type="text" id="newDescription" name="newDescription" placeholder="Description"required>
+                            
+                        </div>
+                        
+                        <div class="button-container">
+                            <button type="submit" class="submit-btn-enquiry">Add</button>
+                        </div>
+                    </form>
+                    
+</div>               
+
+                 <div class="Add features1">
+
+                    <h3>Current Contact Information</h3>
+                    <% for (const contactInfo of Contactresults) { %>
+                        <p class="leadInfo">Contact Number : +65 <%= contactInfo.ContactNumber %></p>
+                        <p class="leadInfo">Email : <%= contactInfo.Email %></p>
+                        <p class="leadInfo">Address : <%= contactInfo.Address %></p>
+
+                    <% } %>
+
+                
+                    
+                    
+
+                    <h3>New Contact Information</h3>
+                    <form action="/SystemAdmin/updatecontactinfo" method="post" class="update-accountSA">
+    
+                        <div class="input-field">
+                          
+                            <input id="update-account-Role" name="NewContactNumber" type="text" inputmode="numeric" pattern="[0-9]*" minlength="8" placeholder="New Contact Number">
+                        </div>
+                        
+                        <div class="input-field">
+                           
+                            <input type="email" id="update-account-Skills" name="NewEmail" placeholder="New Email">
+                        </div>
+                        
+                        <div class="input-field">
+                            
+                            <input type="update_text" id="update-account-Term" name="NewAddress"placeholder="New Address" >
+                        </div>
+    
+                        <div class="button-container">
+                            <button type="submit" class="submit-btn">Update</button>
+                        </div>
+                    </form>
+             
+                </div>
+                
+                </section>
+            </div>
+        </main>
+
+       
+    </body>
+</html>

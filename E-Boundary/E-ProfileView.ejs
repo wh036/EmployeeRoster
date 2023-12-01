@@ -1,0 +1,69 @@
+
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        
+        <!----======== CSS ======== -->
+        <link rel="stylesheet" href="../CSS/styles2.css">
+        
+        <!----===== Iconscout CSS ===== -->
+        <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.0/css/line.css">
+        <title>E Profile View</title>
+    </head>
+    
+    <body>
+        <div class="container">
+        <section class="Profile">
+            <header>Your Profile</header>
+            <form class="profileform">
+                <div class="form first">
+                    <div class="details personal">
+                        <span class="title"><i>Account Information</i></span>
+                        <div class="fields">
+                            <div class="input-field">
+                                <label for="Name">Full Name</label>
+                                <input id="name" name="name" type="text" placeholder="<%= results[0].Name %>" disabled>
+                            </div>
+                            <div class="input-field">
+                                <label for="personalEmail">Personal Email</label>
+                                <input id="personalEmail" name="personalEmail" type="email" placeholder="<%= results[0].Email %>" disabled>
+                            </div>
+                            <div class="input-field">
+                                <label for="personalNum">Personal Number</label>
+                                <input id="personalNum" name="personalNum" type="text" placeholder="<%= results[0].Number %>" disabled>
+                            </div>
+                            <div class="input-field">
+                                <label for="role">Role</label>
+                                <input id="role" name="role" type="text" placeholder="<%= results[0].Role %>" disabled>
+                            </div>
+                            <div class="input-field">
+                                <label for="skill">Skill</label>
+                                <input id="skill" name="skill" type="text" placeholder="<%= results[0].Skill %>" disabled>
+                            </div>
+                            <div class="input-field">
+                                <label for="dept">Department</label>
+                                <input id="dept" name="dept" type="text" placeholder="<%= results[0].Department %>" disabled>
+                            </div>
+                    </div>
+                </div>
+                    <div class="buttons">
+                        <button type="button" class="backBtn" onclick="window.location.href='/Employee/leavehistory'">
+                            <i class="uil uil-navigator"></i>
+                            <span class="btnText">Back</span>
+                        </button>
+                        
+                        <button type="button" class="updateBtn" onclick="window.location.href='/Employee/profileedit'">
+                            <span class="btnText">Update</span>
+                            <i class="uil uil-navigator"></i>
+                        </button>
+                    </div>
+                </div> 
+            </div>
+            </form>
+        </section>
+        </div>
+    </body>
+</html>

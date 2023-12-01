@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" type="text/css" href="../CSS/styles.css">
+        <title>DM Employee View</title>
+    </head>
+
+    <body class="custom-body">
+        
+            
+        <div class="user-actionsDM">
+           
+          
+        </div>
+
+        <nav>
+            <div class="logo">EmpRoster</div>
+            <div class="nav-items"> 
+                <a href="/DepartmentManager/projects">Projects</a>
+                <a href="/DepartmentManager/employees">Employees</a>
+                <a href="/DepartmentManager/request">Requests</a>
+                <a href="/DepartmentManager/enquiry">Enquiry</a>
+                <a href="/DepartmentManager/reviews">Reviews</a>
+                <a href="/DepartmentManager/profileview" class="Profile-btn" id="Profile-btn">Profile</a>
+                <a href="/Logout" class="logout-btn" id="logout-btn">Logout</a>
+                </ul>
+            </nav>
+        </header>
+
+        <!-- MAIN CONTENT SECTION -->
+        <main>
+            <section class="enquires">
+                <!-- Employee search bar -->
+                <form action="" method="post" class="search"> <!--change method to post for Back end-->
+                    <input type="text" name  = "searchInput" id="searchInput" placeholder="Search by Name" style="width: 300px;">
+                    <button type="submit" id="search-button" class="search-button">Search</button>
+                </form>
+        
+                <!-- Employee table -->
+                <table>
+                    <tr>
+                        <th>ID</th>
+                        <th>Name</th>
+                        <th>Email</th>
+                        <th>Contact Number</th>
+                        <th>Role</th>
+                        <th>Skills</th>
+                        <th>Department</th>
+                        <th>Actions</th>
+                    </tr>
+                    
+                    <% if (results.length === 0) { %>
+                        <tr>
+                            <td colspan="8">No Accounts Available</td>
+                        </tr>
+                    <% } else { %>
+                    <% for (const DMEmpAccount of results) { %>
+                        <tr>
+                            <td><%= DMEmpAccount.AccountID %></td>
+                            <td><%= DMEmpAccount.Name %></td>
+                            <td><%= DMEmpAccount.Email %></td>
+                            <td><%= DMEmpAccount.Number %></td>
+                            <td><%= DMEmpAccount.Role %></td>
+                            <td><%= DMEmpAccount.Skill %></td>
+                            <td><%= DMEmpAccount.Department %></td>
+                            <td>
+                                <button class="update-button" onclick="window.location.href='/DepartmentManager/employeeupdate?AccountID=<%= DMEmpAccount.AccountID %>'">Update</button>
+                            </td>
+                        </tr>
+                        <% } %>
+                    <% } %>
+        
+                </table>
+
+                <button class="add-button" onclick="window.location.href='/DepartmentManager/addemployee'">Add Employee</button>
+            
+            </section>
+        </main>
+    
+       
+    
+    </body>
+</html>

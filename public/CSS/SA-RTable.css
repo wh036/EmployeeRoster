@@ -1,0 +1,908 @@
+* { 
+    box-sizing: border-box;
+    margin: 0; 
+    padding: 0; 
+    font-family: 
+       Arial; 
+  } 
+   
+  nav { 
+    height: 80px; 
+    background: #fdcc04; 
+    display: flex; 
+    justify-content: space-between; 
+    align-items: center; 
+    padding: 0rem calc((100vw - 1300px) / 2); 
+  } 
+   
+  .logo { 
+    color: #000; 
+    font-size: 2.0rem; 
+    font-weight: bold; 
+    font-style: italic; 
+    padding: 0 2rem; 
+  } 
+   
+  nav a { 
+    text-decoration: none; 
+    color: #000; 
+    padding: 0 1.5rem; 
+  } 
+   
+  nav a:hover { 
+    color: #fff; 
+  } 
+   
+  .hero { 
+    background: #fdcc04; 
+  } 
+   
+  .hero-container { 
+    display: grid; 
+    grid-template-columns: 1fr 1fr; 
+    height: 80vh; 
+    padding: 3rem calc((100vw - 1300px) / 2); 
+  } 
+   
+  .column-left { 
+    display: flex; 
+    flex-direction: column; 
+    justify-content: center; 
+    align-items: flex-start; 
+    color: #000; 
+    padding: 0rem 2rem; 
+  } 
+   
+  .column-left h1 { 
+    margin-bottom: 1rem; 
+    font-size: 3rem; 
+  } 
+   
+  .column-left p { 
+    margin-bottom: 2rem; 
+    font-size: 1.5rem; 
+    line-height: 1.5; 
+  } 
+   
+  button { 
+    padding: 1rem 3rem; 
+    font-size: 1rem; 
+    border: none; 
+    color: #fdcc04; 
+    background: #000; 
+    cursor: pointer; 
+    border-radius: 50px; 
+  } 
+   
+  button:hover { 
+    background: #fff; 
+    color: #000; 
+  } 
+   
+  .column-right { 
+    display: flex; 
+    justify-content: center; 
+    align-items: center; 
+    padding: 0rem 2rem; 
+  } 
+   
+  .hero-image { 
+    width: 100%; 
+    height: 100%; 
+  } 
+   
+  @media screen and (max-width: 768px) { 
+    .hero-container { 
+      grid-template-columns: 1fr; 
+    } 
+  } 
+  
+   /* Header Styles */
+   header {
+    background: #fdcc04;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 5%;
+  }
+      
+      /* Main Content Styles  needs changes */  
+      .main {
+        background: #fff; /* Changed to yellow */
+        padding: 5rem;
+      }
+    
+      .enquires {
+       
+        padding: 2rem;
+        border-radius:5px;
+        box-shadow: 0 0px 7px rgba(0, 0, 0, 0);
+        background-color: rgba(255, 255, 255, 0); /* Adjust the last value (0.7) to control transparency */
+      }
+      
+      
+      /* Search Bar Styles */
+      .search {
+        display: flex;
+        justify-content: center; /* Center the search bar horizontally */
+        align-items: center;
+        margin-bottom: 20px;
+        margin-top:20px;
+      }
+      
+      #projectSearch {
+        width: 300px; /* Adjust the width as needed */
+        padding: 10px;
+        border: 2px solid #fdcc04; /* Change border color */
+        border-radius: 10px; /* Make the search bar more rounded */
+        background: #fff; /* Change background color */
+        color: #000; /* Change text color */
+        font-size: 1rem; /* Adjust the font size */
+      }
+      #search-button {
+        background: #000;
+        margin-left: 10px;
+        color: #fdcc04;
+        border: none;
+        padding: 10px 20px;
+        border-radius: 5px;
+        cursor: pointer;
+        transition: background 0.3s, color 0.3s;
+        font-size: 1rem; /* Adjust the font size */
+      }
+      
+      #search-button:hover {
+        background: #fff;
+        color: #fdcc04;
+      }
+      
+      /* Table Styles */
+       
+      table {
+        width: 90%;
+        margin: 0 auto; /* Center the table horizontally */
+        border-collapse: collapse;
+        border-radius: 5px;
+        box-shadow: 0 3px 7px rgba(0, 0, 0, 0.2);
+        position: relative;
+        z-index: 1; /* To make the table appear on top of the background */
+        margin-bottom: 30px;
+        text-align: center; /* Center-align the content within the table */
+      }
+
+      table th, table td {
+        padding: 10px;
+        text-align: center;
+        border-bottom: 1px solid #808080;
+        transition: background 0.3s;
+        background: rgba(255, 255, 255, 0.7); /* Transparent white background */
+        color: #333; /* Default text color for table cells */
+      }
+
+      table th {
+        background: #fdcc04;
+        color: #000;
+        font-weight: bold;
+        text-transform: uppercase;
+      }
+      
+
+      table td:hover {
+        background: #808080; /* Highlight columns on hover */
+        color: #000;
+      }
+
+      table th:hover {
+        background: #fdcc04; /* Highlight columns on hover */
+        color: #000;
+      }
+
+       /* Add responsiveness for smaller screens */
+    @media (max-width: 768px) {
+      table {
+        display: block;
+      }
+    
+      table th, table td {
+        white-space: nowrap;
+      }
+    }
+      
+      
+      
+      
+    
+      /* Create Project Button Styles */
+      .create-project-button {
+        background: #fdcc04;
+        color: #fff;
+        border: none;
+        padding: 10px 20px;
+        border-radius: 5px;
+        cursor: pointer;
+        transition: background 0.3s, color 0.3s;
+        display: block; /* Make the button a block-level element */
+        margin: 0 auto;
+      }
+      
+      .create-project-button:hover {
+        background: #000;
+        color: #fdcc04;
+      }
+      
+      /* CA-Employee View Page*/
+      /* Search Bar Styles */
+      .search select {
+        width: 300px; /* Increase the width for a larger dropdown */
+        padding: 8px; /* Adjust the padding for better spacing */
+        border: 2px solid #fdcc04;
+        border-radius: 15px;
+        background: #fff;
+        color: #808080;
+        font-size: 1rem;
+      }
+      
+      /* Center the search bar */
+      .search {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin-bottom: 20px;
+      }
+      
+      #search-button {
+        background: #000;
+        margin-left: 10px;
+        color: #fdcc04;
+        border: none;
+        padding: 10px 20px;
+        border-radius: 5px;
+        cursor: pointer;
+        transition: background 0.3s, color 0.3s;
+        font-size: 1rem; /* Adjust the font size */
+      }
+      
+      #search-button:hover {
+        background: #fff;
+        color: #fdcc04;
+      }
+      
+      .button-form{
+        display: flex; /* Use flexbox to horizontally align child elements */
+        align-items: center; /* Vertically align child elements */
+        justify-content: center;
+      }
+    
+      .update-button,
+      .delete-button {
+        font-size: 17px; /* Adjust the font size as needed */
+        padding: 15px 20px; /* Adjust the padding to reduce the size */
+        margin-bottom: 5px;
+        margin-right: 5px; /* Add some spacing between buttons */
+      }
+      
+      /* Add media query for responsiveness */
+      @media (max-width: 768px) {
+        .demployee_update_accounts {
+          max-width: 95%; /* Adjust the width for smaller screens */
+        }
+      }
+    
+      /* Set the background image for the section behind the container */
+    body {
+      /*background: url('/Images/a.jpeg') center / cover;
+      background-attachment: fixed;*/
+      background: url('/Images/yellow.jpg');
+      background-size: 2000px;
+      backdrop-filter: blur(3px);
+      
+    }
+    
+      /*CA-Update DM*/
+    /* Style for the main section */
+    .demployee_update_accounts {
+      text-align: center;
+      margin: 20px auto;
+      max-width: 900px;
+      padding: 20px;
+      border: 1px solid #ccc;
+      background: #fff; /* Set the background color to white */
+      background: rgba(255, 255, 255, 0.5);
+      border-radius:5px;
+      box-shadow: 0 3px 7px rgba(0, 0, 0, 0.3);
+    }
+    
+    
+    /* Style for the input container */
+    .demployee_update_accounts .input-container {
+      text-align: left;
+      margin: 40px 0;
+    }
+    
+    .demployee_update_accounts .input-container label {
+      display: block;
+      font-weight: bold;
+      margin-bottom: 10px; /* Increased margin for better separation */
+      font-size: 18px; /* Larger font size */
+      color: #000; /* Darkened text color */
+    }
+    
+    .demployee_update_accounts .input-container {
+      text-align: center; /* Center the text and select box horizontally */
+    }
+    
+    /* Style for the select box */
+    .demployee_update_accounts .input-container select {
+      width: 100%;
+      padding: 10px; /* Increased padding for better aesthetics */
+      border: 2px solid #fdcc04;
+      background: #fff;
+      color: #808080; /* Darkened text color */
+      font-size: 1.2rem; /* Slightly larger font size */
+      border-radius: 5px;
+      margin: 0 auto; /* Center the select box horizontally */
+    }
+    
+    /* Style for the button container */
+    .demployee_update_accounts .button-container {
+      margin-top: 20px;
+    }
+    
+    .demployee_update_accounts .button-container .submit-btn {
+      padding: 12px 24px; /* Adjusted padding for better button size */
+      font-size: 1.2rem; /* Larger font size */
+      border: none;
+      color: #fdcc04;
+      background: #000;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: background 0.3s, color 0.3s;
+    }
+    
+    .demployee_update_accounts .button-container .submit-btn:hover {
+      background: #fff;
+      color: #fdcc04;
+    }
+    
+      /*Update Company Info in CA*/
+      /* Style for the input container */
+    .demployee_update_accounts .input-containerSA {
+      text-align: left;
+      margin: 30px 0;
+    }
+    
+    .demployee_update_accounts .input-containerSA label {
+      display: block;
+      font-weight: bold;
+      margin-bottom: 10px; /* Increased margin for better separation */
+      font-size: 18px; /* Larger font size */
+      color: #000; /* Darkened text color */
+    }
+    
+    .demployee_update_accounts .input-containerSA {
+      text-align: center; /* Center the text and select box horizontally */
+    }
+    
+    /* Style for the select box */
+    .demployee_update_accounts .input-containerSA select {
+      width: 100%;
+      padding: 20px; /* Increased padding for better aesthetics */
+      border: 2px solid #fdcc04;
+      background: #fff;
+      color: #808080; /* Darkened text color */
+      font-size: 1.2rem; /* Slightly larger font size */
+      border-radius: 5px;
+      margin: 0 auto; /* Center the select box horizontally */
+    }
+    
+    /* Style for the label associated with the select box */
+    .demployee_update_accounts .input-containerSA input[type="update_text"] {
+      width: 100%;
+      padding: 10px; /* Increased padding for better aesthetics */
+      border: 2px solid #fdcc04;
+      background: #fff;
+      color: #808080; /* Darkened text color */
+      font-size: 1.2rem; /* Slightly larger font size */
+      border-radius: 5px;
+      margin: 0 auto; /* Center the select box horizontally */
+      
+     
+    }
+    
+    
+    /* Style for the button container */
+    .demployee_update_accounts .button-container {
+      margin-top: 20px;
+    }
+    
+    .demployee_update_accounts .button-container .submit-btn {
+      padding: 12px 24px; /* Adjusted padding for better button size */
+      font-size: 1.2rem; /* Larger font size */
+      border: none;
+      color: #fdcc04;
+      background: #000;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: background 0.3s, color 0.3s;
+    }
+    
+    .demployee_update_accounts .button-container .submit-btn:hover {
+      background: #fff;
+      color: #fdcc04;
+    }
+    
+    
+    /*CA Register DM*/
+    /* Style for the company_accounts section */
+    /* Style for the main section */
+    .company_accounts {
+     
+      padding: 2rem;
+      border-radius: 5px;
+      box-shadow: 0 3px 7px rgba(0, 0, 0, 0.25);
+      background-color: rgba(255, 255, 255, 0.7); /* Adjust the alpha value for transparency */
+      text-align: center;
+      margin: 20px auto;
+      max-width: 800px;
+      padding: 20px;
+      border: 1px solid #fff;
+    }
+    
+    /* Style for the input container */
+    .company_accounts .input-containerCA {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 20px 0;
+    }
+    
+    .company_accounts .input-containerCA label {
+      display: block;
+      font-weight: bold;
+      margin-right: 25px;
+      font-size: 1.2rem;
+      color: #333;
+      text-align: left;
+      flex: 1;
+    }
+    
+    /* Style for input fields and select box */
+    .company_accounts .input-containerCA input[type="update_text"],
+    .company_accounts .input-containerCA input[type="email"],
+    .company_accounts .input-containerCA select {
+      width: 100%;
+      padding: 15px;
+      border: 2px solid #ccc;
+      border-radius: 10px;
+      font-size: 1.2rem;
+      flex: 2;
+    }
+    
+    /* Style for buttons */
+    .company_accounts .button-container {
+      margin-top: 30px;
+    }
+    
+    .company_accounts .button-container .submit-btn {
+      padding: 12px 30px;
+      font-size: 1.4rem;
+      border: none;
+      color: #fff;
+      background: #fdcc04;
+      border-radius: 10px;
+      cursor: pointer;
+      transition: background 0.3s, color 0.3s;
+    }
+    
+    .company_accounts .button-container .submit-btn:hover {
+      background: #fff;
+      color: #fdcc04;
+    }
+    
+    
+    h3 {
+      font-size: 25px;
+      text-align: center; /* Center the text horizontally */
+      margin-bottom: 15px;
+      padding: 10px;
+      text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+     /* Add a text shadow (adjust values as needed) */
+    }
+    
+    
+    
+    /*Department/Skills of CA - Form*/
+    
+    /* Style for the form container */
+    .update-accountSA {
+      max-width: 600px; /* Set the maximum width to control the size */
+      margin: 0 auto; /* Center the form horizontally */
+      padding: 20px;
+      background: rgba(128, 128, 128, 0.7); /* Semi-transparent background color */
+      border: 5px solid #ccc; /* Add a border for separation */
+      border-radius: 5px;
+      box-shadow: 0 3px 7px rgba(0, 0, 0, 0.25);
+      text-align: center;
+      margin-top:20px;
+    }
+    
+    .update-accountSA:hover {
+      background: rgba(128, 128, 128, 0.5); /* Change the background color to grey with adjusted transparency on hover */
+    }
+    
+    /* Style for the input container */
+    .update-accountSA .input-containerSA {
+      margin: 5px 0;
+      text-align: center;
+    }
+    
+    .update-accountSA .input-containerSA label {
+      display: block;
+      font-weight: bold;
+      font-size: 1.2rem;
+      color: #000;
+      text-align: center;
+      margin-bottom:10px;
+    }
+    
+    /* Style for input fields and select box */
+    .update-accountSA input[type="text"],
+    .update-accountSA select {
+      width: 100%;
+      padding: 10px;
+      border: 2px solid #fdcc04;
+      color: #808080;
+      border-radius: 5px;
+      font-size: 1rem;
+    }
+    
+    /* Style for buttons */
+    .update-accountSA .button-container {
+      margin-top: 20px;
+    }
+    
+    .update-accountSA .submit-btn {
+      padding: 10px 20px;
+      font-size: 1.2rem;
+      border: none;
+      color: #fdcc04;
+      background: #000;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: background 0.3s, color 0.3s;
+    }
+    
+    .update-accountSA .submit-btn:hover {
+      background: #fff;
+      color: #fdcc04;
+    }
+    
+    
+    /* Confirm box Delete skills in Dep-CA*/
+    /* Style for the Confirmation Section */
+    section.Login {
+      max-width: 500px;
+      margin: 0 auto;
+      padding: 40px;
+      background: #f5f5f5;
+      border: 1px solid #ccc;
+      border-radius: 0px;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+      text-align: center;
+      margin-top:50px;
+    }
+    
+    section.Login h2 {
+      font-size: 25px;
+      margin-bottom: 20px;
+      background-color: rgba(128, 128, 128, 0.5); /* Transparent grey background */
+      padding: 10px; /* Add some padding for better visibility */
+    }
+    
+    
+    
+    .cross-symbol {
+      font-size: 24px;
+      color: red;
+      margin-right: 10px;
+    }
+    
+    div.Logout {
+     
+      padding: 20px;
+      border: 0px solid #ccc;
+      border-radius: 1px;
+      margin-bottom: 20px;
+    }
+    
+    div.button-container {
+      display: flex;
+      justify-content: center;
+    }
+    
+    button.submit-btn {
+      padding: 10px 20px;
+      border: none;
+      border-radius: 5px;
+      margin: 0 10px;
+      cursor: pointer;
+      font-size: 16px;
+    }
+    section.Login button[name="choice"][value="yes"] {
+      background: red;
+      color: #fff;
+    }
+    
+    /* Apply styles to No button within .Login */
+    section.Login button[name="choice"][value="no"] {
+      background: green;
+      color: #fff;
+    }
+    
+    
+    button.submit-btn:hover {
+      opacity: 0.8;
+    }
+    
+    /*pending accounts table SA*/
+    
+    
+    section.pending_accounts table {
+      width: 80%; /* You can adjust the width as needed, e.g., 80% of the container width */
+      margin: 0 auto;
+      margin-top:30px;
+       /* Center the table horizontally within its container */
+    }
+    
+    section.pending_accounts .review-head {
+      text-align: center; /* Center the text */
+      font-size: 24px; /* Adjust the font size to make it bigger */
+      font-weight: bold; /* Make the text bold */
+      color: #ff6600; /* Change the text color to orange */
+      text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5); /* Add a text shadow with offset and color */
+     /* Add a background color */
+      padding: 20px 10px; /* Add some padding to make it stand out more */
+      color: #000;  
+      margin-bottom: 10px;
+    }
+    
+    section.pending_accounts .approve-btn {
+      flex: 0; /* Do not distribute space for the buttons */
+      margin-left: 10px; /* Add margin to separate the buttons */
+    }
+    
+    /*SA Accounts page*/
+    
+    /* Search Bar Styles for the specified HTML structure */
+    section.company_accounts .search {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 20px;
+    }
+    
+    section.company_accounts .search input[type="text"] {
+      width: 300px;
+      padding: 10px;
+      border: 2px solid #fdcc04;
+      border-radius: 15px;
+      background: #fff;
+      color: #808080;
+      font-size: 1rem;
+    }
+    
+    section.company_accounts .search .search-button {
+      background: #0073e6;
+      color: #fff;
+      padding: 12px 20px;
+      border: none;
+      border-radius: 15px;
+      margin-left: 10px;
+      cursor: pointer;
+    }
+    
+    section.company_accounts .search .search-button:hover {
+      background: #005bb7;
+    }
+     
+    
+    /* Apply leave - Employee*/
+    .company_accounts .buttondiv a.button {
+      /* Your CSS styles for the "Apply Leave" button go here */
+      background-color: #000; /* Example background color */
+      color: #fdcc04; /* Example text color */
+      padding: 10px 20px; /* Example padding */
+      border: none; /* Example border styles */
+      border-radius: 5px; /* Example border radius */
+      text-decoration: none; /* Remove underline from links */
+      display: inline-block;
+      margin-bottom:20px; 
+      margin-top:20px;/* Ensure it's a block element */
+    }
+    
+    .company_accounts .buttondiv a.button:hover {
+      /* Styles for the button on hover */
+      background-color: #fff;
+      color: #fdcc04 /* Example background color on hover */
+    }
+    
+    /* EMPLOYEE - Leave History - title  */
+    .company_accounts h1 {
+     
+        text-align: center; /* Center the text */
+        font-size: 24px; /* Adjust the font size to make it bigger */
+        font-weight: bold; /* Make the text bold */
+        color: #ff6600; /* Change the text color to orange */
+        text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5); /* Add a text shadow with offset and color */
+       /* Add a background color */
+        padding: 10px 10px; /* Add some padding to make it stand out more */
+        color: #000;  
+        margin-bottom: 3px;/*Change the text color to white for contrast on the background */
+      }
+      
+     /*SA Accounts Update*/
+    /* Style the "Submit" button specifically */
+    .company_accounts .submit-btn[type="submit"] {
+      background-color: #000;
+      color: #fdcc04;
+      padding: 10px 20px;
+    }
+    
+    /* Style the "Cancel" button specifically */
+    .company_accounts .submit-btn[type="button"] {
+      background-color: #000;
+      color: #fdcc04;
+      padding: 10px 20px;
+    
+    }
+    
+    .company_accounts .submit-btn:hover {
+      background-color: #fff;
+      color: #fdcc04;
+    }
+    
+    
+    /* SA Update Account */
+    /* Target the select element within .company_accounts section */
+    .company_accounts .input-container select {
+      width: 100%;
+      padding: 10px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      background-color: #fff;
+      color: #333;
+      font-size: 16px;
+      cursor: pointer;
+    }
+    
+    /* Style the label associated with the select */
+    .company_accounts .input-container label[for="update-account-status"] {
+      display: block;
+      margin-bottom: 10px;
+      font-weight: bold;
+      font-size: 16px;
+      color: #333;
+    }
+    
+    /* Adjust the styles for the select when it's focused */
+    .company_accounts .input-container select:focus {
+      border-color: #007BFF;
+      box-shadow: 0 0 5px rgba(0, 123, 255, 0.7);
+    }
+    
+    /* CA - Company update-status button */ 
+    section.company_accounts .input-container label[for="update-account-status"] {
+      /* Add styles for the <label> element here */
+      font-weight: bold;
+      color: #000;
+      position: relative; /* Position relative to its normal position */
+    
+      /* Adjust the position as needed */
+      top:10px; /* Move 40px down from its normal position */
+      /* Move 20px to the right from its normal position */
+    }
+    
+    #update-account-status1 {
+      /* Add styles for the <select> element with the specified ID here */
+      width: 200px;
+      border: 2px solid #fdcc04;
+      border-radius: 5px;
+      background-color: #f5f5f5;
+      color: #808080;
+      font-size: 14px;
+    
+    }
+    
+    
+    /* DM - SEARCH BAR STYLE */
+    /* Style the search input */
+    .enquires .search input[type="text"] {
+      /* Add styles for the search input */
+      width: 300px; /* Adjust the width of the input */
+      padding: 10px; /* Add padding to the input */
+      border:2px solid #fdcc04; /* Add a border to the input */
+      border-radius: 5px; /* Round the corners of the input */
+      background-color: #f5f5f5; /* Set the background color of the input */
+      color: #000; /* Set the text color of the input */
+      font-size: 14px; /* Set the font size of the input */
+      /* Add any other styles you need for the input */
+    
+      /* Style the placeholder text */
+      ::placeholder {
+        color: #808080; /* Adjust the placeholder text color */
+        font-style: italic;
+        font-size: 20px; /* Make the placeholder italic */
+        /* Add any other styles for the placeholder text */
+      }
+    }
+    
+    /*DM Add employee form*/
+    
+    /* Style the .update-accountDM form */
+    .update-accountDM {
+      width: 100%;
+      max-width: 600px;
+      margin: 0 auto;
+      padding: 20px;
+      background-color: #fdcc04;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+      box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+      text-align: center;
+      color: #333;
+      background-color:rgba(253,204,4,0.6);
+     
+    }
+    
+    /* Style the .input-containerDM div */
+    .input-containerDM {
+      margin-bottom: 30px;
+    }
+    
+    /* Style the labels and input elements within .input-containerDM div */
+    .input-containerDM .input-box {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 10px;
+      border: 1px solid #ccc;
+      border-radius: 10px;
+      background-color: #f5f5f5;
+      color: #333;
+      font-size: 16px;
+      transition: border-color 0.3s;
+      text-align: center;
+    }
+    
+    /* Style the labels within .input-containerDM div */
+    .input-containerDM label {
+      font-weight: bold;
+      color: #000;
+      margin-bottom: 10px;
+    }
+    
+    /* Style the input elements within .input-containerDM div */
+    .input-containerDM input[type="update_text"],
+    .input-containerDM select {
+      width: 100%;
+      padding: 15px;
+      border: none; /* Remove the border from the input elements */
+      border-bottom: 1px solid #000; /* Add a bottom border to separate input elements */
+      background-color: transparent;
+      color: #000;
+      font-size: 16px;
+      transition: border-color 0.3s;
+      text-align: center;
+    }
+    
+    .input-containerDM input[type="update_text"]:focus,
+    .input-containerDM select:focus {
+      border-color: #000;
+    }
+    
+    .user-actionsE .company_accounts h1{
+      
+        text-align: center; /* Center the text */
+        font-size: 24px; /* Adjust the font size to your preference */
+        /* Additional styles if needed */
+      }

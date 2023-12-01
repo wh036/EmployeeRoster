@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>SA Update Company Accounts</title>
+        <link rel="stylesheet" href="../CSS/SA-UAccounts.css">
+       
+    </head>
+
+    <body body class="custom-body">
+       
+            
+        <div class="user-actionsSA">
+           
+           
+        
+        
+        <nav>
+            <div class="logo">EmpRoster</div>
+            <div class="nav-items"> 
+                <a href="/SystemAdmin/pendingregistration">Pending Registration</a>
+                <a href="/SystemAdmin/accounts">Accounts</a>
+                <a href="/SystemAdmin/edithome">Edit Home</a>
+                <a href="/SystemAdmin/enquiries">Enquiry</a>
+                <a href="/SystemAdmin/reviews">Reviews</a>
+                <a href="/Logout">Logout</a>
+            </ul>
+        </nav>
+        </header>
+
+        <!-- MAIN CONTENT SECTION -->
+        <main>
+            <h3>Update Account</h3>
+            <section class="company_accounts">
+               
+                <table>
+                    <tr>
+                        <th>UEN</th>
+                        <th>Company Name</th>
+                        <th>Company Email</th>
+                        <th>Company Number</th>
+                        <th>Company Address</th>
+                        <th>Account ID</th>
+                        <th>Name</th>
+                        <th>Email</th>
+                        <th>Number</th>
+                        <th>Status</th>
+                        <th></th>
+                    </tr>
+
+                    <% for (const SAaccount of results) { %>
+                        <tr>
+                            <td><%= SAaccount.CompanyUEN %></td>
+                            <td><%= SAaccount.CompanyName %></td>
+                            <td><%= SAaccount.CompanyEmail %></td>
+                            <td><%= SAaccount.CompanyNumber %></td>
+                            <td><%= SAaccount.CompanyAddress %></td>
+                            <td><%= SAaccount.AccountID %></td>
+                            <td><%= SAaccount.AccountName %></td>
+                            <td><%= SAaccount.AccountEmail %></td>
+                            <td><%= SAaccount.AccountNumber %></td>
+                            <td>
+                                <% if (SAaccount.Status === 1) { %>
+                                    On-Going
+                                <% } else { %>
+                                    Suspended
+                                <% } %>
+                            </td>
+                            <td>
+                                <button type="button" class="delete-button" onclick="window.location.href='/SystemAdmin/deleteAccount?CompanyUEN=<%= SAaccount.CompanyUEN %>&CompanyName=<%= SAaccount.CompanyName %>'">Delete</button>
+                            </td>
+                        </tr>
+                    <% } %>
+                </table>
+            
+
+                <form action="/SystemAdmin/updateAccount" method="post" class="update-account" id="update-account-form">       
+                    <!-- Add a hidden input field for AccountID -->
+                    <input type="hidden" name="CompanyUEN" value="<%= results[0].CompanyUEN %>">
+                    
+                    <div class="input-container">
+                        <label for="update-account-status">Status :</label>
+                        <select id="update-account-status1" name="update-account-status">
+                            <option value="1" selected>On-Going</option>
+                            <option value="0">Suspended</option>
+                        </select>
+                    </div>
+            
+                    <div class="button-container">
+                        <button type="button" class="submit-btn" onclick="window.location.href='/SystemAdmin/accounts'">Cancel</button>
+                        <button type="submit" class="submit-btn">Submit</button> <!--change type to submit-->
+                    </div>
+                </form>
+            </section>
+
+        </main>
+
+       
+
+    </body>
+</html>

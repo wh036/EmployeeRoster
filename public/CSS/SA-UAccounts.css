@@ -1,0 +1,327 @@
+* { 
+    box-sizing: border-box;
+    margin: 0; 
+    padding: 0; 
+    font-family: 
+       Arial; 
+  } 
+   
+  nav { 
+    height: 80px; 
+    background: #fdcc04; 
+    display: flex; 
+    justify-content: space-between; 
+    align-items: center; 
+    padding: 0rem calc((100vw - 1300px) / 2); 
+  } 
+   
+  .logo { 
+    color: #000; 
+    font-size: 2.0rem; 
+    font-weight: bold; 
+    font-style: italic; 
+    padding: 0 2rem; 
+  } 
+   
+  nav a { 
+    text-decoration: none; 
+    color: #000; 
+    padding: 0 1.5rem; 
+  } 
+   
+  nav a:hover { 
+    color: #fff; 
+  } 
+   
+  .hero { 
+    background: #fdcc04; 
+  } 
+   
+  .hero-container { 
+    display: grid; 
+    grid-template-columns: 1fr 1fr; 
+    height: 80vh; 
+    padding: 3rem calc((100vw - 1300px) / 2); 
+  } 
+   
+  .column-left { 
+    display: flex; 
+    flex-direction: column; 
+    justify-content: center; 
+    align-items: flex-start; 
+    color: #000; 
+    padding: 0rem 2rem; 
+  } 
+   
+  .column-left h1 { 
+    margin-bottom: 1rem; 
+    font-size: 3rem; 
+  } 
+   
+  .column-left p { 
+    margin-bottom: 2rem; 
+    font-size: 1.5rem; 
+    line-height: 1.5; 
+  } 
+
+ 
+   
+  .column-right { 
+    display: flex; 
+    justify-content: center; 
+    align-items: center; 
+    padding: 0rem 2rem; 
+  } 
+   
+  .hero-image { 
+    width: 100%; 
+    height: 100%; 
+  } 
+   
+  @media screen and (max-width: 768px) { 
+    .hero-container { 
+      grid-template-columns: 1fr; 
+    } 
+  } 
+  
+   /* Header Styles */
+   header {
+    background: #fdcc04;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 5%;
+  }
+      
+      /* Main Content Styles  needs changes */  
+      .main {
+        background: #fff; /* Changed to yellow */
+        padding: 5rem;
+      }
+
+
+      .delete-button {
+        background-color: #000; /* Red background color */
+        color: #fdcc04; /* White text color */
+        border: none; /* Remove the button border */
+        border-radius: 30px; /* Add rounded corners */
+        padding: 7px 20px; /* Add some padding to the button */
+        cursor: pointer; /* Change the cursor to a hand pointer on hover */
+      }
+      
+      .delete-button:hover {
+        background-color: #fff;
+        color:#fdcc04; /* Darker red background color on hover */
+      }
+      
+    
+     
+     
+      
+      
+     
+      
+    
+      /* Table Styles */
+       
+      table {
+        width: 100%;
+        margin: 0 auto; /* Center the table horizontally */
+        padding: 10px;
+        text-align: center;
+        border-collapse: collapse;
+        border-radius: 5px;
+        box-shadow: 0 3px 7px rgba(0, 0, 0, 0.2);
+        position: relative;
+        z-index: 1;
+      
+      }
+      
+      table th,
+      table td {
+        border-bottom: 1px solid #808080;
+        transition: background 0.3s;
+        background: rgba(255, 255, 255, 0.7);
+        color: #333;
+        
+      }
+      
+      
+      
+      table th {
+        background: #fdcc04;
+        color: #000;
+        font-weight: bold;
+        text-transform: uppercase;
+       
+        width:40px;
+      }
+      
+      table td:hover {
+        background: #808080; /* Highlight columns on hover */
+        color: #000;
+       
+      }
+      
+      table th:hover {
+        background: #fdcc04; /* Highlight columns on hover */
+        color: #000;
+      }
+      
+      /* Add responsiveness for smaller screens */
+      @media (max-width: 768px) {
+        table {
+          display: block;
+        }
+      
+        table th, table td {
+          white-space: nowrap;
+        }
+      }
+    
+    
+      
+    
+      
+      
+      
+      /* Add media query for responsiveness */
+      @media (max-width: 768px) {
+        .demployee_update_accounts {
+          max-width: 95%; /* Adjust the width for smaller screens */
+        }
+      }
+    
+      /* Set the background image for the section behind the container */
+    body {
+      /*background: url('/Images/a.jpeg') center / cover;
+      background-attachment: fixed;*/
+      background: url('/Images/yellow.jpg');
+  background-size: 2000px;
+  backdrop-filter: blur(3px);
+      
+    }
+     
+    
+    /* SA Update Account Container */
+    .company_accounts {
+     
+      padding: 2rem;
+      border-radius: 5px;
+      box-shadow: 0 3px 7px rgba(0, 0, 0, 0.25);
+      background-color: rgba(255, 255, 255, 0.7); /* Adjust the alpha value for transparency */
+      text-align: center;
+      margin: 30px auto;
+      max-width: 1180px;
+      padding: 10px;
+      border: 1px solid #fff;
+      
+    }
+    
+    /* Style for buttons */
+    .company_accounts .button-container {
+      margin-top: 30px;
+    }
+    
+    .company_accounts .button-container .submit-btn {
+      padding: 12px 30px;
+      font-size: 1.4rem;
+      border: none;
+      color: #fff;
+      background: #fdcc04;
+      border-radius: 10px;
+      cursor: pointer;
+      transition: background 0.3s, color 0.3s;
+    }
+    
+    .company_accounts .button-container .submit-btn:hover {
+      background: #fff;
+      color: #fdcc04;
+    }
+    
+    
+    h3 {
+      text-align: center; /* Center the text */
+      font-size: 24px; /* Adjust the font size to make it bigger */
+      font-weight: bold; /* Make the text bold */
+      color: #ff6600; /* Change the text color to orange */
+      text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5); /* Add a text shadow with offset and color */
+     /* Add a background color */
+      padding: 10px 10px; /* Add some padding to make it stand out more */
+      color: #000;  
+      margin-bottom: 20px;/*Change the text color to white for contrast on the background */
+    }
+    
+    
+    
+    
+  
+
+    
+    
+  
+/*SA Accounts Update*/
+    /* Style the "Submit" button specifically */
+    .company_accounts .submit-btn[type="submit"] {
+      background-color: #000;
+      color: #fdcc04;
+      padding: 10px 20px;
+    }
+    
+    /* Style the "Cancel" button specifically */
+    .company_accounts .submit-btn[type="button"] {
+      background-color: #000;
+      color: #fdcc04;
+      padding: 10px 20px;
+    
+    }
+    
+    .company_accounts .submit-btn:hover {
+      background-color: #fff;
+      color: #fdcc04;
+    }
+    
+    /* SA Update Account */
+    /* Target the select element within .company_accounts section */
+    .company_accounts .input-container select {
+      width: 100%;
+      padding: 10px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      background-color: #fff;
+      color: #333;
+      font-size: 16px;
+      cursor: pointer;
+    }
+
+
+
+
+
+    
+
+    /* Style the label associated with the select */
+    .company_accounts .input-container label[for="update-account-status"] {
+      display: block;
+      margin-bottom: 10px;
+      font-weight: bold;
+      font-size: 16px;
+      color: #333;
+    }
+    
+    
+   
+    #update-account-status1 {
+      /* Add styles for the <select> element with the specified ID here */
+      width: 200px;
+      border: 2px solid #fdcc04;
+      border-radius: 5px;
+      background-color: #f5f5f5;
+      color: #808080;
+      font-size: 14px;
+    
+    }
+    
+    
+    
+   

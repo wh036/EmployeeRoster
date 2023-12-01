@@ -1,0 +1,516 @@
+* { 
+    box-sizing: border-box;
+    margin: 0; 
+    padding: 0; 
+    font-family: 
+       Arial; 
+  } 
+   
+  nav { 
+    height: 80px; 
+    background: #fdcc04; 
+    display: flex; 
+    justify-content: space-between; 
+    align-items: center; 
+    padding: 0rem calc((100vw - 1300px) / 2); 
+  } 
+   
+  .logo { 
+    color: #000; 
+    font-size: 2.0rem; 
+    font-weight: bold; 
+    font-style: italic; 
+    padding: 0 2rem; 
+  } 
+   
+  nav a { 
+    text-decoration: none; 
+    color: #000; 
+    padding: 0 1.5rem; 
+  } 
+   
+  nav a:hover { 
+    color: #fff; 
+  } 
+   
+  .hero { 
+    background: #fdcc04; 
+  } 
+   
+  .hero-container { 
+    display: grid; 
+    grid-template-columns: 1fr 1fr; 
+    height: 80vh; 
+    padding: 3rem calc((100vw - 1300px) / 2); 
+  } 
+   
+  .column-left { 
+    display: flex; 
+    flex-direction: column; 
+    justify-content: center; 
+    align-items: flex-start; 
+    color: #000; 
+    padding: 0rem 2rem; 
+  } 
+   
+  .column-left h1 { 
+    margin-bottom: 1rem; 
+    font-size: 3rem; 
+  } 
+   
+  .column-left p { 
+    margin-bottom: 2rem; 
+    font-size: 1.5rem; 
+    line-height: 1.5; 
+  } 
+   
+  button {
+    padding: 15px 20px; 
+    font-size: 1rem; 
+    border: none; 
+    color: #fdcc04; 
+    background: #000; 
+    cursor: pointer; 
+    border-radius: 50px; 
+    width:100px;/* Add a top margin to place it below other elements */
+  }
+  
+   
+  button:hover { 
+    background: #fff; 
+    color: #fdcc04; 
+  } 
+
+
+  .special-button-group {
+    display: flex;
+    justify-content: center; /* Adjust as needed to position the buttons horizontally */
+    margin-top: 20px; /* Adjust as needed to position the buttons vertically */
+  }
+  
+  .special-button-group button {
+    margin: 0 10px; /* Adjust as needed to add space between the buttons */
+  }
+  
+  
+  
+  
+   
+  .column-right { 
+    display: flex; 
+    justify-content: center; 
+    align-items: center; 
+    padding: 0rem 2rem; 
+  } 
+   
+  .hero-image { 
+    width: 100%; 
+    height: 100%; 
+  } 
+   
+  @media screen and (max-width: 768px) { 
+    .hero-container { 
+      grid-template-columns: 1fr; 
+    } 
+  } 
+  
+   /* Header Styles */
+   header {
+    background: #fdcc04;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 5%;
+  }
+      
+      /* Main Content Styles  needs changes */  
+      .main {
+        background: #fff; /* Changed to yellow */
+        padding: 5rem;
+      }
+    
+      .enquires {
+        text-align: center;
+        padding: 2rem;
+        border-radius:5px;
+        box-shadow: 0 0px 7px rgba(0, 0, 0, 0);
+        background-color: rgba(255, 255, 255, 0); /* Adjust the last value (0.7) to control transparency */
+      }
+      
+      
+      /* Search Bar Styles */
+      .search {
+        display: flex;
+        justify-content: center; /* Center the search bar horizontally */
+        align-items: center;
+        margin-bottom: 20px;
+      }
+      
+      #projectSearch {
+        width: 300px; /* Adjust the width as needed */
+        padding: 10px;
+        border: 2px solid #fdcc04; /* Change border color */
+        border-radius: 10px; /* Make the search bar more rounded */
+        background: #fff; /* Change background color */
+        color: #000; /* Change text color */
+        font-size: 1rem; /* Adjust the font size */
+      }
+      #search-button {
+        background: #000;
+        margin-left: 10px;
+        color: #fdcc04;
+        border: none;
+        padding: 10px 20px;
+        border-radius: 5px;
+        cursor: pointer;
+        transition: background 0.3s, color 0.3s;
+        font-size: 1rem; /* Adjust the font size */
+      }
+      
+      #search-button:hover {
+        background: #fff;
+        color: #fdcc04;
+      }
+      
+    
+      /* Table Styles */
+       
+      table {
+        width: 100%;
+        border-collapse: collapse;
+        border-radius: 5px;
+        box-shadow: 0 3px 7px rgba(0, 0, 0, 0.2);
+        position: relative;
+        z-index: 1; /* To make the table appear on top of the background */
+      
+      }
+      
+      table th, table td {
+        padding: 10px;
+        text-align: center;
+        border-bottom: 1px solid #808080;
+        transition: background 0.3s;
+        background: rgba(255, 255, 255, 0.7); /* Transparent white background */
+        color: #333; /* Default text color for table cells */
+      }
+      
+      table th {
+        background: #fdcc04;
+        color: #000;
+        font-weight: bold;
+        text-transform: uppercase;
+      }
+      
+      table td:hover {
+        background: #808080; /* Highlight columns on hover */
+        color: #000;
+      }
+      
+      table th:hover {
+        background: #fdcc04; /* Highlight columns on hover */
+        color: #000;
+      }
+      
+      /* Add responsiveness for smaller screens */
+      @media (max-width: 768px) {
+        table {
+          display: block;
+        }
+      
+        table th, table td {
+          white-space: nowrap;
+        }
+      }
+    
+      /* Create Project Button Styles */
+      .create-project-button {
+        color: #fdcc04; 
+        background: #000; 
+        border: none;
+        padding: 10px 20px;
+        border-radius: 5px;
+        cursor: pointer;
+        transition: background 0.3s, color 0.3s;
+        display: inline; /* Make the button a block-level element */
+        margin-top: 20px;
+        font-size: 1.2rem;
+      }
+      
+      .create-project-button:hover {
+        background: #fff; 
+        color: #000;
+      }
+      
+      /* CA-Employee View Page*/
+      /* Search Bar Styles */
+      .search select {
+        width: 300px; /* Increase the width for a larger dropdown */
+        padding: 8px; /* Adjust the padding for better spacing */
+        border: 2px solid #fdcc04;
+        border-radius: 15px;
+        background: #fff;
+        color: #808080;
+        font-size: 1rem;
+      }
+      
+      /* Center the search bar */
+      .search {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin-bottom: 20px;
+      }
+      
+      #search-button {
+        background: #000;
+        margin-left: 10px;
+        color: #fdcc04;
+        border: none;
+        padding: 10px 20px;
+        border-radius: 5px;
+        cursor: pointer;
+        transition: background 0.3s, color 0.3s;
+        font-size: 1rem; /* Adjust the font size */
+      }
+      
+      #search-button:hover {
+        background: #fff;
+        color: #fdcc04;
+      }
+      
+      .button-form{
+        display: flex; /* Use flexbox to horizontally align child elements */
+        align-items: center; /* Vertically align child elements */
+        justify-content: center;
+      }
+    
+      .update-button,
+      .delete-button {
+        font-size: 17px; /* Adjust the font size as needed */
+        padding: 15px 20px; /* Adjust the padding to reduce the size */
+        border: none;
+        padding: 10px 15px;
+        text-align: center;
+        text-decoration: none;
+        display: inline;
+        font-size: 16px;
+        margin: 4px 2px;
+        cursor: pointer;
+      }
+      
+      /* Add media query for responsiveness */
+      @media (max-width: 768px) {
+        .demployee_update_accounts {
+          max-width: 95%; /* Adjust the width for smaller screens */
+        }
+      }
+    
+      /* Set the background image for the section behind the container */
+    body {
+      /*background: url('/Images/a.jpeg') center / cover;
+      background-attachment: fixed;*/
+      background: url('/Images/yellow.jpg');
+      background-size: 2000px;
+      backdrop-filter: blur(3px);
+      
+    }
+    
+    /*CA Register DM*/
+    /* Style for the company_accounts section */
+    /* Style for the main section */
+    .company_accounts {
+      padding: 2rem;
+      border-radius: 5px;
+      box-shadow: 0 3px 7px rgba(0, 0, 0, 0.25);
+      background-color: rgba(255, 255, 255, 0.7); /* Adjust the alpha value for transparency */
+      text-align: center;
+      margin: 20px auto;
+      max-width: 1000px;
+      padding: 20px;
+      border: 1px solid #fff;
+    }
+  
+  
+  
+    /*headings*/
+    .fs-title {
+      font-size: 25px;
+      color: #000;
+      margin-bottom: 30px;
+      margin-top: 30px;
+      font-style:italic;
+      text-align: left;
+      position: relative;
+      }
+      
+      .fs-title::after {
+      content: '';
+      display: block;
+      width: 20%;
+      height: 3px; /* Increased line thickness */
+      background-color: #fdcc04; /* You can change the color if needed */
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      }
+
+
+.input-container-project {
+  /* Add some margin for spacing */
+ width: 100%; 
+ margin-left:30px;
+ /* Set a fixed width or adjust as needed */
+}
+
+/* Style for the input element */
+.input-container-project input[type="text"] {
+  width: 50%; /* Make the input element fill the container */
+  padding: 10px; /* Add padding for better spacing and aesthetics */
+  border: 2px solid #808080; /* Add a border for the input */
+  border-radius: 5px; /* Add rounded corners to the input */
+  font-size: 20px;
+  color:#808080; 
+  font-family: montserrat;
+  text-align:left;
+margin-right:55px; }
+
+.input-container-project1 label{
+ /* Add some margin for spacing */
+width:90%; 
+margin-left:30px;
+font-weight: bold; /* Make the label text bold */
+color: #333;
+font-size: 20px;
+text-align:center;
+      
+      display: block; /* Display label as a block element */
+      margin-bottom: 5px;
+/* Set a fixed width or adjust as needed */
+}
+
+/* Style for the input element */
+.input-container-project1 input[type="date"] {
+width: 50%; /* Make the input element fill the container */
+padding: 15px; /* Add padding for better spacing and aesthetics */
+border: 2px solid #808080; /* Add a border for the input */
+border-radius: 5px; /* Add rounded corners to the input */
+font-size: 20px;
+color:#808080; 
+text-align:center;/* Adjust the font size as needed */
+}
+
+
+.input-container-project2 label{
+/* Add some margin for spacing */
+width: 90%; 
+margin-left:30px;
+font-weight: bold; /* Make the label text bold */
+color: #333;
+font-size: 20px;
+text-align:center;
+      
+      display: block; /* Display label as a block element */
+      margin-bottom: 5px;
+/* Set a fixed width or adjust as needed */
+}
+
+/* Style for the input element */
+.input-container-project2 input[type="date"] {
+width: 50%; /* Make the input element fill the container */
+padding: 15px; /* Add padding for better spacing and aesthetics */
+border: 2px solid #808080; /* Add a border for the input */
+border-radius: 5px; /* Add rounded corners to the input */
+font-size: 20px;
+color:#808080; 
+text-align:center;/* Adjust the font size as needed */
+}
+
+
+  
+  .input-container-project-skill-pax-add select {
+  
+    background-color: #000;
+      color: #fff;
+      padding: 50px;
+      width: 300%;
+      font-weight:bold;
+      text-transform:uppercase;
+      border: 2px solid #808080;
+      border-radius: 5px;
+      cursor: pointer;
+      text-align:center;
+    margin-bottom:10px;
+  
+      
+    }
+  
+    .input-container-project-skill-pax-add select{
+      margin-top: 10px; /* Add margin between the two select elements */
+  }
+  
+    .input-container-project-skill-pax-add select ::after{
+  
+    content: '\25BC'; /* Unicode character for a downward arrow */
+      position: absolute;
+      top: 50%;
+      right: 10px;
+      transform: translateY(-50%);
+      pointer-events: none;
+      color: #fff;
+     
+    }
+    
+  
+      .input-container-project-skill-pax-add select{
+  
+    width: 300%;
+      padding: 10px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      font-size: 16px;
+      background-color: #000;
+      color: #fff;
+    }
+  
+  
+      .input-container-project-skill-pax-add select :hover{
+  
+       border-color:#000;
+      }
+  
+      .input-container-project-skill-pax-add option[selected]{
+  
+        background-color: #000;
+    }
+  
+
+     .input-container-project-dep label {
+      font-weight: bold; /* Make the label text bold */
+     color: #333; /* Text color */
+      margin-right: 10px; 
+    font-size:20px; }   
+
+
+    #department {
+      width: 120px; /* Adjust the width as needed to make it small */
+      padding: 5px; /* Add padding for better aesthetics */
+      border: 2px solid #808080; /* Add a border for the input */
+      border-radius: 5px; /* Add rounded corners */
+      font-size: 20px; /* Adjust the font size as needed */
+      background-color: #f5f5f5; /* Set a background color to indicate it's readonly */
+      color: #000; 
+      font-weight:bold;
+      text-align:center;/* Set a text color */
+      margin-bottom:50px;
+    }
+
+
+
+    
+  
+  
+  
+    
+    
+  
+    

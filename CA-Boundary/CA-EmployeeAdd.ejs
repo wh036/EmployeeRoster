@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" type="text/css" href="../CSS/CAAddDm.css">
+        <title>CA Register DM & Department</title>
+    </head>
+
+    <body>
+        <body class="custom-body"> 
+            <div class="user-actionsCA">
+               
+            <nav> 
+                <div class="logo">EmpRoster</div> 
+                <div class="nav-items"> 
+                  <a href="/CompanyAdmin/projectview">Projects</a> 
+                  <a href="/CompanyAdmin/employeeview">Department Managers</a>
+                  <a href="/CompanyAdmin/ViewAllEmployee">Employees</a>  
+                  <a href="/CompanyAdmin/companyview">Company</a>  
+                  <a href="/CompanyAdmin/departmentskills">Skills</a> 
+                  <a href="/CompanyAdmin/enquiry">Enquiry</a> 
+                  <a href="/CompanyAdmin/reviews">Reviews</a> 
+                  <a href="/CompanyAdmin/profileview" >Profile</a> 
+                  <a href="/Logout">Logout</a> 
+                </ul>
+            </nav>
+        </header>
+
+        <!-- multistep form -->
+        <container id="msform">
+       
+            <!-- progressbar -->
+            <ul id="progressbar">
+            
+            
+            </ul>
+            <!-- fieldsets -->
+            <fieldset>
+            <h2 class="fs-title">Register Department</h2>
+            <h3 class="fs-subtitle"></h3>
+            
+
+                    <form action="/CompanyAdmin/RegisterDepartment" method="post" class="update-accountCA" onsubmit="return checkallOutput()">
+                        
+                        <div class="input-containerCA">
+                            <input type="update_text" id="update-account-Skills" name="add-account-Department" style="width: 300px;" placeholder="Department" required>
+                        
+
+                            <h4>---Ensure there is a skill registered to the department before creating---</h4><br>
+
+                    
+                            <input type="text" id="SkillsInput" style="width: 300px;" placeholder="Declare required skills" >
+                            <h4>---Input 1 at a time---</h4><br>
+                        
+                            <!-- Add button outside of the select element -->
+                            <br>
+                            <button type="button" class="add-button" onclick="addSkillsAndPax()">Add</button>
+                            <br>
+                            <br>
+                        </div>
+
+                        <div class="skills-containerCA">
+                            <input type="hidden" id="SkillsOutput" style="width: 300px;" name="add-account-Skills" readonly>
+                        </div>
+
+                        <table id="SkillList">
+                            <thead>
+                                <tr>
+                                    <th>Skill(s) List</th>
+                                </tr>
+                            </thead>
+                            <tbody id="SkillListTableBody"></tbody>
+                        </table>
+
+                        <br>
+                        <button type="submit" class="submit-btn" onclick="checkallOutput()">Register</button>
+                    </form>
+                </section>
+            
+                <section class="company_accounts">
+
+            
+                    <h2 class="fs-title">Register Department Manager</h2>
+                    <h3 class="fs-subtitle"></h3>
+                
+
+
+                
+                    
+                    <form action="/CompanyAdmin/EmployeeAdd" method="post" class="update-accountCA">
+                            
+                        <div class="input-containerCA">
+                        
+                            <input type="update_text" id="update-account-Role" name="add-account-Name" style="width: 300px;" placeholder="Name" required>
+                        </div>
+                                            
+                        <div class="input-containerCA">
+                        
+                            <input type="update_text" id="update-account-Term" name="add-account-Number" style="width: 300px;" placeholder="Number" required>
+                        </div>
+                        
+                        <div class="input-containerCA">
+                        
+                            <input type="email" id="update-account-Skills" name="add-account-Email" style="width: 300px;" placeholder="Email" required>
+                        </div>
+
+                        <h4>---If the department is not listed below, register the department first---</h4>
+
+                        <div class="input-containerCA">
+                        
+                            <!-- <input type="update_text" id="update-account-Skills" name="add-account-Department" style="width: 300px;" required> -->
+                            <select id="SkillDepartment" name="add-account-Department" style="width: 300px;" required>
+                                <option value="" disabled selected>Select Department</option>
+                                <% for (var i = 0; i < CADeptView.length; i++) { %>
+                                    <option value="<%= CADeptView[i].Department %>"><%= CADeptView[i].Department %></option>
+                                <% } %>
+                            </select>
+                        </div>
+                            
+                        <div class="button-container">
+                            <button type="button" class="submit-btn" onclick="window.location.href='/CompanyAdmin/employeeview'">Cancel</button>
+                            <button type="submit" class="submit-btn">Register</button>
+
+                        </div>
+                    </form>
+                </section>
+            </main>
+        
+            </fieldset>
+
+        </container>
+        
+
+        <script>
+            // Function to add skills and update the second input field
+            function addSkillsAndPax() {
+                // Get the value from the Skills input field
+                const SkillsInput = document.getElementById("SkillsInput").value;
+        
+                // Get the second input field
+                const SkillsOutput = document.getElementById("SkillsOutput");
+
+                // Check if the SkillsInput is empty
+                if (SkillsInput.trim() === "") {
+                    // Show an error message pop-up or alert
+                    alert("Please enter a skill before adding.");
+                    return; // Exit the function
+                }
+        
+                // Check if the second input field already has a value
+                if (SkillsOutput.value) {
+                    // If it has a value, concatenate the new skill with a comma and space
+                    SkillsOutput.value += ', ' + SkillsInput;
+                } else {
+                    // If it doesn't have a value, set the value to the new skill
+                    SkillsOutput.value = SkillsInput;
+                }
+
+                ///////////////////Table Portion///////////////////
+                // Create a new row and cells for the table
+                const table = document.getElementById("SkillList");
+                const tbody = document.getElementById("SkillListTableBody");
+                const newRow = tbody.insertRow();
+                const SkillsInputCell = newRow.insertCell(0);
+
+                // Populate the cells with input values
+                SkillsInputCell.textContent = SkillsInput;
+                ///////////////////Table Portion///////////////////
+        
+                // Clear the Skills input field
+                document.getElementById("SkillsInput").value = "";
+            }
+
+            function checkallOutput() {
+
+                const SkillsOutput = document.getElementById("SkillsOutput").value;
+
+                if (SkillsOutput === "") {
+                    alert('Please Input The Skill(s) Needed For Your Department.');
+                    return false;
+                }else{
+
+                    return true;
+                }
+            }
+
+        </script>
+        
+    </body>
+</html>

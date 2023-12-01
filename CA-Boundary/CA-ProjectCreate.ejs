@@ -1,0 +1,338 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="../CSS/CACreateP.css">
+    <title>CA Project Create</title>
+</head>
+
+<body>
+    <body class="custom-body"> 
+        <div class="user-actionsCA">
+           
+        <nav> 
+            <div class="logo">EmpRoster</div> 
+            <div class="nav-items"> 
+              <a href="/CompanyAdmin/projectview">Projects</a> 
+              <a href="/CompanyAdmin/employeeview">Department Managers</a>
+              <a href="/CompanyAdmin/ViewAllEmployee">Employees</a>  
+              <a href="/CompanyAdmin/companyview">Company</a>  
+              <a href="/CompanyAdmin/departmentskills">Skills</a> 
+              <a href="/CompanyAdmin/enquiry">Enquiry</a> 
+              <a href="/CompanyAdmin/reviews">Reviews</a> 
+              <a href="/CompanyAdmin/profileview" >Profile</a> 
+              <a href="/Logout">Logout</a> 
+            </ul>
+        </nav>
+    </header>
+
+   <!-- multistep form -->
+   <container id="msform">
+       
+    <!-- progressbar -->
+    <ul id="progressbar">
+     
+     
+    </ul>
+    <!-- fieldsets -->
+    <fieldset>
+      <h2 class="fs-title">Create Project</h2>
+      <h3 class="fs-subtitle"></h3>
+                
+      <form class="custom-form" action="/CompanyAdmin/ProjectCreate" method="post" onsubmit="return checkallOutput()">
+
+                        <!-- Labels and textboxes in the same row -->
+                        <div class="input-container">
+                          
+                            <input type="text" id="project-name" name="project-name" placeholder="Project Name" required>
+                     
+
+                      
+                           
+                            <input type="text" id="project-description" name="project-description" placeholder="Project Description" required>
+                       
+                   
+                            <div class="input-container-project">
+                            <label for="project-description">Project Start Date</label>
+                            <input type="date" id="Startdate" name="start-date" placeholder="DD/MM/YYYY" onchange="elableEnddate()" required><br><br>
+                     
+         
+                     
+
+                           
+                            <label for="end-date">Project End Date</label>
+                            <input type="date" id="Enddate" name="end-date" placeholder="DD/MM/YYYY" onchange="checkprojectEndDate()" disabled="true"><br><br>
+                        </div>
+
+                        <div class="input-container-project-skill-pax-add">
+                              
+                                <select id="department" name="department" style="width: 300px;" placeholder="Department" onchange="loadSkills()">
+                                    <option value="" disabled selected>Select Department</option>
+                                    <% for (var i = 0; i < departments.length; i++) { %>
+                                        <option value="<%= departments[i] %>"><%= departments[i] %></option>
+                                    <% } %>
+                                </select>
+
+                            
+                                <select id="Skills" name="Skills" style="width: 300px;" placeholder="Skills" onchange="loadSkills()">
+                                    <option value="" disabled selected>Select Skills</option>
+                                </select>
+   
+                                <div class="input-container-project-manpower"></div>
+                               
+                                <input type="text" id="pax" name="pax" placeholder="Enter the required Manpower">
+
+                                <div class="input-container-project">
+                                <br>
+                                <label for="start-date">Project Member Start Date</label>
+                                <input type="date" id="SkillsStartdate" name="Skills-start-date" placeholder="DD/MM/YYYY" onchange="checkEmployeeStartDate()" disabled = "true">
+
+                                <br>
+                                <label for="end-date">Project Member End Date</label>
+                                <input type="date" id="SkillsEnddate" name="Skills-end-date" placeholder="DD/MM/YYYY" onchange="checkEmployeeEndDates()" disabled = "true">
+                            
+                                <!-- Add button outside of the select element -->
+                                <button type="button" class="submit-btn" onclick="addSkillsAndPax()">Add</button>
+                        </div>
+                        
+                        
+                        <!-- Table with 2 rows and 2 columns -->
+                        <div class="skills-containerCA">
+                            <!-- <h3>Departments/ Skills/ Pax List/ Start Date/ End Date :</h3> -->
+                            <br>
+                            <input type="hidden" id="allOutput" style="width: 1000px;" name="allOutput" readonly>
+                        </div>
+
+
+                        <table id="infoTable">
+                            <thead>
+                                <tr>
+                                    <th>Department</th>
+                                    <th>Skill</th>
+                                    <th>Manpower</th>
+                                    <th>Start Date</th>
+                                    <th>End Date</th>
+                                </tr>
+                            </thead>
+                            <tbody id="infoTableBody"></tbody>
+                        </table>
+                        
+
+                        <!-- Add button in the same grey form -->
+                        <br>
+                        <button type="button" class="submit-btn" onclick="window.location.href='/CompanyAdmin/projectview'">Cancel</button>
+                        <button type="submit" class="submit-btn" onclick="checkallOutput()">Create</button>
+                    </div>
+                </form>
+            </div>
+        </section>
+    </main>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            // Your JavaScript code here
+            function loadSkills() {
+                const departmentSelect = document.getElementById('department');
+                const skillsSelect = document.getElementById('Skills');
+
+                // Get the selected department from the dropdown
+                const selectedDepartment = departmentSelect.value;
+                // Get the value of DMupdateDapartmentUEN
+                // const UEN = DMupdateDapartmentUEN.value;
+
+                // If "Select New Department" is selected, clear the "Skills" dropdown
+                if (selectedDepartment === "") {
+                    skillsSelect.innerHTML = '<option value="" disabled selected>Select New Skills</option>';
+                    return;
+                }
+
+                // Make an AJAX request to fetch skills based on the selected department
+                fetch(`/CompanyAdmin/api/getSkills?department=${selectedDepartment}`)
+
+                    .then(response => response.json())
+                    .then(data => {
+                        // Clear the current options and populate with the fetched skills
+                        skillsSelect.innerHTML = '<option value="" disabled selected>Select New Skills</option>';
+                        data.forEach(skill => {
+                            const option = document.createElement('option');
+                            option.value = skill;
+                            option.textContent = skill;
+                            skillsSelect.appendChild(option);
+                        });
+                    })
+                    .catch(error => {
+                        console.error('Error fetching skills:', error);
+                    });
+            }
+
+
+            // Attach the loadSkills function to the department select's change event
+            const departmentSelect = document.getElementById('department');
+            departmentSelect.addEventListener('change', loadSkills);
+
+            
+        });
+
+        // Function to add skills and update the second input field
+        function addSkillsAndPax() {
+            // Get the value from the Skills input field
+            const departmentInput = document.getElementById("department").value;
+    
+            // Get the second input field
+            const SkillsInput = document.getElementById("Skills").value;
+
+            // Get the Third input field
+            const paxInput = document.getElementById("pax").value;
+
+            // Get the start date
+            const SkillsStartdate = document.getElementById("SkillsStartdate").value;
+
+            // Get the end date
+            const SkillsEnddate = document.getElementById("SkillsEnddate").value;
+
+            // Check if the skills and manpower fields are not empty
+            if (departmentInput === "" || SkillsInput === "" || paxInput === "" || SkillsStartdate === "" || SkillsEnddate === "") {
+                alert('Please fill out all Department, Skills, Manpower, Start and End Date fields before adding.');
+                return;
+            }
+
+            const allInput = departmentInput + " / " + SkillsInput + " / " + paxInput + " / " + SkillsStartdate + " / " + SkillsEnddate;
+
+            const allOutput = document.getElementById("allOutput");
+    
+            // Check if the second input field already has a value
+            if (allOutput.value) {
+                // If it has a value, concatenate the new skill with a comma and space
+                allOutput.value += ', ' + allInput;
+            } else {
+                // If it doesn't have a value, set the value to the new skill
+                allOutput.value = allInput;
+            }
+
+            ///////////////////Table Portion///////////////////
+            // Create a new row and cells for the table
+            const table = document.getElementById("infoTable");
+            const tbody = document.getElementById("infoTableBody");
+            const newRow = tbody.insertRow();
+            const departmentCell = newRow.insertCell(0);
+            const skillsCell = newRow.insertCell(1);
+            const paxCell = newRow.insertCell(2);
+            const startCell = newRow.insertCell(3);
+            const endCell = newRow.insertCell(4);
+
+            // Populate the cells with input values
+            departmentCell.textContent = departmentInput;
+            skillsCell.textContent = SkillsInput;
+            paxCell.textContent = paxInput;
+            startCell.textContent = SkillsStartdate;
+            endCell.textContent = SkillsEnddate;
+            ///////////////////Table Portion///////////////////
+    
+            // Clear the Skills input field
+            document.getElementById("department").value = "";
+            document.getElementById("Skills").value = "";
+            document.getElementById("pax").value = "";
+            document.getElementById("SkillsStartdate").value = "";
+            document.getElementById("SkillsEnddate").value = "";
+        }
+
+        function checkallOutput() {
+
+            const allOutput = document.getElementById("allOutput").value;
+
+            if (allOutput === "") {
+                alert('Please Input The Manpower Needed For Your Project.');
+                return false;
+            }
+
+            return true;
+        }
+
+
+        function elableEnddate() {
+
+            const Startdate = document.getElementById("Startdate").value;
+            const Enddate = document.getElementById("Enddate").value;
+
+            if (Startdate != "") {
+
+                if (Enddate != ""){
+                    if ((Enddate < Startdate)  ) {
+                        alert('Please Input The Correct End Date For Your Request. \n\nThe End Date Should Not Be Earlier Than Your Start Date!');
+                        document.getElementById("Enddate").value = "";
+                        document.getElementById("Startdate").value = "";
+                        document.getElementById("Enddate").disabled = true;
+                        document.getElementById("SkillsStartdate").disabled = true;
+                        return;
+                    }
+
+                }
+                document.getElementById("Enddate").disabled = false;
+
+            }
+
+            
+        }
+
+        function checkprojectEndDate() {
+
+            const Startdate = document.getElementById("Startdate").value;
+            const Enddate = document.getElementById("Enddate").value;
+
+            if (Startdate > Enddate) {
+                alert('Please Input The Correct End Date For Your Project. \n\nThe End Date Should Not Be Earlier Than Your Start Date!');
+                document.getElementById("Startdate").value = "";
+                document.getElementById("Enddate").value = "";
+                document.getElementById("Enddate").disabled = true;
+                
+            }
+
+            document.getElementById("SkillsStartdate").disabled = false;
+        }
+
+        function checkEmployeeStartDate() {
+
+            const Startdate = document.getElementById("Startdate").value;
+            const Enddate = document.getElementById("Enddate").value;
+            const SkillsStartdate = document.getElementById("SkillsStartdate").value;
+            const SkillsEnddate = document.getElementById("SkillsEnddate").value;
+
+            if ((SkillsStartdate < Startdate) || (SkillsStartdate > Enddate)) {
+                alert('Please Input The Correct Start Date For Your Project Member. \n\nThe Start Date Should Not Be Earlier Than Your Project Start Date OR Later Than Your Project End Date!');
+                document.getElementById("SkillsStartdate").value = "";
+                return;
+            }
+
+            document.getElementById("SkillsEnddate").disabled = false;
+        }
+
+        function checkEmployeeEndDates() {
+
+            const Startdate = document.getElementById("Startdate").value;
+            const Enddate = document.getElementById("Enddate").value;
+            const SkillsStartdate = document.getElementById("SkillsStartdate").value;
+            const SkillsEnddate = document.getElementById("SkillsEnddate").value;
+
+            if ((SkillsEnddate < Startdate) || (SkillsEnddate > Enddate) || (SkillsStartdate > SkillsEnddate)) {
+                alert('Please Input The Correct End Date For Your Project Member. \n\nThe End Date Should Not Be Earlier Than Your Project Start Date OR Later Than Your Project End Date!');
+                document.getElementById("SkillsEnddate").value = "";
+                return false;
+            }
+
+            return true;
+        }
+
+    </script>
+
+
+    
+
+
+
+
+
+
+    
+</body>
+</html>

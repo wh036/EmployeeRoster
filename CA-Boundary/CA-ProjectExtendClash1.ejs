@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CA Project Clash 1</title>
+    <link rel="stylesheet" type="text/css" href="../CSS/styles4.css">
+</head>
+
+<body>
+    <header>
+        <div class="user-actions">
+        
+        </div>
+    </header>
+
+    <main>
+        <div class="container">
+        <section class="Login">
+            <h2><u>WARNING!</u></h2>
+
+            <form action="" method="POST">
+                <div class="Logout">
+                    <h1>
+                        By Extending <%= EmployeeName %>'s End Date To <%= newEndDate %>, <br>
+                        Project <%= ProjectName %> End Date Will Need To Be Extended<br>
+                        From <%= currEndDate %> To <%= newEndDate %>, <br><br>
+                        Do You Accept The Changes? 
+                    <h1>
+                </div>
+
+                <div class="buttons5">
+                    <button type="submit" class="submit-btn" name="choice" value="no">Decline</button>
+                    <button type="submit" class="submit-btn" name="choice" value="yes">Accept</button>
+                </div>
+            </div>
+            </form>
+        </section>
+    </main>
+</body>
+</html>

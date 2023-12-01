@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>E Leave History</title>
+        <link rel="stylesheet" type="text/css" href="/CSS/styles.css">
+    </head>
+
+    <body class="custom-body">
+       
+       
+            <div class="user-actionsE">
+               
+             
+            </div>
+            
+            <nav>
+                <div class="logo">EmpRoster</div>
+                <div class="nav-items"> 
+                    <a href="/Employee/schedules">Schedule</a>
+                    <a href="/Employee/leavehistory">Leave & MC</a>
+                    <a href="/Employee/enquiry">Enquiry</a>
+                    <a href="/Employee/reviews">Reviews</a>
+                 
+                    <a href="/Employee/profileview" >Profile</a>
+                    <a href="/Logout">Logout</a>
+                </ul>
+            </nav>
+        </header>
+
+        <main>
+            <section class="company_accounts">
+
+                <h1>Leave Requests</h1>
+
+                <div class="divgroup">
+                    <div class="buttondiv indivdiv">
+                        <a href="/Employee/requestleave" class="button">Apply Leave</a>
+                    </div>
+                </div>
+
+                <table>
+                    <tr>
+                        <th>Leave Type</th>
+                        <th>Reason</th>
+                        <th>Start Date</th>
+                        <th>End Date</th>
+                        <th>Duration (Days)</th>
+                        <th>Status</th>
+                    </tr>
+                     <% if (results.length === 0) { %>
+                        <tr>
+                            <td colspan="6">No Accounts Available</td>
+                        </tr>
+                    <% } else { %>
+                    <% for (const request of results) { %>
+                        <tr>
+                            <td><%= request.LeaveType %></td>
+                            <td><%= request.Reason %></td>
+                            <td><%= request.FormattedStartDate %></td>
+                            <td><%= request.FormattedEndDate %></td>
+                            <td><%= request.DurationInDays %></td>
+                            <td><%= request.Status %></td>
+                        </tr>
+                        <% } %>
+                    <% } %>
+
+                </table><br><br>
+            </section>
+        </main>
+        
+    </body>
+</html>

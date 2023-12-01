@@ -1,0 +1,355 @@
+/*custom font*/
+/*@import url(https://fonts.googleapis.com/css?family=Montserrat);
+
+/*basic reset
+* {margin: 0; padding: 0;}
+
+html {
+	height: 100%;
+	/*Image only BG fallback*/
+	
+	/*background = gradient + image pattern combo*/
+	/*background: 
+		linear-gradient(rgba(196, 102, 0, 0.6), rgba(155, 89, 182, 0.6));
+}
+
+/* body {
+	font-family: montserrat, arial, verdana;
+}
+/*form styles*/
+
+/* Reset some default styles and set a base font size and family */
+
+* { 
+	box-sizing: border-box;
+	margin: 0; 
+	padding: 0; 
+	font-family: 
+	   Arial; 
+  } 
+   
+  nav { 
+	height: 80px; 
+	background: #fdcc04; 
+	display: flex; 
+	justify-content: space-between; 
+	align-items: center; 
+	padding: 0rem calc((100vw - 1300px) / 2); 
+  } 
+   
+  .logo { 
+	color: #000; 
+	font-size: 2.0rem; 
+	font-weight: bold; 
+	font-style: italic; 
+	padding: 0 2rem; 
+  } 
+   
+  nav a { 
+	text-decoration: none; 
+	color: #000; 
+	padding: 0 1.5rem; 
+  } 
+   
+  nav a:hover { 
+	color: #fff; 
+  } 
+   
+  .hero { 
+	background: #fdcc04; 
+  } 
+   
+  .hero-container { 
+	display: grid; 
+	grid-template-columns: 1fr 1fr; 
+	height: 80vh; 
+	padding: 3rem calc((100vw - 1300px) / 2); 
+  } 
+   
+  .column-left { 
+	display: flex; 
+	flex-direction: column; 
+	justify-content: center; 
+	align-items: flex-start; 
+	color: #000; 
+	padding: 0rem 2rem; 
+  } 
+   
+  .column-left h1 { 
+	margin-bottom: 1rem; 
+	font-size: 3rem; 
+  } 
+   
+  .column-left p { 
+	margin-bottom: 2rem; 
+	font-size: 1.5rem; 
+	line-height: 1.5; 
+  } 
+   
+  
+  button {
+    width: 150px; /* Fixed width in pixels */
+    height: 50px; /* Fixed height in pixels */
+    padding: 10px 30px; /* Adjust padding if needed */
+    font-size: 1rem;
+    border: none;
+    color: #fdcc04;
+    background: #000;
+    cursor: pointer;
+    border-radius: 50px;
+	margin-top:20px;
+}
+
+  .submit-btn {
+	margin-bottom: 10px; /* Add spacing to the right of the button */
+  }
+   
+  button:hover { 
+	background: #fff; 
+	color: #fdcc04; 
+  } 
+   
+  .column-right { 
+	display: flex; 
+	justify-content: center; 
+	align-items: center; 
+	padding: 0rem 2rem; 
+  } 
+   
+  .hero-image { 
+	width: 100%; 
+	height: 100%; 
+  } 
+   
+  @media screen and (max-width: 768px) { 
+	.hero-container { 
+	  grid-template-columns: 1fr; 
+	} 
+  } 
+  
+   /* Header Styles */
+   header {
+	background: #fdcc04;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	padding: 1rem 5%;
+  }
+	  
+	  
+	
+	  .enquires {
+	   
+		padding: 2rem;
+		border-radius:5px;
+		box-shadow: 0 0px 7px rgba(0, 0, 0, 0);
+		background-color: rgba(255, 255, 255, 0); /* Adjust the last value (0.7) to control transparency */
+	  }
+
+	  /* Set the background image for the section behind the container */
+  body {
+    /*background: url('/Images/a.jpeg') center / cover;
+    background-attachment: fixed;*/
+    background: url('/Images/yellow.jpg');
+    background-size: 2000px;
+    backdrop-filter: blur(3px);
+    
+  }
+
+
+  #msform {
+	width: 800px;
+	margin: 50px auto;
+	text-align: center;
+	position: relative;
+	height: 400px; /* Adjust the height to your preference */
+	margin-top: 30px;
+	margin-bottom: 20px; /* Add margin to create space at the bottom */
+  }
+  
+
+#msform fieldset {
+	background: #fff;
+	border: 0 none;
+	border-radius: 3px;
+	box-shadow: 0 0 15px 1px rgba(0, 0, 0, 0.8);
+	padding: 20px 30px;
+	box-sizing: border-box;
+	width: 80%;
+	margin: 0 10%;
+	margin-top: 20px;
+
+	
+	/*stacking fieldsets above each other*/
+	position: relative;
+}
+/*Hide all except first fieldset*/
+#msform fieldset:not(:first-of-type) {
+	display: none;
+}
+  
+/*inputs*/
+#msform input, #msform textarea {
+	padding: 10px;
+	border: 2px solid #808080;
+	border-radius: 6px;
+	margin-bottom: 10px;
+	width: 80%;
+	box-sizing: border-box;
+	font-family: montserrat;
+	color: #000;
+	font-size: 20px;
+
+}
+
+
+/*buttons*/
+#msform .action-button {
+	padding: 1rem 3rem; 
+	font-size: 1rem; 
+	border: none; 
+	color: #fdcc04; 
+	background: #000; 
+	cursor: pointer; 
+	border-radius: 20px; 
+	width:47%;
+	padding:20px;
+	
+	
+}
+#msform .action-button:hover, #msform .action-button:focus {
+	background:#fff;
+	color:#fdcc04;
+}
+/*headings*/
+/*.fs-title {
+	font-size: 25px;
+	
+	color: #000;
+	margin-bottom: 30px;
+	margin-top:30px;
+	font-style: italic;
+	text-align:left;
+}
+.fs-subtitle {
+	font-weight: normal;
+	font-size: 13px;
+	color: #666;
+	margin-bottom: 20px;
+}
+*/
+
+.fs-title {
+	font-size: 25px;
+	color: #000;
+	margin-bottom: 30px;
+	margin-top: 20px;
+	font-style:italic;
+	text-align: left;
+	position: relative;
+  }
+  
+  .fs-title::after {
+	content: '';
+	display: block;
+	width: 15%;
+	height: 3px; /* Increased line thickness */
+	background-color: #fdcc04; /* You can change the color if needed */
+	position: absolute;
+	bottom: 0;
+	left: 0;
+  }
+  
+  
+
+.input-container {
+	position: relative;
+  }
+  
+  .message {
+	display: none;
+	color: #000; /* Set the color for the message */
+	font-size: 20px;
+	margin-top: 10px;
+	margin-bottom:20px; 
+	font-style: italic;
+
+  }
+
+  
+  /* Hide the default select arrow */
+  .input-containerDM select {
+	
+	background-color: #000;
+	color: #fff;
+	padding: 10px;
+	width: 100%;
+	font-weight:bold;
+	text-transform:uppercase;
+	border: 1px solid #000;
+	border-radius: 5px;
+	cursor: pointer;
+	text-align:center;
+	
+  }
+  
+ /* Style the arrow icon */
+.input-containerDM select::after {
+	content: '\25BC'; /* Unicode character for a downward arrow */
+	position: absolute;
+	top: 50%;
+	right: 10px;
+	transform: translateY(-50%);
+	pointer-events: none;
+	color: #fff;
+  }
+  
+  /* Style the select dropdown */
+  .input-containerDM select {
+	width: 300px;
+	padding: 10px;
+	border: 1px solid #ccc;
+	border-radius: 5px;
+	font-size: 16px;
+	background-color: #000;
+	color: #fff;
+  }
+  
+  
+  /* Style on focus/hover */
+  .input-containerDM select:hover {
+	border-color: #333;
+  }
+  
+  /* Style for selected option */
+  .input-containerDM select option[selected] {
+	background-color: #333;
+  }
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* Style the label */
+/*
+.input-containerCA label {
+    font-weight: bold; /* Make the label text bold */
+   /* color: #333; /* Text color */
+  /*  margin-right: 10px; 
+	font-size:20px;
+	font-style:italic;
+
+} 
+*/
+
+

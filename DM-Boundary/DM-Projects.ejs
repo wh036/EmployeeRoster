@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" type="text/css" href="../CSS/styles.css">
+        <title>DM Projects View</title>
+    </head>
+
+    <body class="custom-body">
+        
+            
+        <div class="user-actionsDM">
+           
+          
+        </div>
+
+        <nav>
+            <div class="logo">EmpRoster</div>
+            <div class="nav-items"> 
+                <a href="/DepartmentManager/projects">Projects</a>
+                <a href="/DepartmentManager/employees">Employees</a>
+                <a href="/DepartmentManager/request">Requests</a>
+                <a href="/DepartmentManager/enquiry">Enquiry</a>
+                <a href="/DepartmentManager/reviews">Reviews</a>
+                <a href="/DepartmentManager/profileview" class="Profile-btn" id="Profile-btn">Profile</a>
+                <a href="/Logout" class="logout-btn" id="logout-btn">Logout</a>
+                </ul>
+            </nav>
+        </header>
+
+        <main>
+            <section class="enquires">
+                <!-- Project search bar -->
+                <form action="" method="#" class="search"> <!--change method to post for Back end-->
+                    <input type="text" id="projectSearch" name="projectSearch" placeholder="Search By Project Name" style="width: 300px;">
+                    <button type="submit" id="search-button" class="search-button">Search</button>
+                </form>
+
+                <!-- Project table -->
+                <table>
+                    <tr>
+                        <th>Project ID</th>
+                        <th>Project Name</th>
+                        <th>Project Description</th>
+                        <th>Start Date</th>
+                        <th>End Date</th>
+                        <th>Duration</th>
+                        <th>Departments</th>
+                        <th>Skills/Manpower</th>
+                        <th>Total Manpower For Project</th>
+                        <th>Total Manpower From Your Department</th>
+                        <th>Actions</th>
+                    </tr>
+
+                    <% if (results.length === 0) { %>
+                        <tr>
+                            <td colspan="10">No Projects At The Moment</td>
+                        </tr>
+                    <% } else { %>
+                        <% for (const DMproject of results) { %>
+                            <tr>
+                                <td><%= DMproject.ProjectID %></td>
+                                <td><%= DMproject.ProjectName %></td>
+                                <td><%= DMproject.ProjectDescription %></td>
+                                <td><%= DMproject.StartDate %></td>
+                                <td><%= DMproject.EndDate %></td>
+                                <td><%= DMproject.Duration %> Days</td>
+                                <td><%= DMproject.Departments %></td>
+                                <td><%= DMproject.Skills %></td>
+                                <td><%= DMproject.TotalManpower %></td>
+                                <td><%= DMproject.ManpowerCount %></td>
+                                <td>
+                                    <div class="button-form">
+                                        <button class="view-button" onclick="window.location.href='/DepartmentManager/projectdetailsview?ProjectID=<%= DMproject.ProjectID %>&ProjectName=<%= DMproject.ProjectName %>'">View</button>
+                                        <button class="update-button" onclick="window.location.href='/DepartmentManager/projectupdate?ProjectID=<%= DMproject.ProjectID %>&DMprojectUEN=<%= DMproject.UEN %>'">Update</button>
+                                        <button class="delete-button" onclick="window.location.href='/DepartmentManager/deleteProject?ProjectID=<%= DMproject.ProjectID %>&ProjectName=<%= DMproject.ProjectName %>'">Delete</button>
+                                    </div>
+                                </td>
+                            </tr>
+                        <% } %>
+                    <% } %>
+                
+                </table>
+                <button class="create-project-button" id="viewAllProjects" onclick="window.location.href='/DepartmentManager/viewallprojects'">View All Project Schedules</button>
+
+            </section>
+        </main>
+        
+       
+    </body>
+</html>

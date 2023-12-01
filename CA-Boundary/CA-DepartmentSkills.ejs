@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>CA Skills Information</title>
+        <link rel="stylesheet" type="text/css" href="../CSS/styles.css">
+    </head>
+    <body>
+        <body class="custom-body"> 
+            <div class="user-actionsCA">
+               
+            <nav> 
+                <div class="logo">EmpRoster</div> 
+                <div class="nav-items"> 
+                  <a href="/CompanyAdmin/projectview">Projects</a> 
+                  <a href="/CompanyAdmin/employeeview">Department Managers</a>
+                  <a href="/CompanyAdmin/ViewAllEmployee">Employees</a>   
+                  <a href="/CompanyAdmin/companyview">Company</a>  
+                  <a href="/CompanyAdmin/departmentskills">Skills</a> 
+                  <a href="/CompanyAdmin/enquiry">Enquiry</a> 
+                  <a href="/CompanyAdmin/reviews">Reviews</a> 
+                  <a href="/CompanyAdmin/profileview" >Profile</a> 
+                  <a href="/Logout">Logout</a> 
+                </ul>
+            </nav>
+        </header>
+        <main>
+            <section class="enquires">
+
+                <h3>Current Skills in Departments</h3>
+
+                <form action="" method="get" class="search"> <!--change method to post for Back end-->
+                    <input type="text" id="projectSearch" placeholder="Search Skill" name="searchInput" style="width: 300px;">
+                    <button type="submit" id="search-button" class="search-button">Search</button>
+                </form>
+
+                <table>
+                    <tr>
+                        <th>Department</th>
+                        <th>Skill</th>
+                        <th></th>
+                    </tr>
+
+                    <% if (CADeptSkill.length === 0) { %>
+                        <tr>
+                            <td colspan="3">No Departments Available</td>
+                        </tr>
+                    <% } else { %>
+                    <% for (const skills  of CADeptSkill) { %>
+                        <tr>
+                            <td><%= skills .Department %></td>
+                            <td><%= skills .Skill %></td>
+                            <td>
+                                <button class="delete-button" type="button" onclick="window.location.href='/CompanyAdmin/deleteSkills?DSID=<%= skills.DepartmentSkillsID %>&Skill=<%= skills.Skill %>&Department=<%= skills.Department %>'">Delete</button>
+                            </td>
+                        </tr>
+                        <% } %>
+                    <% } %>
+                </table>
+
+                <form action="/CompanyAdmin/Skillsadd" method="post" class="update-accountSA">
+    
+                    <div class="input-containerSA">
+                        <label for="update-account-Role">Department :</label>
+                        <select id="SkillDepartment" name="SkillDepartment" style="width: 300px;" required>
+                            <option value="" disabled selected>Select Department</option>
+                            <% for (var i = 0; i < CADeptView.length; i++) { %>
+                                <option value="<%= CADeptView[i].Department %>"><%= CADeptView[i].Department %></option>
+                            <% } %>
+                        </select>
+                    </div>
+                    
+                    <div class="input-containerSA">
+                        <label for="update-account-Skills">New Skill :</label>
+                        <input type="" id="update-account-Skills" name="NewSkill" required>
+                    </div>
+
+                    <div class="button-container">
+                        <button type="submit" class="submit-btn">Add Skills to Department</button>
+                    </div>
+                </form>
+
+            </section>
+        </main>
+
+       
+    </body>
+</html>
+

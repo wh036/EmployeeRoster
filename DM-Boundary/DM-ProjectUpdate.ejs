@@ -1,0 +1,343 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" type="text/css" href="../CSS/DM-UpdateP.css">
+        <title>DM Project Update</title>
+    </head>
+
+    <body class="custom-body">
+        
+            
+        <div class="user-actionsDM">
+           
+          
+        </div>
+
+        <nav>
+            <div class="logo">EmpRoster</div>
+            <div class="nav-items"> 
+                <a href="/DepartmentManager/projects">Projects</a>
+                <a href="/DepartmentManager/employees">Employees</a>
+                <a href="/DepartmentManager/request">Requests</a>
+                <a href="/DepartmentManager/enquiry">Enquiry</a>
+                <a href="/DepartmentManager/reviews">Reviews</a>
+                <a href="/DepartmentManager/profileview" class="Profile-btn" id="Profile-btn">Profile</a>
+                <a href="/Logout" class="logout-btn" id="logout-btn">Logout</a>
+                </ul>
+            </nav>
+        </header>
+
+        <main>
+            <!--View Project selected-->
+            <section class="company_accounts">
+                <!-- Grey form for Current Project Details -->
+                <div class="form-container">
+                      <!-- multistep form -->
+   
+       
+    <!-- progressbar -->
+    <ul id="progressbar">
+       
+     
+    </ul>
+  
+   
+      <h2 class="fs-title">Update Project</h2>
+      <h3 class="fs-subtitle"></h3>
+
+                    <table>
+                        <tr>
+                            <th>Project ID</th>
+                            <th>Project Name</th>
+                            <th>Project Description</th>
+                            <th>Project Start Date</th>
+                            <th>Project End Date</th>
+                        </tr>
+
+                        <% for (const DMproject of results) { %>
+                            <tr>
+                                <td><%= DMproject.ProjectID %></td>
+                                <td><%= DMproject.ProjectName %></td>
+                                <td><%= DMproject.ProjectDescription %></td>
+                                <td><%= DMproject.StartDate %></td>
+                                <td><%= DMproject.EndDate %></td>
+                            </tr>
+                        <% } %>
+                    </table>
+                    <br>
+
+                    <% if (results && results.length > 0) { %>
+                        <input type="hidden" name="projectStartDate" id="projectStartDate" value="<%= results[0].StartDate %>">
+                        <input type="hidden" name="projectEndDate" id="projectEndDate" value="<%= results[0].EndDate %>">
+                    <% } %>
+
+                    <form class="custom-form" action="/DepartmentManager/DMUpdateProjectDesc" method="post">
+                        <div class="grey-form">
+
+                            <% if (results && results.length > 0) { %>
+                                <input type="hidden" name="UpdateProjectID" value="<%= results[0].ProjectID %>">
+                            <% } %>
+
+                            <!-- Labels and textboxes in the same row -->
+                            <div class="input-container-project">
+                               
+                                <input type="text" id="project-description" name="UpdateProjectDescription" placeholder="Project Description">
+                            </div>
+    
+                            <br>
+
+                            <!-- <div class="input-container-project1">
+                                <label for="start-date">Project Start Date</label>
+                                <input type="date" id="startdate" name="UpdateStartDate" placeholder="DD/MM/YYYY"><br><br>
+                            </div> -->
+    
+                            <div class="input-container-project1">
+                                <label for="end-date">Project End Date</label>
+                                <input type="date" id="date" name="UpdateEndDate" placeholder="DD/MM/YYYY" onchange="checkProjectEndDates()"><br><br>
+                            </div>
+    
+                            <button type="submit" class="submit-btn" >Update</button>
+                        </div>
+                    </form>
+
+                    <container id="msform">
+                  
+                        <h2 class="fs-title">Current Project Members</h2>
+                        <h3 class="fs-subtitle"></h3>
+
+                    <!--Get current employee-->
+                    <table>
+                        <tr>
+                            <th>Department</th>
+                            <th>Skill</th>
+                            <th>Employee Name</th>
+                            <th>Employee Start Date</th>
+                            <th>Employee End Date</th>
+                            <th>Account ID</th>
+                            <th>Project ID</th>
+                            <th>Action</th>
+                        </tr>
+
+                        <% for (const DMCurEmp of results1) { %>
+                            <tr>
+                                <td><%= DMCurEmp.Department %></td>
+                                <td><%= DMCurEmp.Skill %></td>
+                                <td><%= DMCurEmp.EmployeeName %></td>
+                                <td><%= DMCurEmp.EmployeeStartDate %></td>
+                                <td><%= DMCurEmp.EmployeeEndDate %></td>
+                                <td><%= DMCurEmp.AccountID %></td><!--To be delete-->
+                                <td><%= DMCurEmp.ProjectID %></td><!--To be delete-->
+                                <td>
+                                    <div class="button-form">
+                                        <button class="delete-button" onclick="window.location.href='/DepartmentManager/projectmemberupdate?ProjectID=<%= DMCurEmp.ProjectID %>&AccountID=<%= DMCurEmp.AccountID %>'">Update</button>
+                                        <button class="delete-button" onclick="window.location.href='/DepartmentManager/RemoveProjectMembers?AccountID=<%= DMCurEmp.AccountID %>&ProjectID=<%= DMCurEmp.ProjectID %>&EmployeeName=<%= DMCurEmp.EmployeeName %>'">Delete</button>
+                                    </div>
+                                </td>
+                            </tr>
+                        <% } %>
+                    </table>
+                    <br>
+
+                    <h2 class="fs-title">Add Project Members</h2>
+                    <h3 class="fs-subtitle"></h3>
+                    <form class="custom-form" action="/CompanyAdmin/CAAddProjectMembers" method="post">
+                        <div class="grey-form">
+
+                            <div class="input-container-project-dep">
+
+                            <% if (results && results.length > 0) { %>
+                                <input type="hidden" name="UpdateEmpProjectID" value="<%= results[0].ProjectID %>" >
+                            <% } %>
+
+
+                          
+                            <!-- <label for="Dapartment">Specify Skill :</label> -->
+                            <% if (results1 && results1.length > 0) { %>
+                                <input id="department" type="hidden" name="UpdateEmpdepartment" value="<%= results1[0].Department %>" readonly>
+                            <% } %>
+
+                            <div class="input-container-project-skill-pax-add">
+                            <select id="Skills" name="UpdateEmpSkills" style="width: 300px;">
+                                <option value="" disabled selected>Select Skills</option>
+                                <% for (const skill of results2) { %>
+                                    <option value="<%= skill.Skill %>"><%= skill.Skill %></option>
+                                <% } %>
+                            </select>
+
+                            <br>
+                            <br>
+                            <div class="input-container-project2">
+                            <label for="start-date">Employee Start Date</label>
+                            <input type="date" id="SkillsStartdate" name="UpdateEmpStartDate" placeholder="DD/MM/YYYY" onchange="checkEmployeeStartDate()">
+
+                            <br>
+                            <br>
+                            <div class="input-container-project2">
+                            <label for="end-date">Employee End Date</label>
+                            <input type="date" id="SkillsEnddate" name="UpdateEmpEndDate" placeholder="DD/MM/YYYY" disabled onchange="checkEmployeeEndDates()">
+
+                            <br>
+                         
+                            <select id="Employee" name="UpdateEmpID" style="width: 300px;" required onchange="loadEmployees()">
+                                <option value="" disabled selected>Select Employee</option>
+                            </select>
+                            
+                            <div class="special-button-group"></div>
+                            <button type="button" class="submit-btn" onclick="window.location.href='/DepartmentManager/Projects'">Cancel</button>
+                            <button type="submit" class="submit-btn" >Add</button> 
+                        </div>
+                    </form>
+
+
+
+                </div>
+            </section>
+
+
+
+        </main>
+
+       
+        <script>
+            document.addEventListener('DOMContentLoaded', function () {
+                // Your JavaScript code here
+        
+                // Initialize a flag to track whether all required fields are filled
+                let allFieldsFilled = false;
+        
+                // Function to check if all required fields are filled
+                function checkAllFieldsFilled() {
+                    const departmentSelect = document.getElementById('department');
+                    const skillsSelect = document.getElementById('Skills');
+                    const startDateInput = document.getElementById('SkillsStartdate');
+                    const endDateInput = document.getElementById('SkillsEnddate');
+                    const employeeSelect = document.getElementById('Employee');
+        
+                    // Check if all required fields have values
+                    allFieldsFilled =
+                        departmentSelect.value !== '' &&
+                        skillsSelect.value !== '' &&
+                        startDateInput.value !== '' &&
+                        endDateInput.value !== '';
+        
+                    // Enable or disable the "Employee" select based on the flag
+                    // employeeSelect.disabled = !allFieldsFilled;
+
+                    if (allFieldsFilled) {
+                    loadEmployees();
+            }
+                }
+        
+                // Function to populate the "Employee" select box
+                function loadEmployees() {
+                    if (allFieldsFilled) {
+                        const departmentSelect = document.getElementById('department');
+                        const skillsSelect = document.getElementById('Skills');
+                        const startDateInput = document.getElementById('SkillsStartdate');
+                        const endDateInput = document.getElementById('SkillsEnddate');
+                        const employeeSelect = document.getElementById('Employee');
+        
+                        // Get the selected department, skills, and dates
+                        const selectedDepartment = departmentSelect.value;
+                        const selectedSkills = skillsSelect.value;
+                        const startDate = startDateInput.value;
+                        const endDate = endDateInput.value;
+        
+                        // Make an AJAX request to fetch employees based on the selected criteria
+                        fetch(`/DepartmentManager/api/getEmployees?department=${selectedDepartment}&skills=${selectedSkills}&start_date=${startDate}&end_date=${endDate}`)
+                            .then(response => response.json())
+                            .then(data => {
+                                // Clear the current options and populate with the fetched employees
+                                employeeSelect.innerHTML = '<option value="" disabled selected>Select Employee</option>';
+                                data.forEach(employees => {
+                                    const option = document.createElement('option');
+                                    option.value = employees.AccountID;
+                                    option.textContent = employees.Name;
+                                    employeeSelect.appendChild(option);
+                                });
+                            })
+                            .catch(error => {
+                                console.error('Error fetching employees:', error);
+                            });
+                    }
+                }
+        
+                // Attach the checkAllFieldsFilled function to the change event of the required fields
+                const departmentSelect = document.getElementById('department');
+                const skillsSelect = document.getElementById('Skills');
+                const startDateInput = document.getElementById('SkillsStartdate');
+                const endDateInput = document.getElementById('SkillsEnddate');
+                departmentSelect.addEventListener('change', checkAllFieldsFilled);
+                skillsSelect.addEventListener('change', checkAllFieldsFilled);
+                startDateInput.addEventListener('change', checkAllFieldsFilled);
+                endDateInput.addEventListener('change', checkAllFieldsFilled);
+        
+                // Attach the loadEmployees function to the change event of the "Employee" select
+                // const employeeSelect = document.getElementById('Employee');
+                // employeeSelect.addEventListener('change', loadEmployees);
+            });
+
+            function checkEmployeeStartDate() {
+
+                const projectStartDate = document.getElementById("projectStartDate").value;
+                const projectEndDate = document.getElementById("projectEndDate").value;
+                const SkillsStartdate = document.getElementById("SkillsStartdate").value;
+                const SkillsEnddate = document.getElementById("SkillsEnddate").value;
+                console.log(projectStartDate);
+                console.log(projectEndDate);
+
+                if ((SkillsStartdate < projectStartDate) || (SkillsStartdate > projectEndDate)) {
+                    alert('Please Input The Correct Start Date For Your Project Member. The Start Date Should Not Be Earlier Than Your Project Start Date OR Later Than Your Project End Date!');
+                    document.getElementById("SkillsStartdate").value = "";
+                    document.getElementById("SkillsEnddate").disabled = true;
+                    return;
+                }
+
+                document.getElementById("SkillsEnddate").disabled = false;
+                document.getElementById("SkillsEnddate").value = "";
+            }
+
+            function checkEmployeeEndDates() {
+
+                const projectStartDate = document.getElementById("projectStartDate").value;
+                const projectEndDate = document.getElementById("projectEndDate").value;
+                const SkillsStartdate = document.getElementById("SkillsStartdate").value;
+                const SkillsEnddate = document.getElementById("SkillsEnddate").value;
+
+                if ((SkillsEnddate < projectStartDate) || (SkillsEnddate > projectEndDate) || (SkillsStartdate > SkillsEnddate)) {
+                    alert('Please Input The Correct End Date For Your Project Member. The End Date Should Not Be Earlier Than Your Project Start Date OR Later Than Your Project End Date!');
+                    document.getElementById("SkillsEnddate").value = "";
+                    return false;
+                }
+
+                return true;
+            }
+
+            function checkProjectEndDates() {
+
+                const projectStartDate = document.getElementById("projectStartDate").value;
+                const projectEndDate = document.getElementById("projectEndDate").value;
+                const NewprojectStartDate = document.getElementById("startdate").value;
+                const NewprojectEndDate = document.getElementById("date").value;
+
+                if(NewprojectStartDate != ""){
+                    if ((NewprojectEndDate < NewprojectStartDate)  ) {
+                        alert('Please Input The Correct New Dates For Your Project. \n\nThe New Project End Date Should Not Be Earlier Than Your New Project Start Date!');
+                        document.getElementById("date").value = "";
+                        document.getElementById("startdate").value = "";
+                        return;
+                    }
+                }else {
+                    if (NewprojectEndDate < projectStartDate) {
+                        alert('Please Input The Correct End Date For Your Project. \n\nThe New Project End Date Should Not Be Earlier Than Your Current Project Start Date!');
+                        document.getElementById("date").value = "";
+                        return;
+                    }
+                }
+            }
+
+        </script>
+    </body>
+</html>

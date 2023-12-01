@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>EmpRoster Reviews Page</title>
+        <link rel="stylesheet" href="../CSS/styles3.css">
+    </head>
+
+    <body>
+        <header>
+            <div class="user-actions">
+                <a><img src="../Images/EmpRosterheader.png"></a>
+                <a href="/Login" class="login-btn">Login</a>
+                <a href="/registration" class="register-btn">Register Account</a>
+            </div>
+            
+            <nav>
+                <ul>
+                    <a href="/">Home</a>
+                    <a href="/enquiry">Enquiry</a>
+                    <a href="reviews">Reviews</a>
+                </ul>
+            </nav>
+
+        </header>
+
+        <!-- MAIN CONTENT SECTION -->
+        <main>
+            <section class="review-table">
+            
+                <p class = "review-head">Leave us a Review!</p>
+                <nav>
+                    <form action="" method="post" class = "review-submit">                
+                    <label for="contact-us-name">Name :</label>
+                    <input type="text" id="name" name="name" required>
+
+                    <label for="contact-us-category">Category :</label>
+                    <select id="category" name="category" required>
+                          <option value="Product Quality">Product Quality</option>
+                          <option value="User Experience">User Experience</option>
+                          <option value="Customer Support">Customer Support</option>
+                          <option value="Features and Functionality">Features and Functionality</option>
+                          <option value="Value for Money">Value for Money</option>
+                          <option value="Ease of Use">Ease of Use</option>
+                          <option value="Overall Satisfaction">Overall Satisfaction</option>
+                          <option value="Recommendation">Recommendation</option>
+                          <option value="Other">Other</option>
+                    </select>
+
+                    <label for="contact-us-rating">Rating :</label>
+                    <select id="rating" name="rating" required>
+                        <option value="1">1</option>
+                        <option value="2">2</option>
+                        <option value="3">3</option>
+                        <option value="4">4</option>
+                        <option value="5" selected>5</option>
+                    </select>
+                </nav><br>
+
+
+                    <textarea id="reviewmessage" name="reviewmessage" class = "review-message" rows="10" required></textarea>
+
+                    <button type="review-submit" class="submit-btn" onclick="location.reload();">Submit</button>
+                </form>
+
+            </section>
+        </main>
+          
+        <!-- FOOTER SECTION -->
+        <footer>
+            <p>&copy; 2023 EmpRoster</p>
+        </footer>
+    </body>
+</html>

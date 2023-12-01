@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>SA Pending Registration</title>
+        <link rel="stylesheet" href="../CSS/styles.css">
+     
+    </head>
+
+    <body body class="custom-body">
+       
+            
+            <div class="user-actionsSA">
+               
+               
+            
+            
+            <nav>
+                <div class="logo">EmpRoster</div>
+                <div class="nav-items"> 
+                    <a href="/SystemAdmin/pendingregistration">Pending Registration</a>
+                    <a href="/SystemAdmin/accounts">Accounts</a>
+                    <a href="/SystemAdmin/edithome">Edit Home</a>
+                    <a href="/SystemAdmin/enquiries">Enquiry</a>
+                    <a href="/SystemAdmin/reviews">Reviews</a>
+                    <a href="/Logout">Logout</a>
+                </ul>
+            </nav>
+
+        </header>
+
+        <!-- MAIN CONTENT SECTION -->
+        <main>
+            <section class="pending_accounts">
+                <p class = "review-head">Pending Account Registrations</p>
+            
+                <table> <!-- Use the border attribute for table borders -->
+                    <tr>
+                        <th>UEN</th>
+                        <th>Company Name</th>
+                        <th>Company Email</th>
+                        <th>Company Number</th>
+                        <th>Company Address</th>
+                        <th>Payment Status</th>
+                        <th>Approve / Decline</th>
+                    </tr>
+                        
+                    <!-- Loop through the results and display them -->
+                    <% if (results.length === 0) { %>
+                        <tr>
+                            <td colspan="7">No Pending Account is Available</td>
+                        </tr>
+                    <% } else { %>
+                    <% for (const pendingAccounts of results) { %>
+                        <tr>
+                            <td><%= pendingAccounts.UEN %></td>
+                            <td><%= pendingAccounts.CompanyName %></td>
+                            <td><%= pendingAccounts.CompanyEmail %></td>
+                            <td><%= pendingAccounts.CompanyNumber %></td>
+                            <td><%= pendingAccounts.CompanyAddress %></td>
+                            <td><%= pendingAccounts.PaymentStatus %></td>
+                            <td>
+                                <button type="button" class="approve-btn" onclick="window.location.href='/SystemAdmin/approveAccount?UEN=<%= pendingAccounts.UEN %>'">Approve</button>
+                                <button type="button" class="approve-btn" onclick="window.location.href='/SystemAdmin/declineAccount?UEN=<%= pendingAccounts.UEN %>'">Decline</button>
+                                <button type="button" class="approve-btn" onclick="window.location.href='/SystemAdmin/viewACRA?UEN=<%= pendingAccounts.UEN %>'">View ACRA</button>
+                            </td>
+                            </tr>
+                        <% } %>
+                    <% } %>
+                </table>
+            </section>
+        </main>
+    </body>
+</html>

@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login Page</title>
+    <link rel="stylesheet" type="text/css" href="../CSS/styles4.css">
+</head>
+
+<body>
+    <header>
+        <div class="user-actions">
+            <a>EmpRoster</a>
+        </div>
+    </header>
+
+    <main>
+        <div class="container">
+        <section class="Login">
+            <h2><u>Confirmation:</u></h2>
+
+            <form action="/delete" method="POST"> <!-- Updated action to /logout -->
+                <div class="Logout">
+                    <h1>Are you sure you want to Delete?</h1>
+                </div>
+
+                <div class="buttons">
+                    <button type="submit" class="submit-btn" name="choice" value="no">No</button>
+                    <button type="submit" class="submit-btn" name="choice" value="yes">Yes</button>
+                </div>
+            </div>
+            </form>
+        </section>
+    </main>
+</body>
+</html>

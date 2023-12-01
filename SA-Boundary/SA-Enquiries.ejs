@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>SA Enquiries</title>
+        <link rel="stylesheet" href="../CSS/styles.css">
+      
+    </head>
+
+    <body body class="custom-body">
+       
+            
+        <div class="user-actionsSA">
+           
+           
+        
+        
+        <nav>
+            <div class="logo">EmpRoster</div>
+            <div class="nav-items"> 
+                <a href="/SystemAdmin/pendingregistration">Pending Registration</a>
+                <a href="/SystemAdmin/accounts">Accounts</a>
+                <a href="/SystemAdmin/edithome">Edit Home</a>
+                <a href="/SystemAdmin/enquiries">Enquiry</a>
+                <a href="/SystemAdmin/reviews">Reviews</a>
+                <a href="/Logout">Logout</a>
+            </ul>
+        </nav>
+        </header>
+
+        <!-- MAIN CONTENT SECTION -->
+        <main>
+            <section class="enquires">
+                <p class = "review-head"></p>
+                <h3>Enquires</h3> 
+
+                <form action="" method="get" class="search">
+
+                    <select id="category" name="category">
+                        <option value="" disabled selected>Search by Category</option>
+                        <option value="Billing and Payment">Billing and Payment</option>
+                        <option value="Account Issues">Account Issues</option>
+                        <option value="Feature Requests">Feature Requests</option>
+                        <option value="Technical Support">Technical Support</option>
+                        <option value="User Permissions">User Permissions</option>
+                        <option value="Data Security">Data Security</option>
+                        <option value="Integration Support">Integration Support</option>
+                        <option value="General Assistance">General Assistance</option>
+                    </select>
+
+                    <button type="submit" id="search-button" class="search-button">Search</button>
+                </form>
+
+                <table> <!-- Use the border attribute for table borders -->
+                    <tr>
+                        <th>Enquiry ID</th>
+                        <th>Name</th>
+                        <th>Category</th>
+                        <th>Email</th>
+                        <th>Message</th>
+                        <th></th>
+                    </tr>
+
+                    <% if (results.length === 0) { %>
+                        <tr>
+                            <td colspan="6">No Enquiry At The Moment</td>
+                        </tr>
+                    <% } else { %>
+                        <% for (const SAenquiry of results) { %>
+                            <tr>
+                                <td><%= SAenquiry.EnquiryID %></td>
+                                <td><%= SAenquiry.Name %></td>
+                                <td><%= SAenquiry.Category %></td>
+                                <td><%= SAenquiry.Email %></td>
+                                <td><%= SAenquiry.Message %></td>
+                                <td>
+                                    <button type="button" class="delete-button" onclick="window.location.href='/SystemAdmin/deleteenquiry?EnquiryID=<%= SAenquiry.EnquiryID %>&Message=<%= SAenquiry.Message %>'">Delete</button>
+                                </td>
+                            </tr>
+                        <% } %>
+                    <% } %>
+                    
+                </table>
+            </section>
+        </main>
+
+      
+    </body>
+</html>

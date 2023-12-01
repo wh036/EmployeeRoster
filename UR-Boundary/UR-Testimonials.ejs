@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Testimonials</title>
+    <link rel="stylesheet" href="../CSS/Testimonial.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"/>
+  </head>
+
+  <body>
+    <div class="wrapper">
+      <div class="header">
+        Hear What Others Have to Say
+      </div>
+      <div class="slider-container">
+        <div class="slider">
+          <% for (const URreview of reviewresults) { %>
+            <div class="slide">
+              <i class="fas fa-heart"></i>
+              <p><%= URreview.Message %></p>
+              <div class="content">
+                <div class="info">
+                  <div class="name"><%= URreview.Name %></div>
+                  <div class="job">Industry: <%= URreview.Industry %> | Company: <%= URreview.CompanyName %> | 
+                  </div>
+                  Rating:<div class="stars">
+                    <% for (let i = 0; i < URreview.Rating; i++) { %>
+                      <i class="fas fa-star"></i>
+                      <% } %></div>
+                    </div>
+                    <div class="image">
+                      <img src="../Images/clock.jpg" alt="Profile Image">
+                    </div>
+                  </div>
+                </div>
+                <% } %>
+              </div>
+            </div>
+        </div>
+      </div>
+      <div class="back-button" id="backButton" onclick="window.location.href='/'">Back</div>
+    </div>
+  </body>
+</html>

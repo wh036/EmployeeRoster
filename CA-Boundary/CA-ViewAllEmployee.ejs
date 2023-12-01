@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" type="text/css" href="../CSS/styles.css">
+        <title>CA Employee Directory</title>
+    </head>
+
+    <body>
+        <body class="custom-body"> 
+            <div class="user-actionsCA">
+               
+            <nav> 
+                <div class="logo">EmpRoster</div> 
+                <div class="nav-items"> 
+                  <a href="/CompanyAdmin/projectview">Projects</a> 
+                  <a href="/CompanyAdmin/employeeview">Department Managers</a>
+                  <a href="/CompanyAdmin/ViewAllEmployee">Employees</a>  
+                  <a href="/CompanyAdmin/companyview">Company</a>  
+                  <a href="/CompanyAdmin/departmentskills">Skills</a> 
+                  <a href="/CompanyAdmin/enquiry">Enquiry</a> 
+                  <a href="/CompanyAdmin/reviews">Reviews</a> 
+                  <a href="/CompanyAdmin/profileview" >Profile</a> 
+                  <a href="/Logout">Logout</a> 
+                </ul>
+            </nav>
+        </header>
+
+        <main>
+            <section class="enquires">
+                <!-- Employee search bar -->
+                <form action="" method="#" class="search"> <!--change method to post for Back end-->
+                    <select id="CAupdateDapartmentBox" name="CASearchDapartmentBox" style="width: 300px;">
+                        <option value="" disabled selected>Search Employee By Department</option>
+                        <% for (var i = 0; i < departments.length; i++) { %>
+                            <option value="<%= departments[i] %>"><%= departments[i] %></option>
+                        <% } %>
+                    </select>
+
+                    <button type="submit" id="search-button" class="search-button">Search</button>
+                </form>
+
+                <!-- Employee table -->
+                <table>
+                    <tr>
+                        <!-- <th>Account ID</th> -->
+                        <th>Name</th>
+                        <th>Email</th>
+                        <th>Number</th>
+                        <th>Role</th>
+                        <th>Department</th>
+                        <th>Skill</th>
+                    </tr>
+                    
+                    <% if (results.length === 0) { %>
+                        <tr>
+                            <td colspan="13">No Accounts Available</td>
+                        </tr>
+                    <% } else { %>
+                    <% for (const CAaccount of results) { %>
+                        <tr>
+                            <!-- <td><%= CAaccount.AccountID %></td> -->
+                            <td><%= CAaccount.Name %></td>
+                            <td><%= CAaccount.Email %></td>
+                            <td><%= CAaccount.Number %></td>
+                            <td><%= CAaccount.Role %></td>
+                            <td><%= CAaccount.Department %></td>
+                            <td><%= CAaccount.Skill %></td>
+                        </tr>
+                        <% } %>
+                    <% } %>
+
+                </table>
+            
+            </section>
+        </main>
+    </body>
+</html>

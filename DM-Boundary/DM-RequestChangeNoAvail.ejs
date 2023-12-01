@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DM RequestChangeNoAvail</title>
+    <link rel="stylesheet" type="text/css" href="../CSS/styles4.css">
+</head>
+
+<body>
+    <header>
+        <div class="user-actions">
+           
+        </div>
+    </header>
+
+    <main>
+        <div class="container">
+        <section class="Login">
+            <h2><u>WARNING!</u></h2>
+
+            <form action="" method="POST"> <!-- Updated action to /logout -->
+
+                <!-- <input type="" name="ProjectID" value=""> -->
+
+                <div class="Logout">
+                    <input type="hidden" name="RequestID" value="<%= RequestID %>">
+                    <h1>
+                        There Is No One Replacing <%= Requestee %>'s Leave Request,<br>
+                        From <%= StartDate %> To <%= EndDate %><br>
+                        For <%= ProjectName %>
+                        <br><br>
+                        Are You Sure To Approve The Leave Request?
+                    </h1>
+                </div>
+
+                <div class="buttons4">
+                    <button type="button" class="submit-btn" name="choice" value="no" onclick="window.location.href='/DepartmentManager/request'">No</button>
+                    <button type="submit" class="submit-btn" name="choice" value="yes">Yes</button>
+                </div>
+            </div>
+            </form>
+        </section>
+    </main>
+</body>
+</html>

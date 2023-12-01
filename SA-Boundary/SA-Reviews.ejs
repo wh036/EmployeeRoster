@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">    
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>SA Reviews</title>
+       
+        <link rel="stylesheet" href="../CSS/SA-RTable.css"> 
+    </head>
+
+    <body body class="custom-body">
+       
+            
+        <div class="user-actionsSA">
+           
+           
+        
+        
+        <nav>
+            <div class="logo">EmpRoster</div>
+            <div class="nav-items"> 
+                <a href="/SystemAdmin/pendingregistration">Pending Registration</a>
+                <a href="/SystemAdmin/accounts">Accounts</a>
+                <a href="/SystemAdmin/edithome">Edit Home</a>
+                <a href="/SystemAdmin/enquiries">Enquiry</a>
+                <a href="/SystemAdmin/reviews">Reviews</a>
+                <a href="/Logout">Logout</a>
+            </ul>
+        </nav>
+
+        </header>
+
+        <!-- MAIN CONTENT SECTION -->
+        <main>
+            <section class="review-table">
+                <p class = "review-head"></p>
+                <h3>Reviews</h3>
+
+                <form action="" method="get" class="search">
+                    <select id="category" name="category">
+                        <option value="" disabled selected>Search by Category</option>
+                        <option value="Product Quality">Product Quality</option>
+                        <option value="User Experience">User Experience</option>
+                        <option value="Customer Support">Customer Support</option>
+                        <option value="Features and Functionality">Features and Functionality</option>
+                        <option value="Value for Money">Value for Money</option>
+                        <option value="Ease of Use">Ease of Use</option>
+                        <option value="Overall Satisfaction">Overall Satisfaction</option>
+                        <option value="Recommendation">Recommendation</option>
+                        <option value="Other">Other</option>
+                    </select>
+
+                    <button type="submit" id="search-button" class="search-button">Search</button>
+                </form>
+
+                <table class="custom-tableSA"> <!-- Use the border attribute for table borders -->
+                    <tr>
+                        <th>Review ID</th>
+                        <th>Name</th>
+                        <th>Category</th>
+                        <th>Rating</th>
+                        <th>Message</th>
+                        <th>Post</th>
+                        <th></th>
+                    </tr>
+
+                    <% if (results.length === 0) { %>
+                        <tr>
+                            <td colspan="6">No Reviews At The Moment</td>
+                        </tr>
+                    <% } else { %>
+                        <% for (const SAreview of results) { %>
+                            <tr>
+                                <td><%= SAreview.ReviewID %></td>
+                                <td><%= SAreview.Name %></td>
+                                <td><%= SAreview.Category %></td>
+                                <td><%= SAreview.Rating %></td>
+                                <td><%= SAreview.Message %></td>
+                                <td><%= SAreview.Post %></td>
+                                <td>
+                                    <form action="/SystemAdmin/reviews" method="POST" class="button-form"> <!-- Updated action to /logout -->
+                                        <input type="hidden" name="ReviewID" value="<%= SAreview.ReviewID %>">
+                                        <button type="submit" class="update-button" name="choice" value="Posted">Post</button>
+                                        <button type="submit" class="update-button" name="choice" value="Unposted">Unpost</button>
+                                        <button type="button" class="delete-button" onclick="window.location.href='/SystemAdmin/deletereview?ReviewID=<%= SAreview.ReviewID %>&Message=<%= SAreview.Message %>'">Delete</button>
+                                    </form>
+                                </td>
+                            </tr>
+                        <% } %>
+                    <% } %>
+                    </table>
+            </section>
+        </main>
+    </body>
+</html>
+

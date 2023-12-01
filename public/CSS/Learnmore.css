@@ -1,0 +1,220 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700&display=swap');
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins',sans-serif;
+  }
+  body{
+    display: flex;
+    width: 100%;
+    height: 100vh;
+    align-items: center;
+    justify-content: center;
+    background: url('/Images/yellow.jpg');
+    background-size: 2000px;
+  }
+  ::selection{
+    background: #fee6eb;
+  }
+  body:before{
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 100%;
+   
+  }
+  .container{
+    display: flex;
+    max-width: 1500px;
+    max-height: 2100px;
+    background: #fff;
+    border-radius: 12px;
+    justify-content: space-between;
+    box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.15);
+    position: relative;
+  }
+  .container::before{
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0;
+    height: 100%;
+    width: 100%;
+    border-radius: 12px;
+    clip-path: circle(57% at right 30%);
+    background-image: linear-gradient( 135deg, red 10%, #fdcc04 100%);
+    box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.15);
+
+  }
+  .container .box.one{
+    padding: 35px 5px 0px 35px;
+  }
+  .box.one .details .topic{
+    font-size: 30px;
+    font-weight: 500;
+    padding-left: 100px;
+  }
+
+  .topic2{
+    padding-left: 100px;
+    max-height: 800px; /* Set a maximum height for the scrollable area */
+  overflow-y: auto; /* Enable vertical scrolling when content overflows */
+    
+   
+  }
+  .box.one .details p{
+    color: #737373;
+    font-size: 13px;
+    font-weight: 500;
+    padding-right: 100px;
+  }
+  .box.one .rating{
+    color: #fd9bb0;
+    font-size: 14px;
+    margin-top: 10px;
+    padding-left: 150px;
+  }
+
+  
+  .box.one .price-box{
+    margin-top: 16px;
+    padding-left: 100px;
+  }
+  .box.one .discount{
+    font-size: 20px;
+    margin: 10px 0 0 12px;
+    position: relative;
+    color: #737373;
+    padding-left: 120px;
+  }
+  .box.one .discount:before{
+    content: '';
+    position: absolute;
+    height: 1px;
+    width: 100px;
+    background: #737373;
+    top: 50%;
+    left: -8px;
+    padding-left: 210px;
+  }
+  .box.one .price{
+    color: #fc6989;
+    font-size: 30px;
+    padding-left: 60px;
+  }
+  .box.one .button1{
+    margin-top: 55px;
+    padding-left: 180px;
+    padding-bottom: 50px;
+  }
+  .box.one .button1 button{
+    padding: 15px 20px; 
+    font-size: 1rem;
+    font-weight: 500;
+    border: none; 
+    color: #fdcc04; 
+    background: #000; 
+    cursor: pointer; 
+    border-radius: 50px;
+  }
+  .box.one .button1 button:hover{
+    background: #fdcc04; 
+    color: #000; 
+  }
+  .image {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    padding-right: -100px;
+  }
+  .image img{
+    height: 30%;
+    width: 30%;
+    object-fit: cover;
+    border-radius: 10px;
+    
+  }
+  .box.two {
+    position: relative;
+    text-align: center;
+    padding-left: 250px;
+    right: 0;
+    bottom: 27px;
+  }
+  .box.two .image-box .info{
+    margin: 0 35px 0 0;
+  }
+  .box.two .info .brand{
+   font-size: 17px;
+   font-weight: 600;
+   color: #c9032e;
+   padding-left: 40px;
+  }
+  .box.two .info .name{
+   font-size: 20px;
+   font-weight: 500;
+   color: #fff;
+   padding-left: 40px;
+  }
+  .box.two .info .shipping{
+   font-size: 14px;
+   font-weight: 400;
+   color: #fff;
+   padding-left: 40px;
+  }
+  .box.two .button2{
+    margin: 17px 0;
+    padding-left: 40px;
+  }
+  .button2 button{
+    padding: 15px 20px; 
+    font-size: 1rem;
+    font-weight: 500;
+    border: none; 
+    color: #fdcc04; 
+    background: #000; 
+    cursor: pointer; 
+    border-radius: 50px;
+  }
+  .button2 button:hover{
+    background: #fdcc04; 
+    color: #000; 
+  }
+  .box.two {
+  display: flex;
+  align-items: center; /* Center vertically */
+  justify-content: center; /* Center horizontally */
+}
+.button3 button{
+  padding: 15px 20px; 
+  font-size: 1rem;
+  font-weight: 500;
+  border: none; 
+  color: #fdcc04; 
+  background: #000; 
+  cursor: pointer; 
+  border-radius: 50px;
+}
+.button3 button:hover{
+  color: #000; 
+  background: #fdcc04; 
+}
+
+.box.two .button3{
+  margin: 17px 0;
+  padding-left: 40px;
+}
+
+.feature-list {
+  list-style-type: none; /* Remove bullet points for list items */
+  padding: 0;
+}
+
+.feature-list li {
+  margin: 20px 5; /* Add some spacing between list items */
+}
+
+ /* Create Project Button Styles */
+

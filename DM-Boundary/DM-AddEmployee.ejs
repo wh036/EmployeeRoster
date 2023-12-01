@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" type="text/css" href="../CSS/DMAdd.css">
+        <title>DM Add Employee</title>
+    </head>
+
+    <body class="custom-body">
+        
+            
+        <div class="user-actionsDM">
+           
+          
+        </div>
+
+        <nav>
+            <div class="logo">EmpRoster</div>
+            <div class="nav-items"> 
+                <a href="/DepartmentManager/projects">Projects</a>
+                <a href="/DepartmentManager/employees">Employees</a>
+                <a href="/DepartmentManager/request">Requests</a>
+                <a href="/DepartmentManager/enquiry">Enquiry</a>
+                <a href="/DepartmentManager/reviews">Reviews</a>
+                <a href="/DepartmentManager/profileview" class="Profile-btn" id="Profile-btn">Profile</a>
+                <a href="/Logout" class="logout-btn" id="logout-btn">Logout</a>
+                </ul>
+            </nav>
+        </header>
+
+        <main> 
+
+            <!-- multistep form -->
+    <container id="msform">
+       
+        <!-- progressbar -->
+        <ul id="progressbar">
+         
+         
+        </ul>
+        <!-- fieldsets -->
+        <fieldset>
+          <h2 class="fs-title">Add Employee</h2>
+          <h3 class="fs-subtitle"></h3>
+           
+            <section class="company_accounts">
+                   
+                <form action="/DepartmentManager/DMAddEmployees" method="post" class="update-accountDM">
+                    <div class="input-containerDM">
+                       
+                        <input type="update_text" id="update-account-Role" name="add-account-Name" style="width:300px"; placeholder="Name">
+                    </div>
+                                        
+                    <div class="input-containerDM">
+                        
+                        <input type="update_text" id="update-account-Term" name="add-account-Number" style="width: 300px;"placeholder="Number">
+                    </div>
+                    
+                    <div class="input-containerDM">
+                       
+                        <input type="update_text" id="update-account-Skills" name="add-account-Email" style="width: 300px;"placeholder="Email">
+                    </div>
+
+                    <div class="input-containerDM">
+                      
+                        
+                        <select id="Skills" name="Skills" style="width: 300px;" placeholder="Skills"required>
+                            <option value="" disabled selected>Select Skills</option>
+                            <% for (var i = 0; i < skills.length; i++) { %>
+                                <option value="<%= skills[i] %>"><%= skills[i] %></option>
+                            <% } %>
+                        </select>
+
+                        </ul>
+                    </div>
+                        
+
+                    <div class="button-container">
+                        <button type="button" class="submit-btn" onclick="window.location.href='/DepartmentManager/employees'">Cancel</button>
+                        <button type="submit" class="submit-btn">Register</button>
+                    </div>
+
+                </form>
+            </section>
+        </main>
+
+        
+       
+    </body>
+</html>

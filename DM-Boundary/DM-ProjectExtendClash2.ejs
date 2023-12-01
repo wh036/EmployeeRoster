@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DM Project Clash 2</title>
+    <link rel="stylesheet" type="text/css" href="../CSS/styles4.css">
+</head>
+
+<body>
+    <header>
+        <div class="user-actions">
+        
+        </div>
+    </header>
+
+    <main>
+        <div class="container">
+        <section class="Login">
+            <h2><u>WARNING!</u></h2>
+            
+            <form action="" method="POST">
+
+                <div class="Logout">
+                    <h1>
+                        By Extending <%= EmployeeName %>'s End Date To <%= newEndDate %>,<br>
+                        Allocation To Future Project(s) Stated Below Will Be Affected,<br><br>
+                        
+                        <table>
+                            <tr>
+                                <th>Project Name</th>
+                                <th>New Assigned Start Date</th>
+                                <th>New Assigned End Date</th>
+                            </tr>
+            
+                            <% for (let i = 0; i < allocationInOtherProjectsNeedsExtention.length; i++) { %>
+                                <tr>
+                                    <td><%= allocationInOtherProjectsNeedsExtention[i].projectName %></td>
+                                    <td><%= allocationInOtherProjectsNeedsExtention[i].startDate %></td>
+                                    <td><%= allocationInOtherProjectsNeedsExtention[i].endDate %></td>
+                                </tr>
+                            <% } %>
+                            
+                        </table> <br>
+                        
+
+                        <% if (projectEndDateNeedsExtention.length != 0) { %>
+                            Changes May Also Occur To The Timeline Of Project(s) Stated Below, <br><br>
+                            <table>
+                                <tr>
+                                    <th>Project Name</th>
+                                    <th>Initial Project End Date</th>
+                                    <th>New Project End Date</th>
+                                </tr>
+                            
+                                <% for (let i = 0; i < projectEndDateNeedsExtention.length; i++) { %>
+                                    <% for (let j = 0; j < allocationInOtherProjectsNeedsExtention.length; j++) { %>
+                                        <% if (allocationInOtherProjectsNeedsExtention[j].projectID === projectEndDateNeedsExtention[i]) { %>
+                                            <tr>
+                                                <td><%= allocationInOtherProjectsNeedsExtention[j].projectName %></td>
+                                                <td><%= allocationInOtherProjectsNeedsExtention[j].projEndDate %></td>
+                                                <td><%= allocationInOtherProjectsNeedsExtention[j].endDate %></td>
+                                            </tr>
+                                        <% } %>
+                                        
+                                    <% } %>
+                                <% } %>
+                            </table>
+                        <% } %>
+                        <br>
+                        Do You Accept The Changes? 
+                    <h1>
+                </div>
+
+                <div class="buttons6">
+                    <button type="submit" class="submit-btn" name="choice" value="no">Decline</button>
+                    <button type="submit" class="submit-btn" name="choice" value="yes">Accept</button>
+                </div>
+            </div>
+            </form>
+        </section>
+    </main>
+</body>
+</html>

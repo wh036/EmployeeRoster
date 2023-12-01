@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>CA EmpRoster Plans Page</title>
+        <link rel="stylesheet" type="text/css" href="../CSS/styles.css">
+    </head>
+
+    <body>
+        <header>
+            <div class="user-actionsCA">
+               
+                <a href="/CompanyAdmin/profileview" class="Profile-btn" id="Profile-btn">Profile</a>
+                <a href="/Logout" class="logout-btn" id="logout-btn">Logout</a>
+            </div>
+
+            <nav>
+                <ul>
+                    <a href="/CompanyAdmin/projectview">Projects</a>
+                    <a href="/CompanyAdmin/employeeview">Department Managers</a> 
+                    <a href="/CompanyAdmin/ViewAllEmployee">Employees</a> 
+                    <a href="/CompanyAdmin/plans">Plans</a>
+                    <a href="/CompanyAdmin/companyview">Company</a>
+                    <a href="/CompanyAdmin/emproster">EmpRoster</a>
+                    <a href="/CompanyAdmin/enquiry">Enquiry</a>
+                    <a href="/CompanyAdmin/reviews">Reviews</a>
+                </ul>
+            </nav>
+        </header>
+
+        <!-- MAIN CONTENT SECTION -->
+        <main>
+            <p class = "review-head">Product Plans</p>
+            <section class="plans">
+                <div class="plan">
+                    <div class="plan-content">
+                        <ul>
+                            <li class="TierTitle"><a>Bronze Tier<br>$9.99</a></li>
+                            <li><a>Automated scheduling</a></li>
+                            <li><a>Notice board</a></li>
+                            <li><a>1 - 25 pax</a></li>
+                            <li><a>1 - 10 projects</a></li>
+                        </ul>
+                    </div>
+                    <a href="#" class="bronze-btn" id="bronze-buy-btn">BUY NOW</a>
+                </div>
+            
+                <div class="plan">
+                    <div class="plan-content">
+                        <ul>
+                            <li class="TierTitle"><a>Silver Tier<br>$24.99</a></li>
+                            <li><a>Automated scheduling</a></li>
+                            <li><a>Notice board</a></li>
+                            <li><a>Leave requests</a></li>
+                            <li><a>Project notice board</a></li>
+                            <li><a>Manual scheduling changes</a></li>
+                            <li><a>1 - 50 pax</a></li>
+                            <li><a>1 - 25 projects</a></li>
+                        </ul>
+                    </div>
+                    <a href="#" class="silver-btn" id="silver-buy-btn">BUY NOW</a>
+                </div>
+            
+                <div class="plan">
+                    <div class="plan-content">
+                        <ul>
+                            <li class="TierTitle"><a>Gold Tier<br>$34.99</a></li>
+                            <li><a>Automated scheduling</a></li>
+                            <li><a>Notice board</a></li>
+                            <li><a>Leave requests</a></li>
+                            <li><a>Project notice board</a></li>
+                            <li><a>Manual scheduling changes</a></li>
+                            <li><a>Report generation</a></li>
+                            <li><a>Time tracking (employee clock-in/clock-out)</a></li>
+                            <li><a>1 - Unlimited pax</a></li>
+                            <li><a>1 - Unlimited projects</a></li>
+                        </ul>
+                    </div>
+                <a href="#" class="gold-btn" id="gold-buy-btn">BUY NOW</a>
+                </div>
+            </section>
+            
+        </main>
+
+        <!-- The modal for displaying the contents of the box -->
+        <div id="modal" class="modal">
+            <div class="modal-content" id="modal-content">
+                <!-- Content will be added here -->
+            </div>
+        </div> 
+    </body>
+</html>

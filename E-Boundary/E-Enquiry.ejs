@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Contact Us Form </title>
+    <link rel="stylesheet" href="../CSS/Enquiry.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  </head>
+  
+  <body class="custom-body">
+    <nav>
+        <div class="logo">EmpRoster</div>
+        <div class="nav-items">
+          <a href="/Employee/schedules">Schedule</a>
+          <a href="/Employee/leavehistory">Leave & MC</a>
+          <a href="/Employee/enquiry">Enquiry</a>
+          <a href="/Employee/reviews">Reviews</a>
+          <a href="/Employee/profileview" class="Profile-btn" id="Profile-btn">Profile</a>
+          <a href="/Logout" class="logout-btn" id="logout-btn">Logout</a>
+        </div>
+      </nav>
+      <section class="hero">
+    <div class="container">
+      <div class="content">
+        <div class="left-side">
+          <div class="address details">
+            <i class="fas fa-map-marker-alt"></i>
+            <div class="topic">Address</div>
+            <div class="text-one"><% for (const contactInfo of results) { %>
+                <%= contactInfo.Address %><% } %></div>
+          </div>
+          <div class="phone details">
+            <i class="fas fa-phone-alt"></i>
+            <div class="topic">Phone</div>
+            <div class="text-one"> <% for (const contactInfo of results) { %>
+                +65 <%= contactInfo.ContactNumber %><% } %></div>
+          </div>
+          <div class="email details">
+            <i class="fas fa-envelope"></i>
+            <div class="topic">Email</div>
+            <div class="text-one"><% for (const contactInfo of results) { %>
+                <%= contactInfo.Email %><% } %></div>
+          </div>
+        </div>
+        <div class="right-side">
+          <div class="topic-text">Send us a message</div>
+          <p>Connect with us through our contact form and let us help you streamline your scheduling and rostering needs. We're here to answer any questions you may have!</p>
+          <form action="/DepartmentManager/enquiry" method="post" class = "contact-us">
+            <div class="input-box">
+              <input type="text" id="name" name="name" placeholder="Enter Your name" required>
+            </div>
+            <div class="input-box">
+              <input type="text" id="email" name="email" placeholder="Enter your email"required>
+            </div>
+            <label for="category">Category :</label>
+            <select id="category" name="category" class="category-box" required>
+                <option value="" disabled selected>Select a Category</option>
+                <option value="Billing and Payment">Billing and Payment</option>
+                <option value="Account Issues">Account Issues</option>
+                <option value="Feature Requests">Feature Requests</option>
+                <option value="Technical Support">Technical Support</option>
+                <option value="User Permissions">User Permissions</option>
+                <option value="Data Security">Data Security</option>
+                <option value="Integration Support">Integration Support</option>
+                <option value="General Assistance">General Assistance</option>
+            </select>
+            <div class="input-box message-box">
+              <label for="contact-us-message" id="contact-us-message">Message :</label>
+                    <textarea id="message" name="message" rows="10" required></textarea>
+
+            </div>
+            <div class="button">
+              <button type="submit" class="submit-btn-enquiry">Submit</button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+    </section>
+  </body>
+</html>

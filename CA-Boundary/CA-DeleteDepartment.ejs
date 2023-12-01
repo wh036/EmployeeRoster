@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CA Delete Department</title>
+    <link rel="stylesheet" type="text/css" href="../CSS/styles4.css">
+</head>
+
+<body>
+    <header>
+        <div class="user-actions">
+           
+        </div>
+    </header>
+
+    <main>
+        <div class="container">
+        <section class="Login">
+            <h2><u>Confirmation:</u></h2>
+
+            <form action="" method="POST"> <!-- Updated action to /logout -->
+
+                <input type="hidden" name="DName" value="<%= DName %>">
+
+                <div class="Logout">
+                    <h1>Are you sure you want to Delete the Department : <%= DName %> ?</h1>
+                    <h5>Do Note That If There Are Existing Accounts In The Department, The Department Will NOT Be Deleted</h5>
+                </div>
+
+                <div class="buttons4">
+                    <button type="submit" class="submit-btn" name="choice" value="no">No</button>
+                    <button type="submit" class="submit-btn" name="choice" value="yes">Yes</button>
+                </div>
+            </div>
+            </form>
+        </section>
+    </main>
+</body>
+</html>

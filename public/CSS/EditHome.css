@@ -1,0 +1,523 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700&display=swap');
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Poppins', sans-serif;
+}
+
+
+
+
+
+
+
+
+/* Page Styles */
+
+* { 
+  box-sizing: border-box;
+  margin: 0; 
+  padding: 0; 
+  font-family: 
+     Arial; 
+} 
+ 
+nav { 
+  height: 80px; 
+  background: #fdcc04; 
+  display: flex; 
+  justify-content: space-between; 
+  align-items: center; 
+  padding: 0rem calc((100vw - 1300px) / 2); 
+} 
+ 
+.logo { 
+  color: #000; 
+  font-size: 2.0rem; 
+  font-weight: bold; 
+  font-style: italic; 
+  padding: 0 2rem; 
+} 
+ 
+nav a { 
+  text-decoration: none; 
+  color: #000; 
+  padding: 0 1.5rem; 
+} 
+ 
+nav a:hover { 
+  color: #fff; 
+} 
+ 
+.hero { 
+  background: #fdcc04; 
+} 
+ 
+.hero-container { 
+  display: grid; 
+  grid-template-columns: 1fr 1fr; 
+  height: 80vh; 
+  padding: 3rem calc((100vw - 1300px) / 2); 
+} 
+ 
+.column-left { 
+  display: flex; 
+  flex-direction: column; 
+  justify-content: center; 
+  align-items: flex-start; 
+  color: #000; 
+  padding: 0rem 2rem; 
+} 
+ 
+.column-left h1 { 
+  margin-bottom: 1rem; 
+  font-size: 3rem; 
+} 
+ 
+.column-left p { 
+  margin-bottom: 2rem; 
+  font-size: 1.5rem; 
+  line-height: 1.5; 
+} 
+ 
+button { 
+  padding: 15px 20px; 
+  font-size: 1rem; 
+  border: none; 
+  color: #fdcc04; 
+  background: #000; 
+  cursor: pointer; 
+  border-radius: 50px;
+  margin-top:20px;
+} 
+ 
+button:hover { 
+  background: #fff; 
+  color: #000; 
+} 
+ 
+.column-right { 
+  display: flex; 
+  justify-content: center; 
+  align-items: center; 
+  padding: 0rem 2rem; 
+} 
+ 
+.hero-image { 
+  width: 100%; 
+  height: 100%; 
+} 
+ 
+@media screen and (max-width: 768px) { 
+  .hero-container { 
+    grid-template-columns: 1fr; 
+  } 
+} 
+
+ /* Header Styles */
+ header {
+  background: #fdcc04;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 5%;
+}
+    
+ /* Main Content Styles  needs changes */  
+    .main {
+      background: #fff; /* Changed to yellow */
+      padding: 5rem;
+    }
+  
+    .enquires {
+      text-align: center;
+      padding: 2rem;
+      border-radius:5px;
+      box-shadow: 0 0px 7px rgba(0, 0, 0, 0);
+      background-color: rgba(255, 255, 255, 0); /* Adjust the last value (0.7) to control transparency */
+    }
+    
+
+ /* Table Styles */
+       
+ table {
+  width: 95%;
+  margin: 0 auto; /* Center the table horizontally */
+  border-collapse: collapse;
+  border-radius: 5px;
+  box-shadow: 0 3px 7px rgba(0, 0, 0, 0.2);
+  position: relative;
+  z-index: 1; /* To make the table appear on top of the background */
+  margin-bottom: 20px;
+}
+
+table th, table td {
+  padding: 10px;
+  text-align: center;
+  border-bottom: 1px solid #808080;
+  transition: background 0.3s;
+  background: rgba(255, 255, 255, 0.7); /* Transparent white background */
+  color: #333; /* Default text color for table cells */
+}
+
+table th {
+  background: #fdcc04;
+  color: #000;
+  font-weight: bold;
+  text-transform: uppercase;
+}
+
+table td:hover {
+  background: #808080; /* Highlight columns on hover */
+  color: #000;
+}
+
+table th:hover {
+  background: #fdcc04; /* Highlight columns on hover */
+  color: #000;
+}
+
+/* Add responsiveness for smaller screens */
+@media (max-width: 768px) {
+  table {
+    display: block;
+  }
+
+  table th, table td {
+    white-space: nowrap;
+  }
+}
+
+  
+    /* Set the background image for the section behind the container */
+  body {
+    /*background: url('/Images/a.jpeg') center / cover;
+    background-attachment: fixed;*/
+    background: url('/Images/yellow.jpg');
+    background-size: 2000px;
+    backdrop-filter: blur(3px);
+    
+  }
+
+
+  /* Main Page */
+
+  .contact_us {
+    /* Add your CSS properties here to style the div */
+  
+    background-color: #cccccc(204, 204, 204, 0.5);
+
+    padding: 20px;
+    border: 1px solid #808080;
+    border-radius: 5px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+    width:70%;
+    margin-left:15%;
+    margin-top:20px;
+    margin-bottom:20px;
+    /* Add more styling as needed */
+}
+
+
+
+h3 {
+  /* Add your CSS properties here to style the heading */
+  color: #000; /* Text color */
+  font-size: 24px; /* Font size */
+  font-weight: bold; 
+  margin-bottom:20px;
+  margin-top:20px;
+  text-align:left;
+  font-style:italic;/* Font weight (if desired) */
+   /* Text transformation (if desired) */
+  /* Add more styling as needed */
+}
+
+h1 {
+  /* Add your CSS properties here to style the heading */
+  color: #000; /* Text color */
+  font-size: 24px; /* Font size */
+  font-weight: bold; 
+  margin-bottom:20px;
+  text-align:left;
+  font-style:italic;/* Font weight (if desired) */
+   /* Text transformation (if desired) */
+  /* Add more styling as needed */
+}
+
+
+
+.current-description, .new-description {
+  flex: 1; /* Distribute available space equally between the two divs */
+  padding: 10px; /* Add padding for spacing */
+  border: 1px solid #808080; /* Add borders for separation */
+}
+
+#message {
+  width: 100%; /* Set the width to 100% of its container */
+  padding: 10px; /* Add padding for spacing inside the textarea */
+  font-size: 16px; /* Adjust the font size as needed */
+  border: 1px solid #808080; /* Add a border */
+  border-radius: 5px; /* Add rounded corners */
+  resize: vertical; /* Allow vertical resizing */
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Add a subtle box shadow */
+}
+
+#message:hover {
+  border-color: #555; /* Change border color on hover */
+}
+
+
+
+/* Additional CSS for .current-description and .new-description */
+
+.current-description {
+  background-color: #fff; /* Add a background color to the left section */
+  color: #000; 
+  text-align:left;/* Text color for the left section */
+}
+
+.new-description {
+  background-color: #fdcc04; /* Add a background color to the right section */
+  color: #808080;
+  text-align:center;
+   /* Text color for the right section */
+}
+
+.current-description, .new-description {
+  margin: 10px; /* Add margin for spacing between the two sections */
+  border-radius: 5px; /* Add rounded corners to sections */
+}
+
+
+
+
+.input-field{
+  position: relative;
+}
+
+
+.input-field input {
+  width: 100%; /* Set the width of the inputs to 45% to allow them to fit next to each other */
+  height: 60px;
+  border-radius: 6px;
+  font-size: 18px;
+  padding: 0 15px;
+  border: 2px solid #fff;
+  background: transparent;
+  color: #000;
+  outline: none;
+  margin-right: 10px; /* Add some margin to separate the inputs */
+}
+
+/* Apply this rule to the last input to remove the margin on the right */
+.input-field input:last-child {
+  margin-right: 0;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+.input-field label{
+  position: absolute;
+  top: 50%;
+  left: 15px;
+  transform: translateY(-50%);
+  color: #fff;
+  font-size: 19px;
+  pointer-events: none;
+  transition: 0.3s;
+  
+}
+input:focus{
+  border: 3px solid #fdcc04;
+}
+input:focus ~ label,
+input:valid ~ label{
+  top: 0;
+  left: 15px;
+  font-size: 16px;
+  padding: 0 2px;
+  background: #fff;
+}
+
+
+/* Styling the placeholder text for input fields */
+.input-field input::placeholder {
+  color: #808080; /* Placeholder text color */
+  font-size: 20px; /* Placeholder text font size */
+  /* Italicize the placeholder text */
+  /* You can add more styling as needed */
+}
+
+/* Styling the placeholder text for textareas */
+.textarea-field textarea::placeholder {
+  color: #808080; /* Placeholder text color */
+  font-size: 20px; /* Placeholder text font size */
+  /* Italicize the placeholder text */
+  /* You can add more styling as needed */
+}
+
+
+
+/*Add Features*/
+
+.input-field input {
+  width: 45%; /* Set the width of the inputs to 45% to allow them to fit next to each other */
+  height: 60px;
+  border-radius: 6px;
+  font-size: 18px;
+  padding: 0 15px;
+  border: 2px solid #fff;
+  background: transparent;
+  color: #000;
+  outline: none;
+  margin-right: 10px; /* Add some margin to separate the inputs */
+}
+
+/* Apply this rule to the last input to remove the margin on the right */
+.input-field input:last-child {
+  margin-right: 0;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+.Add.features1 {
+  margin-top:20px;
+  width:80%;
+  margin-left:10%;
+  border: 1px solid #808080; /* Add a border */
+  border-radius: 5px; /* Add rounded corners */
+  padding: 20px; /* Add padding inside the container for spacing */
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Add a subtle box shadow */
+  background-color: #fff; /* Background color */
+  color: #000; 
+  font-size:20px;/* Text color */
+  /* Add more styling as needed */
+}
+
+.input-field{
+  position: relative;
+}
+
+.input-field input {
+  width: 350px;
+  height: 60px;
+  border-radius: 6px;
+  font-size: 18px;
+  padding: 0 15px;
+  border: 2px solid #000;
+  background: transparent;
+  color: #000;
+  outline: none;
+  margin-bottom: 15px; /* Add margin to create space between input fields */
+}
+
+
+
+
+
+
+
+
+
+.input-field label{
+  position: absolute;
+  top: 50%;
+  left: 15px;
+  transform: translateY(-50%);
+  color: #fff;
+  font-size: 19px;
+  pointer-events: none;
+  transition: 0.3s;
+  
+}
+input:focus{
+  border: 3px solid #fdcc04;
+}
+input:focus ~ label,
+input:valid ~ label{
+  top: 0;
+  left: 15px;
+  font-size: 16px;
+  padding: 0 2px;
+  background: #fff;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

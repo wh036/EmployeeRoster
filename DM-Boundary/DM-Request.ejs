@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" type="text/css" href="../CSS/styles.css"> <!--../public/CSS/DMrequest.css-->
+        <title>DM Request</title>
+    </head>
+
+    <body class="custom-body">
+        
+            
+        <div class="user-actionsDM">
+           
+          
+        </div>
+
+        <nav>
+            <div class="logo">EmpRoster</div>
+            <div class="nav-items"> 
+                <a href="/DepartmentManager/projects">Projects</a>
+                <a href="/DepartmentManager/employees">Employees</a>
+                <a href="/DepartmentManager/request">Requests</a>
+                <a href="/DepartmentManager/enquiry">Enquiry</a>
+                <a href="/DepartmentManager/reviews">Reviews</a>
+                <a href="/DepartmentManager/profileview" class="Profile-btn" id="Profile-btn">Profile</a>
+                <a href="/Logout" class="logout-btn" id="logout-btn">Logout</a>
+                </ul>
+            </nav>
+        </header>
+
+        <main>
+            <h1></h1>
+            <section class="company_accounts">
+                <form action="" method="post" class="search"> <!--change method to post for Back end-->
+                    <select name = "searchInput" id="searchInput" placeholder="Search for Leave Request..." style="width: 300px;">
+                        <option value="" disabled selected>Search By Type</option>
+                        <option value="Annual">Annual Leave</option>
+                        <option value="Paternity">Paternity Leave</option>
+                        <option value="Childcare">Childcare Leave</option>
+                        <option value="Bereavement">Bereavement Leave</option>
+                        <option value="Compensatory">Compensatory Leave</option>
+                        <option value="Medical">Medical Leave</option>
+                    </select>
+                    <button type="submit" id="search-button" class="search-button">Search</button>
+                </form>
+
+                <table id="leaveRequestTable">
+                    <tr>
+                        <th>Leave Type</th>
+                        <th>Reason</th>
+                        <th>Start Date</th>
+                        <th>End Date</th>
+                        <th>Duration (Days)</th>
+                        <th>Requestee</th>
+                        <th>Action</th>
+                    </tr>
+
+                    <% if (results.length === 0) { %>
+                        <tr>
+                            <td colspan="7">No Accounts Available</td>
+                        </tr>
+                    <% } else { %>
+                    <% for (const request of results) { %>
+                        <tr>
+                            <td><%= request.LeaveType %></td>
+                            <td><%= request.Reason %></td>
+                            <td><%= request.FormattedStartDate %></td>
+                            <td><%= request.FormattedEndDate %></td>
+                            <td><%= request.Duration %></td>
+                            <td><%= request.Requestee %></td>
+                            <td>
+                                <div class="button-form">
+                                    <% if (request.LeaveType === "Medical") { %>
+                                        <button type="button" class="approve-button" onclick="window.location.href='/DepartmentManager/ViewMC?RequestID=<%= request.RequestID %>'">View MC</button>
+                                    <% } %>
+                                    <button type="button" class="approve-button" onclick="window.location.href='/DepartmentManager/approveRequest?RequestID=<%= request.RequestID %>&StartDate=<%= request.FormattedStartDate %>&EndDate=<%= request.FormattedEndDate %>&Requestee=<%= request.Requestee %>&AccountID=<%= request.AccountID %>&Skill=<%= request.Skill %>'">Approve</button>
+                                    <button type="button" class="decline-button" onclick="window.location.href='/DepartmentManager/declineRequest?RequestID=<%= request.RequestID %>'">Decline</button>
+                                </div>
+                            </td>
+                        </tr>
+                        
+                        <% } %>
+                    <% } %>
+
+                </table><br><br>
+            </section>
+
+               
+            </section>
+        </main>
+
+       
+    </body>
+</html>

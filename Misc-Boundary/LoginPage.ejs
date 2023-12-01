@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="../CSS/login.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   </head>
+   
+  <body>
+    <div class="container">
+      <input type="checkbox" id="flip">
+      <div class="cover">
+        <div class="front">
+          <img src="../Images/clock.jpg" alt="">
+          <div class="text">
+            <!-- <span class="text-1">Every new friend is a <br> new adventure</span>
+            <span class="text-2">Let's get connected</span> -->
+          </div>
+        </div>
+        <div class="back">
+          <img class="backImg" src="../Images/backImg.jpg" alt="">
+          <div class="text">
+            <span class="text-1">Complete miles of journey <br> with one step</span>
+            <span class="text-2">Let's get started</span>
+          </div>
+        </div>
+      </div>
+      <div class="forms">
+        <div class="form-content">
+          <div class="login-form">
+            <div class="title">Login</div>
+            <form action="" method="POST">
+              <div class="input-boxes">
+                <div class="input-box">
+                  <i class="fas fa-envelope"></i>
+                  <input type="text" id="LoginEmailBox" name="LoginEmailBox" placeholder="Enter your email" required>
+                </div>
+                <div class="input-box">
+                  <i class="fas fa-lock"></i>
+                  <input type="password" id="LoginPasswordBox" name="LoginPasswordBox" placeholder="Enter your password" required>
+                </div>
+                
+                <div class="input-container">
+                  <i class="fas fa-user"></i>
+                  <label for="LoginRole">Role:</label>
+                  <select id="LoginRoleBox" name="LoginRoleBox" required>
+                      <option value="" disabled selected>Select Your Role</option>
+                      <option value="SystemAdmin">SystemAdmin</option>
+                      <option value="CompanyAdmin">CompanyAdmin</option>
+                      <option value="DepartmentManager">DepartmentManager</option>
+                      <option value="Employee">Employee</option>
+                  </select>
+                </div>
+                <div class="button input-box">
+                  <input type="submit" value="Submit" class="submit-btn">
+                </div>
+                
+                <div class="text sign-up-text">Don't have an account? <label onclick="window.location.href='/registration'">Sigup now</label></div>
+                
+                <div class="text sign-up-text"><label onclick="window.location.href='/'">Back</label></div>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

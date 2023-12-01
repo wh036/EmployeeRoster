@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>CA Company Information</title>
+        <link rel="stylesheet" type="text/css" href="../CSS/styles.css">
+    </head>
+    <body>
+        <body class="custom-body"> 
+            <div class="user-actionsCA">
+               
+            <nav> 
+                <div class="logo">EmpRoster</div> 
+                <div class="nav-items"> 
+                  <a href="/CompanyAdmin/projectview">Projects</a> 
+                  <a href="/CompanyAdmin/employeeview">Department Managers</a> 
+                  <a href="/CompanyAdmin/ViewAllEmployee">Employees</a> 
+                  <a href="/CompanyAdmin/companyview">Company</a>  
+                  <a href="/CompanyAdmin/departmentskills">Skills</a> 
+                  <a href="/CompanyAdmin/enquiry">Enquiry</a> 
+                  <a href="/CompanyAdmin/reviews">Reviews</a> 
+                  <a href="/CompanyAdmin/profileview" >Profile</a> 
+                  <a href="/Logout">Logout</a> 
+                </ul>
+            </nav>
+        </header>
+        <main>
+            <section class="enquires">
+                <!-- Company table -->
+                <table>
+                    <tr>
+                        <th>UEN</th>
+                        <th>Company Name</th>
+                        <th>Company Number</th>
+                        <th>Company Address</th>
+                        <th>Company Email</th>
+                        <!-- <th>Departments</th> -->
+                        <th>Actions</th>
+                    </tr>
+
+                    <% if (results.length === 0) { %>
+                        <tr>
+                            <td colspan="13">No Accounts Available</td>
+                        </tr>
+                    <% } else { %>
+                    <% for (const CAcompany of results) { %>
+                        <tr>
+                            <td><%= CAcompany.UEN %></td>
+                            <td><%= CAcompany.CompanyName %></td>
+                            <td><%= CAcompany.CompanyNumber %></td>
+                            <td><%= CAcompany.CompanyAddress %></td>
+                            <td><%= CAcompany.CompanyEmail %></td>
+                            <!-- <td><%= CAcompany.Departments %></td> -->
+                            <td>
+                                <button class="update-button" type="button" onclick="window.location.href='/CompanyAdmin/companyupdate?UEN=<%= CAcompany.UEN %>'">Update</button>
+                            </td>
+                        </tr>
+                        <% } %>
+                    <% } %>
+                    
+                </table>
+
+                <h3>Current Departments in Company</h3>
+                <table>
+                    <tr>
+                        <th>Department</th>
+                        <th>Actions</th>
+                    </tr>
+
+                    <% if (CADeptView.length === 0) { %>
+                        <tr>
+                            <td colspan="2">No Departments Available</td>
+                        </tr>
+                    <% } else { %>
+                    <% for (const department  of CADeptView) { %>
+                        <tr>
+                            <td><%= department .Department %></td>
+                            <td>
+                                <button class="delete-button" type="button" onclick="window.location.href='/CompanyAdmin/deleteDepartment?DName=<%= department.Department %>'">Delete</button>
+                            </td>
+                        </tr>
+                        <% } %>
+                    <% } %>
+
+                </table>
+            </section>
+        </main>
+
+      
+    </body>
+</html>

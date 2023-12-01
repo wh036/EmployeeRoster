@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="../CSS/ACRA.css">
+    <title>SA View ACRA</title>
+</head>
+
+<body class="custom-body">
+        
+            
+    <div class="user-actionsDM">
+       
+      
+    </div>
+
+    <nav>
+        <div class="logo">EmpRoster</div>
+        <div class="nav-items"> 
+            <a href="/SystemAdmin/pendingregistration">Pending Registration</a>
+            <a href="/SystemAdmin/accounts">Accounts</a>
+            <a href="/SystemAdmin/edithome">Edit Home</a>
+            <a href="/SystemAdmin/enquiries">Enquiry</a>
+            <a href="/SystemAdmin/reviews">Reviews</a>
+            <a href="/Logout">Logout</a>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <h1>View ACRA</h1>
+        <section class="company_accounts">
+        
+            <% if (results && results[0] && results[0].ACRA) { %>
+                <img src="data:image/<%= imageType %>;base64, <%= results[0].ACRA.toString('base64') %>" alt="ACRA Form/PIC" width="1000" height="1000" />
+            <% } else { %>
+                <p>No ACRA available for this request.</p>
+            <% } %>
+            
+
+        </section>
+    </main>
+
+   
+</body>
+</html>
